@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="416.0" prefWidth="484.0">
+         <children>
+            <Button fx:id="loginButton" layoutX="217.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonPressed" text="Login" />
+            <Button layoutX="212.0" layoutY="307.0" mnemonicParsing="false" text="Register" />
+            <Label layoutX="138.0" layoutY="35.0" text="WELCOME!">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
