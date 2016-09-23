@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import java.net.URL;
 
 import java.io.IOException;
 
@@ -37,6 +38,7 @@ public class Main extends Application {
             //LoginController is the controller for loginForm.fxml
             //which is the "main" form
             LoginController controller = loader.getController();
+            controller.setOwner(this);
             controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,6 +52,21 @@ public class Main extends Application {
         Scene scene = new Scene(rootLayout);
         loginScreen.setScene(scene);
         loginScreen.show();
+    }
+
+    public void setWindow(FXMLLoader input) {
+        try {
+            GridPane page = input.load();
+            //create the scene
+            Scene scene = new Scene(page);
+            //set the scene
+            loginScreen.setScene(scene);
+            //show the stage
+            loginScreen.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
