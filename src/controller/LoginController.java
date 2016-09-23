@@ -31,6 +31,12 @@ public class LoginController {
             //show the stage
             userPassStage.showAndWait();
 
+            if (isTrue("user", "pass")) {
+                //go to main screen
+            } else {
+                //error popup
+                //clear fields??
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,4 +48,10 @@ public class LoginController {
         mainApplication = main;
     }
 
+    private boolean isTrue(String username, String password) {
+        if (username.equals("user") && password.equals("pass")) {
+            return true;
+        }
+        return false;
+    }
 }
