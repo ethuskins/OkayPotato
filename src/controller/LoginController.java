@@ -13,19 +13,13 @@ import java.io.IOException;
 //anything that happens on the loginForm.fxml scene is controlled by this class
 public class LoginController {
 
-    Main owner;
-
     //do this stuff when the login button is pressed
     @FXML
     public void loginButtonPressed() {
         //load the user and password scene from userPassForm.fxml
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
-        owner.setWindow(loader);
-    }
-
-    public void setOwner(Main input) {
-        owner = input;
+        mainApplication.setWindow(loader);
     }
 
     private Main mainApplication;
