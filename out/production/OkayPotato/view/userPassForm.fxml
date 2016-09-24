@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserPassController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserPassController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -28,8 +28,9 @@
             <TextField fx:id="passwordTextField" layoutX="138.0" layoutY="281.0" />
             <Label layoutX="139.0" layoutY="208.0" text="Username" />
             <Label layoutX="138.0" layoutY="264.0" text="Password" />
-            <Button fx:id="signInButton" layoutX="186.0" layoutY="323.0" mnemonicParsing="false" text="Sign In" onAction="#signInButtonPressed" />
+            <Button fx:id="signInButton" layoutX="186.0" layoutY="323.0" mnemonicParsing="false" onAction="#signInButtonPressed" text="Sign In" />
             <Label fx:id="incorrectLoginLabel" layoutX="198.0" layoutY="162.0" />
+            <Button fx:id="cancelButton" layoutX="187.0" layoutY="362.0" mnemonicParsing="false" text="Cancel" onAction="#cancelButtonPressed" />
          </children>
       </Pane>
    </children>
