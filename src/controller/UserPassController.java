@@ -20,6 +20,8 @@ public class UserPassController {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
             mainApplication.setWindow(loader);
+        } else {
+            
         }
     }
 
