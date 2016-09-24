@@ -38,6 +38,7 @@ public class Main extends Application {
             //which is the "main" form
             LoginController controller = loader.getController();
             controller.setMainApp(this);
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,6 +51,21 @@ public class Main extends Application {
         Scene scene = new Scene(rootLayout);
         loginScreen.setScene(scene);
         loginScreen.show();
+    }
+
+    public void setWindow(FXMLLoader input) {
+        try {
+            GridPane page = input.load();
+            //create the scene
+            Scene scene = new Scene(page);
+            //set the scene
+            loginScreen.setScene(scene);
+            //show the stage
+            loginScreen.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
