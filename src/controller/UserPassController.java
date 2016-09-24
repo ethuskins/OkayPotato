@@ -4,6 +4,8 @@ import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * Created by Scott Simmons on 9/22/2016.
@@ -23,7 +25,9 @@ public class UserPassController {
             LoggedinController controller = loader.getController();
             controller.setMainApp(mainApplication);
         } else {
-
+            Alert ruined = new Alert(AlertType.ERROR);
+            ruined.setHeaderText("Incorrect Username/Password");
+            ruined.showAndWait();
         }
     }
 
