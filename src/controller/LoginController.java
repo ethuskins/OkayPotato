@@ -16,27 +16,12 @@ public class LoginController {
     //do this stuff when the login button is pressed
     @FXML
     public void loginButtonPressed() {
-        try {
-            //load the user and password scene from userPassForm.fxml
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
-
-            GridPane page = loader.load();
-            //create the stage
-            Stage userPassStage = new Stage();
-            //create the scene
-            Scene scene = new Scene(page);
-            //set the scene
-            userPassStage.setScene(scene);
-            //show the stage
-            userPassStage.showAndWait();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
+        //load the user and password scene from userPassForm.fxml
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
+        mainApplication.setWindow(loader);
     }
+
     private Main mainApplication;
     public void setMainApp(Main main) {
         mainApplication = main;
