@@ -38,7 +38,6 @@ public class Main extends Application {
             //which is the "main" form
             LoginController controller = loader.getController();
             controller.setMainApp(this);
-            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
