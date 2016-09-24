@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import java.net.URL;
 
 import java.io.IOException;
 
@@ -38,7 +37,7 @@ public class Main extends Application {
             //LoginController is the controller for loginForm.fxml
             //which is the "main" form
             LoginController controller = loader.getController();
-            controller.setOwner(this);
+            controller.setMainApp(this);
             controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
