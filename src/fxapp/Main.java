@@ -29,10 +29,10 @@ public class Main extends Application {
     //here we initialize the layout
     private void initRootLayout(Stage stage){
         try {
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
             rootLayout = loader.load();
-
             // Give the controller access to the main app.
             //LoginController is the controller for loginForm.fxml
             //which is the "main" form
@@ -60,7 +60,7 @@ public class Main extends Application {
             //set the scene
             loginScreen.setScene(scene);
             //show the stage
-            loginScreen.showAndWait();
+            loginScreen.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

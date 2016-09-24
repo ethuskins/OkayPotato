@@ -20,6 +20,8 @@ public class LoginController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
         mainApplication.setWindow(loader);
+        UserPassController controller = loader.getController();
+        controller.setMainApp(mainApplication);
     }
 
     private Main mainApplication;
