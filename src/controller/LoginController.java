@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,9 +25,28 @@ public class LoginController {
         controller.setMainApp(mainApplication);
     }
 
+    @FXML
+    public void registerButtonPressed(){
+        //load the new user scene from newUserRegistrationForm.fxml
+        FXMLLoader loader2 = new FXMLLoader();
+        //loader2.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
+        loader2.setLocation(Main.class.getResource("../view/newUserRegistrationForm.fxml"));
+        mainApplication.setWindow(loader2);
+        NewUserRegistrationController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+
     private Main mainApplication;
     public void setMainApp(Main main) {
         mainApplication = main;
     }
 
+
+    public void cancelButtonPressed(ActionEvent actionEvent) {
+
+    }
+
+    public void confirmButtonPressed(ActionEvent actionEvent) {
+
+    }
 }

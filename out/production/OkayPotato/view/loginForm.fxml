@@ -19,7 +19,7 @@
       <Pane prefHeight="416.0" prefWidth="484.0">
          <children>
             <Button fx:id="loginButton" layoutX="217.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonPressed" text="Login" />
-            <Button layoutX="212.0" layoutY="307.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="registerButton" layoutX="212.0" layoutY="307.0" mnemonicParsing="false" onAction="#registerButtonPressed" text="Register" />
             <Label layoutX="138.0" layoutY="35.0" text="WELCOME!">
                <font>
                   <Font size="41.0" />

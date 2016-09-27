@@ -1,19 +1,27 @@
 package fxapp;
 
 import controller.LoginController;
+import controller.NewUserRegistrationController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.UserProfile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
+    private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
 
+    public void addUserProfile(UserProfile userProfile){
+        userProfileList.add(userProfile);
+    }
     //This (start) is where the application goes first
     @Override
     public void start(Stage primaryStage) throws Exception{
