@@ -12,15 +12,20 @@ import model.UserProfile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
+    //we can remove this array list if we want. the hashmap should do what we want but better
     private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
-
+    private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
+    public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
     public void addUserProfile(UserProfile userProfile){
+        //we can remove the array list if we want.
         userProfileList.add(userProfile);
+        userProfileStringHashMap.put(userProfile.getId(),userProfile);
     }
     //This (start) is where the application goes first
     @Override

@@ -11,6 +11,7 @@ import model.AccountType;
 import model.UserProfile;
 
 import javax.lang.model.type.NullType;
+import java.util.HashMap;
 
 /**
  * Created by Scott Simmons on 9/27/2016.
@@ -21,7 +22,6 @@ public class NewUserRegistrationController {
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
     @FXML private ComboBox<AccountType> accountTypeComboBox;
-
     @FXML
     public void confirmButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
@@ -31,14 +31,18 @@ public class NewUserRegistrationController {
         String password = passwordTextField.getText();
         //AccountType accountType = accountTypeComboBox.getValue();
         AccountType accountType = AccountType.USER;
+        HashMap<String, UserProfile> userProfileHashMap = mainApplication.getUserProfileStringHashMap();
 
+        boolean idExists = userProfileHashMap.containsKey(id);
         if (!name.equals("") && !password.equals("")
-                && !id.equals("") && !accountType.equals(null)){
+                && !id.equals("") && !accountType.equals(null) && !idExists){
+
 
             //create a UserProfile with the parameters in the fields
             //UserProfile userProfile = new UserProfile(nameTextField.getText(), idTextField.getText(),
             //        passwordTextField.getText(), accountTypeComboBox.getSelectionModel().getSelectedItem());
             UserProfile userProfile = new UserProfile(name, id, password, accountType);
+
 
             //add the UserProfile to the list of UserProfiles
             mainApplication.addUserProfile(userProfile);
@@ -51,7 +55,12 @@ public class NewUserRegistrationController {
             controller.setMainApp(mainApplication);
         } else {
             Alert ruined = new Alert(AlertType.ERROR);
-            ruined.setHeaderText("Please fill out all fields.");
+            if(idExists){
+                ruined.setHeaderText("User ID already Exists");
+            }else{
+                ruined.setHeaderText("Please fill out all fields.");
+            }
+
             ruined.showAndWait();
         }
     }
