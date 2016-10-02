@@ -17,6 +17,11 @@ public class UserProfile {
     private String password;
     //The account type that determines what the UserProfile can do.
     private AccountType accountType;
+    //TODO implement the following:
+//    private String address;
+//    private String emailAddress;
+//    private String title;
+//    private int age;
 
     //No-args constructor
     public UserProfile(){
@@ -50,4 +55,36 @@ public class UserProfile {
     public void setId(String id){this.id = id;}
     public void setPassword(String password){this.password = password;}
     public void setAccountType(AccountType accountType){this.accountType = accountType;}
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
