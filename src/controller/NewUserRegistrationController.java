@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.Main;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -22,15 +23,22 @@ public class NewUserRegistrationController {
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
     @FXML private ComboBox<AccountType> accountTypeComboBox;
+
+    /**
+     * called automatically after load
+     */
     @FXML
+    private void initialize() {
+        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
+    }
     public void confirmButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
         //make sure all the fields have something in them
         String name = nameTextField.getText();
         String id = idTextField.getText();
         String password = passwordTextField.getText();
-        //AccountType accountType = accountTypeComboBox.getValue();
-        AccountType accountType = AccountType.USER;
+        AccountType accountType = accountTypeComboBox.getValue();
+       // AccountType accountType = AccountType.USER;
         HashMap<String, UserProfile> userProfileHashMap = mainApplication.getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
