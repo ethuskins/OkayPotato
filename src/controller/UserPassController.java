@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import model.UserProfile;
+
+import java.util.HashMap;
 
 /**
  * Created by Scott Simmons on 9/22/2016.
@@ -18,7 +21,15 @@ public class UserPassController {
     @FXML
     public void signInButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
-        if (usernameTextField.getText().equals("user") && passwordTextField.getText().equals("pass")){
+        HashMap<String, UserProfile> userProfileHashMap = mainApplication.getUserProfileStringHashMap();
+        String userName = usernameTextField.getText();
+        String pass = null;
+        UserProfile userProfile = userProfileHashMap.get(userName);
+        if (userProfile != null) {
+            pass = userProfile.getPassword();
+        }
+        //checks if entered info matches an entry in the hashmap
+        if (userProfile != null && passwordTextField.getText().equals(pass)){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
             mainApplication.setWindow(loader);
