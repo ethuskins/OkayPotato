@@ -11,13 +11,17 @@ import model.UserProfile;
 import java.util.HashMap;
 
 /**
- * Created by Scott Simmons on 9/22/2016.
+ * The login screen. Prompts the user to enter their username and password to login.
  */
 public class UserPassController {
 
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
 
+    /**
+     * Checks to see whether a valid username/password combination is entered. If so, logs the user in. If not, shows
+     * an error.
+     */
     @FXML
     public void signInButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
@@ -42,6 +46,9 @@ public class UserPassController {
         }
     }
 
+    /**
+     * Cancels the login process and proceeds back to the title screen.
+     */
     @FXML
     public void cancelButtonPressed() {
         FXMLLoader loader = new FXMLLoader();

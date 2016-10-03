@@ -11,10 +11,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//anything that happens on the loginForm.fxml scene is controlled by this class
+/**
+ * Controller for the title screen. Allows the user to either login or make a new account.
+ */
 public class LoginController {
 
-    //do this stuff when the login button is pressed
+    /**
+     * Takes the user to the login screen
+     */
     @FXML
     public void loginButtonPressed() {
         //load the user and password scene from userPassForm.fxml
@@ -25,6 +29,9 @@ public class LoginController {
         controller.setMainApp(mainApplication);
     }
 
+    /**
+     * takes the user to the registration screen
+     */
     @FXML
     public void registerButtonPressed(){
         //load the new user scene from newUserRegistrationForm.fxml
@@ -39,14 +46,5 @@ public class LoginController {
     private Main mainApplication;
     public void setMainApp(Main main) {
         mainApplication = main;
-    }
-
-
-    public void cancelButtonPressed(ActionEvent actionEvent) {
-
-    }
-
-    public void confirmButtonPressed(ActionEvent actionEvent) {
-
     }
 }

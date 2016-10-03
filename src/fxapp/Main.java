@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * The Main class.
+ */
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
@@ -27,7 +30,7 @@ public class Main extends Application {
         userProfileList.add(userProfile);
         userProfileStringHashMap.put(userProfile.getId(),userProfile);
     }
-    //This (start) is where the application goes first
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         loginScreen = primaryStage;
@@ -39,7 +42,10 @@ public class Main extends Application {
     }
     private GridPane rootLayout;
 
-    //here we initialize the layout
+    /**
+     * Initializes the layout
+     * @param stage the stage of the App
+     */
     private void initRootLayout(Stage stage){
         try {
 
@@ -80,6 +86,10 @@ public class Main extends Application {
 
     }
 
+    /**
+     * The main method. launches the app
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }

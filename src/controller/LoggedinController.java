@@ -4,10 +4,14 @@ import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-//anything that happens on the loggedinForm.fxml scene is controlled by this class
+/**
+ * Controls the Home page.
+ */
 public class LoggedinController {
 
-    //do this stuff when the logout button is pressed
+    /**
+     * Logs out the user and returns to the title screen.
+     */
     @FXML
     public void logoutButtonPressed() {
         //load the user and password scene from userPassForm.fxml
@@ -19,6 +23,7 @@ public class LoggedinController {
     }
 
     private Main mainApplication;
+
     public void setMainApp(Main main) {
         mainApplication = main;
     }
