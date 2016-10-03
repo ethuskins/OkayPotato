@@ -34,6 +34,7 @@ public class UserPassController {
         }
         //checks if entered info matches an entry in the hashmap
         if (userProfile != null && passwordTextField.getText().equals(pass)){
+            mainApplication.setCurrentUser(userProfile);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
             mainApplication.setWindow(loader);

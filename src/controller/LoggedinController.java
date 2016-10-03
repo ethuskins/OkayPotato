@@ -15,6 +15,7 @@ public class LoggedinController {
     @FXML
     public void logoutButtonPressed() {
         //load the user and password scene from userPassForm.fxml
+        mainApplication.setCurrentUser(null);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
         mainApplication.setWindow(loader);

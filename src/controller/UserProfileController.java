@@ -9,12 +9,17 @@ import javafx.fxml.FXMLLoader;
  */
 public class UserProfileController {
     @FXML
-    public void cancelkButtonPressed() {
+    public void cancelButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
         mainApplication.setWindow(loader);
         LoggedinController controller = loader.getController();
         controller.setMainApp(mainApplication);
+    }
+
+    @FXML
+    public void saveButtonPressed() {
+
     }
 
     private Main mainApplication;
