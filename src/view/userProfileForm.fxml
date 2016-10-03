@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="controller.UserProfileController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -19,7 +19,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Button fx:id="saveButton" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" text="Save" />
-            <Button fx:id="cancelButton" layoutX="487.0" layoutY="330.0" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="cancelButton" layoutX="487.0" layoutY="330.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
             <TextField fx:id="nameTextField" layoutX="88.0" layoutY="68.0" />
             <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="72.0" prefHeight="17.0" prefWidth="74.0" text="Name" />
             <Label alignment="CENTER_RIGHT" layoutX="5.0" layoutY="105.0" prefHeight="17.0" prefWidth="82.0" text="Password" />

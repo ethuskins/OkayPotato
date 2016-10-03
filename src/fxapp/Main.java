@@ -24,6 +24,7 @@ public class Main extends Application {
     //we can remove this array list if we want. the hashmap should do what we want but better
     private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
+    private UserProfile currentUser;
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
@@ -92,5 +93,13 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public UserProfile getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(UserProfile currentUser) {
+        this.currentUser = currentUser;
     }
 }
