@@ -20,8 +20,6 @@
          <children>
             <Button fx:id="saveButton" layoutX="421.0" layoutY="330.0" mnemonicParsing="false" text="Save" />
             <Button fx:id="cancelButton" layoutX="487.0" layoutY="330.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <TextField fx:id="nameTextField" layoutX="88.0" layoutY="68.0" />
-            <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="72.0" prefHeight="17.0" prefWidth="74.0" text="Name" />
             <Label alignment="CENTER_RIGHT" layoutX="5.0" layoutY="105.0" prefHeight="17.0" prefWidth="82.0" text="Password" />
             <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="136.0" text="Address" />
             <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="170.0" text="Email Address" />
