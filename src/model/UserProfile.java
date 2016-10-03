@@ -3,7 +3,7 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Created by UserProfile on 9/27/2016.
+ * Contains the user's information
  */
 public class UserProfile {
     //actually come to think of it should these be simple object properties?
@@ -23,7 +23,9 @@ public class UserProfile {
     private String title;
     private int age;
 
-    //No-args constructor
+    /**
+     * No-args constructor
+     */
     public UserProfile(){
         this.name ="user";
         //this.name.setValue("user");
@@ -32,7 +34,14 @@ public class UserProfile {
         this.accountType = AccountType.USER;
     }
 
-    //Constructor
+    /**
+     * constructor
+     * @param name the name of the user
+     * @param id the id of the user
+     * @param password the password of the user
+     * @param accountType the accounttype of the user
+     */
+
     public UserProfile(String name, String id, String password, AccountType accountType){
         this();
         this.name = name;
