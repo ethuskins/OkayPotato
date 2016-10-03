@@ -31,6 +31,7 @@ public class LoggedinController {
         mainApplication.setWindow(loader2);
         UserProfileController controller2 = loader2.getController();
         controller2.setMainApp(mainApplication);
+        controller2.populate();
         //TODO figure out NPE
     }
 
