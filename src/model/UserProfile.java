@@ -18,10 +18,10 @@ public class UserProfile {
     //The account type that determines what the UserProfile can do.
     private AccountType accountType;
     //TODO implement the following:
-//    private String address;
-//    private String emailAddress;
-//    private String title;
-//    private int age;
+    private String address;
+    private String emailAddress;
+    private String title;
+    private int age;
 
     //No-args constructor
     public UserProfile(){
@@ -40,6 +40,9 @@ public class UserProfile {
         this.id = id;
         this.password = password;
         this.accountType = accountType;
+        this.address = "";
+        this.emailAddress = "";
+        this.title = "";
     }
 
     //Getters
@@ -79,7 +82,6 @@ public class UserProfile {
     public void setTitle(String title) {
         this.title = title;
     }
-
     public int getAge() {
         return age;
     }
