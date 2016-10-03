@@ -55,6 +55,8 @@ public class NewUserRegistrationController {
 
             //add the UserProfile to the list of UserProfiles
             mainApplication.addUserProfile(userProfile);
+            //Makes the UserProfile the current UserProfile
+            mainApplication.setCurrentUser(userProfile);
 
             FXMLLoader loader = new FXMLLoader();
             //should creating a new user profile lead to the logged in form?
