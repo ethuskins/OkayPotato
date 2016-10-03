@@ -25,11 +25,12 @@ public class LoggedinController {
     //do this stuff when the edit profile button is pressed
     @FXML
     public void editProfileButtonPressed() {
-        /*FXMLLoader loader2 = new FXMLLoader();
+        FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(Main.class.getResource("../view/userProfileForm.fxml"));
         mainApplication.setWindow(loader2);
         UserProfileController controller2 = loader2.getController();
-        controller2.setMainApp(mainApplication);*/
+        controller2.setMainApp(mainApplication);
+        //TODO figure out NPE
     }
 
     private Main mainApplication;

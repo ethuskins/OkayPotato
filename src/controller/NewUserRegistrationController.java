@@ -4,6 +4,7 @@ import fxapp.Main;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -22,7 +23,7 @@ public class NewUserRegistrationController {
     @FXML private TextField nameTextField;
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
-    @FXML private ComboBox<AccountType> accountTypeComboBox;
+    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<AccountType>();
 
     /**
      * called automatically after load
