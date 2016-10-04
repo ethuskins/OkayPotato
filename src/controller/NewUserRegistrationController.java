@@ -58,6 +58,8 @@ public class NewUserRegistrationController {
             //Makes the UserProfile the current UserProfile
             mainApplication.setCurrentUser(userProfile);
 
+            userProfileHashMap.put("name",userProfile);
+
             FXMLLoader loader = new FXMLLoader();
             //should creating a new user profile lead to the logged in form?
             loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
