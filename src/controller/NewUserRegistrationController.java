@@ -4,7 +4,6 @@ import fxapp.Main;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import model.AccountType;
 import model.UserProfile;
 
-import javax.lang.model.type.NullType;
 import java.util.HashMap;
 
 /**
@@ -60,7 +58,7 @@ public class NewUserRegistrationController {
 
             FXMLLoader loader = new FXMLLoader();
             //should creating a new user profile lead to the logged in form?
-            loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
+            loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);
             LoggedinController controller = loader.getController();
             controller.setMainApp(mainApplication);
@@ -79,9 +77,9 @@ public class NewUserRegistrationController {
     @FXML
     public void cancelButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
+        loader.setLocation(Main.class.getResource("../view/titleScreenForm.fxml"));
         mainApplication.setWindow(loader);
-        LoginController controller = loader.getController();
+        TitleScreenController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 
