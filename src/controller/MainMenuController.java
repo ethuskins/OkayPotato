@@ -7,19 +7,19 @@ import javafx.fxml.FXMLLoader;
 /**
  * Controls the Home page.
  */
-public class LoggedinController {
+public class MainMenuController {
 
     /**
      * Logs out the user and returns to the title screen.
      */
     @FXML
     public void logoutButtonPressed() {
-        //load the user and password scene from userPassForm.fxml
+        //load the user and password scene from loginCredentialsForm.fxml
         mainApplication.setCurrentUser(null);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
+        loader.setLocation(Main.class.getResource("../view/titleScreenForm.fxml"));
         mainApplication.setWindow(loader);
-        LoginController controller = loader.getController();
+        TitleScreenController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 

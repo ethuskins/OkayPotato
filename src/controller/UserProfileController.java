@@ -24,7 +24,7 @@ public class UserProfileController {
     @FXML
     public void backButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
+        loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
         mainApplication.setWindow(loader);
         LoggedinController controller = loader.getController();
         controller.setMainApp(mainApplication);
@@ -35,12 +35,11 @@ public class UserProfileController {
      */
     @FXML
     public void saveButtonPressed() {
-        UserProfile temp = mainApplication.getCurrentUser();
-        temp.setPassword(passwordTextField.getText());
-        temp.setAddress(addressTextField.getText());
-        temp.setEmailAddress(emailTextField.getText());
-        temp.setTitle(titleTextField.getText());
-        temp.setAge(Integer.parseInt(ageTextField.getText()));
+        mainApplication.getCurrentUser().setPassword(passwordTextField.getText());
+        mainApplication.getCurrentUser().setAddress(addressTextField.getText());
+        mainApplication.getCurrentUser().setEmailAddress(emailTextField.getText());
+        mainApplication.getCurrentUser().setTitle(titleTextField.getText());
+        mainApplication.getCurrentUser().setAge(Integer.parseInt(ageTextField.getText()));
     }
 
     /**

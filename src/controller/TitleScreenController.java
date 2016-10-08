@@ -1,31 +1,24 @@
 package controller;
 
 import fxapp.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * Controller for the title screen. Allows the user to either login or make a new account.
  */
-public class LoginController {
+public class TitleScreenController {
 
     /**
      * Takes the user to the login screen
      */
     @FXML
     public void loginButtonPressed() {
-        //load the user and password scene from userPassForm.fxml
+        //load the user and password scene from loginCredentialsForm.fxml
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
+        loader.setLocation(Main.class.getResource("../view/loginCredentialsForm.fxml"));
         mainApplication.setWindow(loader);
-        UserPassController controller = loader.getController();
+        LoginCredentialsController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 
@@ -36,7 +29,7 @@ public class LoginController {
     public void registerButtonPressed(){
         //load the new user scene from newUserRegistrationForm.fxml
         FXMLLoader loader2 = new FXMLLoader();
-        //loader2.setLocation(Main.class.getResource("../view/userPassForm.fxml"));
+        //loader2.setLocation(Main.class.getResource("../view/loginCredentialsForm.fxml"));
         loader2.setLocation(Main.class.getResource("../view/newUserRegistrationForm.fxml"));
         mainApplication.setWindow(loader2);
         NewUserRegistrationController controller2 = loader2.getController();

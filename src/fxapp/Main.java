@@ -1,10 +1,8 @@
 package fxapp;
 
-import controller.LoginController;
-import controller.NewUserRegistrationController;
+import controller.TitleScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -13,7 +11,6 @@ import model.UserProfile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * The Main class.
@@ -26,6 +23,7 @@ public class Main extends Application {
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
     private UserProfile currentUser;
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
+
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
         userProfileList.add(userProfile);
@@ -51,12 +49,12 @@ public class Main extends Application {
         try {
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
+            loader.setLocation(Main.class.getResource("../view/titleScreenForm.fxml"));
             rootLayout = loader.load();
             // Give the controller access to the main app.
-            //LoginController is the controller for loginForm.fxml
+            //TitleScreenController is the controller for titleScreenForm.fxml
             //which is the "main" form
-            LoginController controller = loader.getController();
+            TitleScreenController controller = loader.getController();
             controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,10 +63,10 @@ public class Main extends Application {
 
         // Set the Main App title
         loginScreen.setTitle("Okay Potato");
-
         // Show the scene containing the root layout.
         Scene scene = new Scene(rootLayout);
         loginScreen.setScene(scene);
+
         loginScreen.show();
     }
 
@@ -87,19 +85,18 @@ public class Main extends Application {
 
     }
 
-    /**
-     * The main method. launches the app
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     public UserProfile getCurrentUser() {
         return currentUser;
     }
 
     public void setCurrentUser(UserProfile currentUser) {
         this.currentUser = currentUser;
+    }
+    /**
+     * The main method. launches the app
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 }

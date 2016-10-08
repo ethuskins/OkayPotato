@@ -13,7 +13,7 @@ import java.util.HashMap;
 /**
  * The login screen. Prompts the user to enter their username and password to login.
  */
-public class UserPassController {
+public class LoginCredentialsController {
 
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
@@ -36,7 +36,7 @@ public class UserPassController {
         if (userProfile != null && passwordTextField.getText().equals(pass)){
             mainApplication.setCurrentUser(userProfile);
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("../view/loggedInForm.fxml"));
+            loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);
             LoggedinController controller = loader.getController();
             controller.setMainApp(mainApplication);
@@ -53,9 +53,9 @@ public class UserPassController {
     @FXML
     public void cancelButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/loginForm.fxml"));
+        loader.setLocation(Main.class.getResource("../view/titleScreenForm.fxml"));
         mainApplication.setWindow(loader);
-        LoginController controller = loader.getController();
+        TitleScreenController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 
