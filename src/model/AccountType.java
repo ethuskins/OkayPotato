@@ -1,8 +1,8 @@
 package model;
 
 /**
- * Enums
+ * Enums designating the account type of the user.
  */
 public enum AccountType {
-    USER, WORKER, MANAGER, ADMINISTRATOR;
+    USER, WORKER, MANAGER, ADMINISTRATOR
 }

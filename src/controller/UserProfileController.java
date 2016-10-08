@@ -19,14 +19,14 @@ public class UserProfileController {
     @FXML private TextField ageTextField;
 
     /**
-     * Goes back to loggedin screen
+     * Takes the user to the Main Menu screen
      */
     @FXML
     public void backButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
         mainApplication.setWindow(loader);
-        LoggedinController controller = loader.getController();
+        MainMenuController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 
