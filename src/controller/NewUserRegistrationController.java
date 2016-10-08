@@ -30,6 +30,11 @@ public class NewUserRegistrationController {
     private void initialize() {
         accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
     }
+
+    /**
+     * Checks to see if all fields have valid entries. If so, registers the user and logs them in. If not, an alert
+     * pops up explaining what went wrong.
+     */
     public void confirmButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
         //make sure all the fields have something in them
@@ -57,10 +62,9 @@ public class NewUserRegistrationController {
             mainApplication.setCurrentUser(userProfile);
 
             FXMLLoader loader = new FXMLLoader();
-            //should creating a new user profile lead to the logged in form?
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);
-            LoggedinController controller = loader.getController();
+            MainMenuController controller = loader.getController();
             controller.setMainApp(mainApplication);
         } else {
             Alert ruined = new Alert(AlertType.ERROR);
@@ -74,6 +78,9 @@ public class NewUserRegistrationController {
         }
     }
 
+    /**
+     * Cancels the registration process and returns to the title screen.
+     */
     @FXML
     public void cancelButtonPressed() {
         FXMLLoader loader = new FXMLLoader();

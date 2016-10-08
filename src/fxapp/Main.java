@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * The Main class.
+ * The Main class. Contains all User Profile information and current user information..
  */
 public class Main extends Application {
     //Set the name of the first window the user sees

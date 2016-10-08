@@ -8,7 +8,6 @@ import javafx.beans.property.SimpleStringProperty;
 public class UserProfile {
     //actually come to think of it should these be simple object properties?
     //which do we prefer?
-    //private SimpleStringProperty name;
     //This name of the person registering the new UserProfile
     private String name;
     //The name that will be displayed when signed in, submitting reports, etc.
@@ -54,18 +53,16 @@ public class UserProfile {
         this.title = "";
     }
 
-    //Getters
+    //Getters and Setters
     public String getName() {return name;}
-    //public String getName() {return name.getValue();}
+    public void setName(String name){this.name = name;}
     public String getId() {return id;}
+    public void setId(String id){this.id = id;}
     public String getPassword() {return password;}
+    public void setPassword(String password){this.password = password;}
+
     public AccountType getAccountType() {return accountType;}
 
-    //Setters
-    public void setName(String name){this.name = name;}
-    //public void setName(String name){this.name.setValue(name);}
-    public void setId(String id){this.id = id;}
-    public void setPassword(String password){this.password = password;}
     public void setAccountType(AccountType accountType){this.accountType = accountType;}
 
     public String getAddress() {
