@@ -38,7 +38,7 @@ public class LoginCredentialsController {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);
-            LoggedinController controller = loader.getController();
+            MainMenuController controller = loader.getController();
             controller.setMainApp(mainApplication);
         } else {
             Alert ruined = new Alert(AlertType.ERROR);
