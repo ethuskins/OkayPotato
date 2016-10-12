@@ -18,11 +18,19 @@ import java.util.HashMap;
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
+
+    //This is used to increment the report number when a report is generated
+    public Integer reportnumber = 1;
     //we can remove this array list if we want. the hashmap should do what we want but better
     private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
     private UserProfile currentUser;
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
+
+    //has a hashmap that stores the water source reports
+    private HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
+    public HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
+
 
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
