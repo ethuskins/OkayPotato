@@ -4,20 +4,33 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
    <children>
-      <TextField fx:id="locationTextField" layoutX="219.0" layoutY="103.0" promptText="Water Location" />
-      <Button fx:id="waterSourceReportSubmitButton" layoutX="307.0" layoutY="274.0" mnemonicParsing="false" text="Submit Report" />
-      <Button fx:id="waterSourceReportCancelButton" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" text="Cancel" />
-      <Label layoutX="182.0" layoutY="30.0" prefHeight="42.0" prefWidth="236.0" text="Create Water Source Report">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="waterTypeComboBox" layoutX="128.0" layoutY="187.0" prefWidth="150.0" />
-      <ComboBox fx:id="waterConditionComboBox" layoutX="327.0" layoutY="187.0" prefWidth="150.0" />
+      <Pane prefHeight="403.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="locationTextField" layoutX="198.0" layoutY="142.0" promptText="Water Location" />
+            <Button fx:id="waterSourceReportSubmitButton" layoutX="290.0" layoutY="319.0" mnemonicParsing="false" text="Submit Report" />
+            <Button fx:id="waterSourceReportCancelButton" layoutX="171.0" layoutY="319.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" text="Cancel" />
+            <Label layoutX="154.0" layoutY="89.0" prefHeight="42.0" prefWidth="236.0" text="Create Water Source Report">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="waterTypeComboBox" layoutX="197.0" layoutY="247.0" prefWidth="150.0" />
+            <ComboBox fx:id="waterConditionComboBox" layoutX="197.0" layoutY="188.0" prefWidth="150.0" />
+         </children>
+      </Pane>
    </children>
-</Pane>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

@@ -35,6 +35,15 @@ public class MainMenuController {
         //TODO figure out NPE
     }
 
+    @FXML
+    public void submitReportButtonPressed() {
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(Main.class.getResource("../view/waterSourceReportForm.fxml"));
+        mainApplication.setWindow(loader2);
+        WaterSourceReportController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+
     private Main mainApplication;
 
     public void setMainApp(Main main) {
