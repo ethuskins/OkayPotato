@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.UserProfile;
+import model.WaterSourceReport;
 
 import java.io.IOException;
 import java.util.ArrayList;
