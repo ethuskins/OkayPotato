@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import model.UserProfile;
 import model.WaterCondition;
 import model.WaterSourceReport;
 import model.WaterType;
@@ -52,6 +51,15 @@ public class WaterSourceReportController {
         }
 
 
+    }
+
+    @FXML
+    public void cancelReportButtonPressed() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
+        mainApplication.setWindow(loader);
+        TitleScreenController controller = loader.getController();
+        controller.setMainApp(mainApplication);
     }
 
     private Main mainApplication;
