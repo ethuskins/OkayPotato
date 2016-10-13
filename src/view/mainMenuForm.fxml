@@ -25,7 +25,8 @@
             </Label>
             <Button fx:id="logoutButton" layoutX="162.0" layoutY="246.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Log Out" />
             <Button fx:id="editProfileButton" layoutX="261.0" layoutY="246.0" mnemonicParsing="false" onAction="#editProfileButtonPressed" text="Edit Profile" />
-            <Button fx:id="submitReportButton" layoutX="178.0" layoutY="295.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Water Report" />
+            <Button fx:id="submitReportButton" layoutX="98.0" layoutY="300.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Water Report" />
+            <Button fx:id="reportListButton" layoutX="261.0" layoutY="300.0" mnemonicParsing="false" onAction="#reportListButtonPressed" text="View Report List" />
          </children>
       </Pane>
    </children>

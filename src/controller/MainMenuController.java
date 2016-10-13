@@ -44,6 +44,15 @@ public class MainMenuController {
         controller2.setMainApp(mainApplication);
     }
 
+    @FXML
+    public void reportListButtonPressed() {
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(Main.class.getResource("../view/reportListForm.fxml"));
+        mainApplication.setWindow(loader2);
+        reportListController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+
     private Main mainApplication;
 
     public void setMainApp(Main main) {
