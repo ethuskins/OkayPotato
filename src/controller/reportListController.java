@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 /**
  * Controller for the report list screen. Allows the user to either login or make a new account.
  */
-public class reportListController {
+public class ReportListController {
 
 
     private Main mainApplication;

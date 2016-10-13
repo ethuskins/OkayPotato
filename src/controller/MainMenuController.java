@@ -49,7 +49,7 @@ public class MainMenuController {
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(Main.class.getResource("../view/reportListForm.fxml"));
         mainApplication.setWindow(loader2);
-        reportListController controller2 = loader2.getController();
+        ReportListController controller2 = loader2.getController();
         controller2.setMainApp(mainApplication);
     }
 
