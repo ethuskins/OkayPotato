@@ -58,7 +58,7 @@ public class WaterSourceReportController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
         mainApplication.setWindow(loader);
-        TitleScreenController controller = loader.getController();
+        MainMenuController controller = loader.getController();
         controller.setMainApp(mainApplication);
     }
 

@@ -15,7 +15,7 @@
       <Pane prefHeight="403.0" prefWidth="600.0">
          <children>
             <TextField fx:id="locationTextField" layoutX="198.0" layoutY="142.0" promptText="Water Location" />
-            <Button fx:id="waterSourceReportSubmitButton" layoutX="290.0" layoutY="319.0" mnemonicParsing="false" text="Submit Report" />
+            <Button fx:id="waterSourceReportSubmitButton" layoutX="290.0" layoutY="319.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Report" />
             <Button fx:id="waterSourceReportCancelButton" layoutX="171.0" layoutY="319.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" text="Cancel" />
             <Label layoutX="154.0" layoutY="89.0" prefHeight="42.0" prefWidth="236.0" text="Create Water Source Report">
                <font>
