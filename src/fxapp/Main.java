@@ -1,11 +1,13 @@
 package fxapp;
 
 import controller.TitleScreenController;
+import controller.MapController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.Facade;
 import model.UserProfile;
 import model.WaterSourceReport;
 
@@ -19,6 +21,8 @@ import java.util.HashMap;
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
+    MapController controller;
+
 
     //This is used to increment the report number when a report is generated
     public Integer reportnumber = 1;
@@ -107,5 +111,15 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /**
+     * dummy method to simulate a callback from the map view
+     */
+    public void closeMapView() {
+        Facade fc = Facade.getInstance();
+        fc.addLocations();
+        controller.mapInitialized();
+        //mainStage.setScene(mapScene);
     }
 }
