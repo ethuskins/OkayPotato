@@ -33,8 +33,8 @@ public class Main extends Application {
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
 
     //has a hashmap that stores the water source reports
-    private HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
-    public HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
+    private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
+    public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
 
     public void addUserProfile(UserProfile userProfile){

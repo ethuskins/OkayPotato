@@ -11,12 +11,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import model.Facade;
 import model.Location;
+import model.WaterSourceReport;
 import netscape.javascript.JSObject;
 
 import java.io.File;
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created by robertwaters on 10/12/16.
@@ -31,6 +31,8 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     private Main theApp;
 
+    private HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
@@ -42,12 +44,13 @@ public class MapController implements Initializable, MapComponentInitializedList
     }
 
 
+
     @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();
 
         //set up the center location for the map
-        LatLong center = new LatLong(34, -88);
+        LatLong center = new LatLong(33.75, -84.4);
 
         options.center(center)
                 .zoom(9)
@@ -63,8 +66,18 @@ public class MapController implements Initializable, MapComponentInitializedList
 
 
         /** now we communciate with the model to get all the locations for markers */
+        List<Location> locations = new ArrayList<Location>();
+        HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
+        for(Map.Entry<Integer, WaterSourceReport> report : reports.entrySet()){
+            Location l = report.getValue().getLocation();
+            locations.add(l);
+        }
+        System.out.println("There are " + reports.size() + " reports.");
+
+        locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<h2>Last Marker</h2><br>Guaranteed to be here."));
+
         Facade fc = Facade.getInstance();
-        List<Location> locations = fc.getLocations();
+        //List<Location> locations = fc.getLocations();
 
         for (Location l: locations) {
             MarkerOptions markerOptions = new MarkerOptions();
