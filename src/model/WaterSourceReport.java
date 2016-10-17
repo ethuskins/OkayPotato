@@ -9,12 +9,12 @@ public class WaterSourceReport {
     private LocalDateTime dateTime;
     private String reporterName;
     private String reporterID;
-    private String waterLocation;
+    private Location waterLocation;
     private WaterType waterType;
     private WaterCondition waterCondition;
 
 //Basic constructor. Passes in the current user object to extract the name and id of the user
-    public WaterSourceReport(int reportNum, UserProfile user, String location, WaterType type, WaterCondition condition) {
+    public WaterSourceReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition condition) {
         reportNumber = reportNum;
         dateTime = LocalDateTime.now();
         reporterName = user.getName();
@@ -55,11 +55,11 @@ public class WaterSourceReport {
         this.reporterID = reporterID;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return waterLocation;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.waterLocation = location;
     }
 
