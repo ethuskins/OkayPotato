@@ -1,11 +1,13 @@
 package fxapp;
 
 import controller.TitleScreenController;
+import controller.MapController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.Facade;
 import model.UserProfile;
 import model.WaterSourceReport;
 
@@ -19,9 +21,10 @@ import java.util.HashMap;
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
+    MapController controller;
 
-    //This is used to increment the report number when a report is generated
-    public Integer reportnumber = 1;
+
+
     //we can remove this array list if we want. the hashmap should do what we want but better
     private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
@@ -29,9 +32,19 @@ public class Main extends Application {
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
 
     //has a hashmap that stores the water source reports
-    private HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
-    public HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
+    private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
+    public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
+
+    //This is used to increment the report number when a report is generated
+    private Integer reportnumber = 1;
+    //these methods allow access to the private reportnumber variable when creating reports
+    public void incrementReportNumber() {
+        reportnumber++;
+    }
+    public Integer getReportNumber() {
+        return reportnumber;
+    }
 
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
@@ -107,5 +120,15 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /**
+     * dummy method to simulate a callback from the map view
+     */
+    public void closeMapView() {
+        Facade fc = Facade.getInstance();
+        fc.addLocations();
+        controller.mapInitialized();
+        //mainStage.setScene(mapScene);
     }
 }

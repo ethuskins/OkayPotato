@@ -3,6 +3,7 @@ package controller;
 import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 
 /**
  * Controls the Home page.
@@ -51,6 +52,12 @@ public class MainMenuController {
         mainApplication.setWindow(loader2);
         ReportListController controller2 = loader2.getController();
         controller2.setMainApp(mainApplication);
+       if (mainApplication == null) {
+            Alert nullapp = new Alert(Alert.AlertType.ERROR);
+
+            nullapp.setHeaderText("null application in mainmenucontroller!");
+            nullapp.showAndWait();
+        }
     }
 
     private Main mainApplication;

@@ -35,14 +35,22 @@ public class WaterSourceReportController {
 
         if (!location.equals("") && !condition.equals(null) && !type.equals(null)) {
             //creates the new water report and puts it in the hash map
-            sourceReportMap.put(mainApplication.reportnumber, new WaterSourceReport(mainApplication.reportnumber, mainApplication.getCurrentUser(), location, type, condition));
+            try {
+                sourceReportMap.put(mainApplication.getReportNumber(), new WaterSourceReport(mainApplication.getReportNumber(), mainApplication.getCurrentUser(), location, type, condition));
+
+            } catch (NullPointerException e) {
+                Alert nullpointer = new Alert(Alert.AlertType.ERROR);
+
+                nullpointer.setHeaderText("nullpointer!");
+                nullpointer.showAndWait();
+            }
             //returns to the main menu
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);
             MainMenuController controller = loader.getController();
             controller.setMainApp(mainApplication);
-            mainApplication.reportnumber++;
+            mainApplication.incrementReportNumber();
         }else {
             Alert ruined = new Alert(Alert.AlertType.ERROR);
 
