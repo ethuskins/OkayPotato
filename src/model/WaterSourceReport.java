@@ -12,6 +12,7 @@ public class WaterSourceReport {
     private Location waterLocation;
     private WaterType waterType;
     private WaterCondition waterCondition;
+    private String stringLocation;
 
 //Basic constructor. Passes in the current user object to extract the name and id of the user
     public WaterSourceReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition condition) {
@@ -22,6 +23,7 @@ public class WaterSourceReport {
         waterLocation = location;
         waterType = type;
         waterCondition = condition;
+        stringLocation = location.toString();
     }
 
     //Getters and setters
@@ -77,5 +79,13 @@ public class WaterSourceReport {
 
     public void setWaterCondition(WaterCondition waterCondition) {
         this.waterCondition = waterCondition;
+    }
+
+    public String getStringLocation() {
+        return stringLocation;
+    }
+
+    public void setStringLocation(String stringLocation) {
+        this.stringLocation = stringLocation;
     }
 }
