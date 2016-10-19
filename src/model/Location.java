@@ -30,20 +30,26 @@ public class Location implements Serializable {
     private final double latitude;
     private final String description;
     private final String title;
+    private final WaterCondition cond;
+    private final WaterType type;
 
-    public Location(double lat, double lg, String ti, String desc) {
+    public Location(double lat, double lg, String ti, String desc, WaterCondition cond, WaterType type) {
         LOGGER.entering("Location", "Constructor");
         longitude = lg;
         latitude = lat;
         description = desc;
         title = ti;
         LOGGER.exiting("Location", "Constructor");
+        this.cond = cond;
+        this.type = type;
     }
 
     public double getLongitude() { return longitude; }
     public double getLatitude() {return latitude; }
     public String getDescription() {return description;}
     public String getTitle() { return title; }
+    public WaterCondition getCond() { return cond; }
+    public WaterType getType() { return type; }
 
 
     public void saveToText(PrintWriter pw) {
@@ -57,8 +63,13 @@ public class Location implements Serializable {
         String[] tokens = str.split("\t");
 
 
+<<<<<<< HEAD
+        if (tokens.length < 5) {
+            throw(new FileFormatException(str));
+=======
         if (tokens.length < 3) {
             throw (new FileFormatException(str));
+>>>>>>> refs/remotes/origin/master
         }
 
         double longit;
@@ -67,11 +78,23 @@ public class Location implements Serializable {
             longit = Double.parseDouble(tokens[0]);
             lat = Double.parseDouble(tokens[1]);
         } catch (NumberFormatException e) {
-            throw (new FileFormatException(str));
+            throw(new FileFormatException(str));
+        }
+        WaterCondition cond;
+        WaterType type;
+        try {
+            cond = WaterCondition.valueOf(tokens[4]);
+            type = WaterType.valueOf(tokens[5]);
+        } catch (NumberFormatException e) {
+            throw(new FileFormatException(str));
         }
 
+<<<<<<< HEAD
+       return new Location(lat, longit, tokens[3], tokens[2], cond, type);
+=======
         return new Location(lat, longit, tokens[3], tokens[2]);
     }
+>>>>>>> refs/remotes/origin/master
 
     public String toString() {
         String returnString = "";

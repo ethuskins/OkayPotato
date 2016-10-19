@@ -72,6 +72,6 @@ public class Facade {
     }
 
     public void addLocations() {
-        locations.add(new Location(33.75, -84.4, "New Marker", "Some new data"));
+        locations.add(new Location(33.75, -84.4, "New Marker", "Some new data", WaterCondition.POTABLE, WaterType.BOTTLED));
     }
 }

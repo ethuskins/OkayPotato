@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
-import model.Facade;
-import model.Location;
-import model.WaterSourceReport;
+import model.*;
 import netscape.javascript.JSObject;
 
 import java.io.File;
@@ -74,7 +72,7 @@ public class MapController implements Initializable, MapComponentInitializedList
         }
         System.out.println("There are " + reports.size() + " reports.");
 
-        locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<h2>Last Marker</h2><br>Guaranteed to be here."));
+        locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
         Facade fc = Facade.getInstance();
         //List<Location> locations = fc.getLocations();
@@ -93,7 +91,8 @@ public class MapController implements Initializable, MapComponentInitializedList
                     UIEventType.click,
                     (JSObject obj) -> {
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-                        infoWindowOptions.content(l.getDescription());
+                        infoWindowOptions.content("<h2>" + l.getTitle() + "</h2><br>" + l.getDescription()
+                                + "<br>" + l.getCond() + "<br>" + l.getType());
 
                         InfoWindow window = new InfoWindow(infoWindowOptions);
                         window.open(map, marker);
