@@ -92,7 +92,7 @@ public class MapController implements Initializable, MapComponentInitializedList
                     (JSObject obj) -> {
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
                         infoWindowOptions.content("<h2>" + l.getTitle() + "</h2><br>" + l.getDescription()
-                                + "<br>" + l.getCond() + "<br>" + l.getType());
+                                + "<br>Water Condition: " + l.getCond().toString() + "<br>Water Type: " + l.getType().toString());
 
                         InfoWindow window = new InfoWindow(infoWindowOptions);
                         window.open(map, marker);
