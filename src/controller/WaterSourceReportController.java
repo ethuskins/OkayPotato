@@ -42,7 +42,7 @@ public class WaterSourceReportController {
         try{
             double longitude = Double.valueOf(longitudeString);
             double latitude = Double.valueOf(latitudeString);
-            Location location = new Location(latitude, longitude, title, description);
+            Location location = new Location(latitude, longitude, title, description, condition, type );
             HashMap<Integer, WaterSourceReport> sourceReportMap = mainApplication.getWaterSourceReportHashMap();
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !condition.equals(null) && !type.equals(null)) {
