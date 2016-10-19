@@ -63,8 +63,13 @@ public class Location implements Serializable {
         String[] tokens = str.split("\t");
 
 
+<<<<<<< HEAD
         if (tokens.length < 5) {
             throw(new FileFormatException(str));
+=======
+        if (tokens.length < 3) {
+            throw (new FileFormatException(str));
+>>>>>>> refs/remotes/origin/master
         }
 
         double longit;
@@ -84,7 +89,29 @@ public class Location implements Serializable {
             throw(new FileFormatException(str));
         }
 
+<<<<<<< HEAD
        return new Location(lat, longit, tokens[3], tokens[2], cond, type);
+=======
+        return new Location(lat, longit, tokens[3], tokens[2]);
+    }
+>>>>>>> refs/remotes/origin/master
 
+    public String toString() {
+        String returnString = "";
+        double checker = Math.abs(latitude);
+        returnString = returnString + Double.toString(checker);
+        if (latitude > 0.0) {
+            returnString = returnString + "N, ";
+        } else if (latitude < 0.0) {
+            returnString = returnString + "S, ";
+        }
+        checker = Math.abs(longitude);
+        returnString = returnString + Double.toString(checker);
+        if (longitude > 0.0) {
+            returnString = returnString + "E";
+        } else if (longitude < 0.0) {
+            returnString = returnString + "W";
+        }
+        return returnString;
     }
 }

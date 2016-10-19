@@ -77,7 +77,7 @@ public class ReportListController {
                 new PropertyValueFactory<WaterSourceReport, String>("reporterName")
         );
         tableLocation.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("waterLocation")
+                new PropertyValueFactory<WaterSourceReport, String>("stringLocation")
         );
         tableType.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, String>("waterType")
