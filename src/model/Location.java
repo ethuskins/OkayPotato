@@ -58,7 +58,7 @@ public class Location implements Serializable {
 
 
         if (tokens.length < 3) {
-            throw(new FileFormatException(str));
+            throw (new FileFormatException(str));
         }
 
         double longit;
@@ -67,10 +67,28 @@ public class Location implements Serializable {
             longit = Double.parseDouble(tokens[0]);
             lat = Double.parseDouble(tokens[1]);
         } catch (NumberFormatException e) {
-            throw(new FileFormatException(str));
+            throw (new FileFormatException(str));
         }
 
-       return new Location(lat, longit, tokens[3], tokens[2]);
+        return new Location(lat, longit, tokens[3], tokens[2]);
+    }
 
+    public String toString() {
+        String returnString = "";
+        double checker = Math.abs(latitude);
+        returnString = returnString + Double.toString(checker);
+        if (latitude > 0.0) {
+            returnString = returnString + "N, ";
+        } else if (latitude < 0.0) {
+            returnString = returnString + "S, ";
+        }
+        checker = Math.abs(longitude);
+        returnString = returnString + Double.toString(checker);
+        if (longitude > 0.0) {
+            returnString = returnString + "E";
+        } else if (longitude < 0.0) {
+            returnString = returnString + "W";
+        }
+        return returnString;
     }
 }
