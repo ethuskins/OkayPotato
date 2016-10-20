@@ -23,6 +23,8 @@ public class WaterSourceReportController {
     @FXML private ComboBox<WaterCondition> waterConditionComboBox = new ComboBox<WaterCondition>();
     @FXML private ComboBox<WaterType> waterTypeComboBox = new ComboBox<WaterType>();
 
+    private Main mainApplication;
+
     @FXML
     private void initialize() {
         waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
@@ -77,7 +79,10 @@ public class WaterSourceReportController {
         controller.setMainApp(mainApplication);
     }
 
-    private Main mainApplication;
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }

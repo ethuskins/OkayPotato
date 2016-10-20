@@ -12,6 +12,9 @@ import javafx.stage.Stage;
  */
 public class MainMenuController {
 
+    private Main mainApplication;
+    private Main map;
+
     /**
      * Logs out the user and returns to the title screen.
      */
@@ -26,7 +29,9 @@ public class MainMenuController {
         controller.setMainApp(mainApplication);
     }
 
-    //do this stuff when the edit profile button is pressed
+    /**
+     * Takes user to the edit profile screen.
+     */
     @FXML
     public void editProfileButtonPressed() {
         FXMLLoader loader2 = new FXMLLoader();
@@ -38,6 +43,9 @@ public class MainMenuController {
         //TODO figure out NPE
     }
 
+    /**
+     * Takes the user to the Submit Water Source Report page.
+     */
     @FXML
     public void submitReportButtonPressed() {
         FXMLLoader loader2 = new FXMLLoader();
@@ -47,6 +55,9 @@ public class MainMenuController {
         controller2.setMainApp(mainApplication);
     }
 
+    /**
+     * Takes the user to the Water Source Report List page.
+     */
     @FXML
     public void reportListButtonPressed() {
         FXMLLoader loader2 = new FXMLLoader();
@@ -56,6 +67,9 @@ public class MainMenuController {
         controller2.setMainApp(mainApplication);
     }
 
+    /**
+     * Takes the user to a google map, which is populated with pins at the locations of all the Water Source Reports.
+     */
     @FXML
     public void viewReportMapButtonPressed(){
         Stage mapStage = new Stage();
@@ -74,16 +88,16 @@ public class MainMenuController {
             e.printStackTrace();
         }
 
-
-
         //mainApplication.setWindow(loader);
         //map.setWindow(loader2);
 
         //controller2.setMainApp(mainApplication);
     }
 
-    private Main mainApplication;
-    private Main map;
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }

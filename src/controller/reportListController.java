@@ -35,15 +35,22 @@ public class ReportListController {
 
 
     private Main mainApplication;
+
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }
 
     @FXML
     private void initialize() {
-
     }
 
+    /**
+     * Returns to the main menu screen.
+     */
     @FXML
     public void returnButtonPressed() {
         FXMLLoader loader = new FXMLLoader();
@@ -53,9 +60,7 @@ public class ReportListController {
         controller.setMainApp(mainApplication);
     }
 
-
-
-
+    //Populates the table with Water Source Reports.
     @FXML
     private void populateTable() {
         HashMap<Integer, WaterSourceReport> testermap = mainApplication.getWaterSourceReportHashMap();;

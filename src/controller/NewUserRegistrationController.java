@@ -23,6 +23,8 @@ public class NewUserRegistrationController {
     @FXML private TextField passwordTextField;
     @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<AccountType>();
 
+    private Main mainApplication;
+
     /**
      * called automatically after load
      */
@@ -90,7 +92,10 @@ public class NewUserRegistrationController {
         controller.setMainApp(mainApplication);
     }
 
-    private Main mainApplication;
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }
