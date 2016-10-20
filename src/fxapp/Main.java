@@ -36,7 +36,10 @@ public class Main extends Application {
     private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
     public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
-
+    /**
+     * Adds a userProfile to the Hashmap
+     * @param userProfile the User Profile to add to the hashmap.
+     */
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
         userProfileList.add(userProfile);
@@ -83,6 +86,10 @@ public class Main extends Application {
         loginScreen.show();
     }
 
+    /**
+     * Sets the window for the main application
+     * @param input the input object used to load the page.
+     */
     public void setWindow(FXMLLoader input) {
         try {
             GridPane page = input.load();
@@ -98,10 +105,18 @@ public class Main extends Application {
 
     }
 
+    /**
+     * Getter for current user
+     * @return currentUser the current user
+     */
     public UserProfile getCurrentUser() {
         return currentUser;
     }
 
+    /**
+     * Setter for current user
+     * @param currentUser the UserProfile of the Current User
+     */
     public void setCurrentUser(UserProfile currentUser) {
         this.currentUser = currentUser;
     }

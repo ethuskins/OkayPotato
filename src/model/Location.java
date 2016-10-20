@@ -44,11 +44,40 @@ public class Location implements Serializable {
         this.type = type;
     }
 
+    /**
+     * getter for longitude
+     * @return longitude
+     */
     public double getLongitude() { return longitude; }
+
+    /**
+     * getter for latitude
+     * @return latitude
+     */
     public double getLatitude() {return latitude; }
+
+    /**
+     * getter for description
+     * @return description
+     */
     public String getDescription() {return description;}
+
+    /**
+     * getter for title
+     * @return title
+     */
     public String getTitle() { return title; }
+
+    /**
+     * getter for condition
+     * @return condition
+     */
     public WaterCondition getCond() { return cond; }
+
+    /**
+     * getter for type
+     * @return type
+     */
     public WaterType getType() { return type; }
 
 
@@ -59,6 +88,12 @@ public class Location implements Serializable {
         LOGGER.exiting("Location", "saveToText");
     }
 
+    /**
+     * A way to load a location from a file.
+     * @param str The string loaded from the file representing the location
+     * @return The location loaded from the file.
+     * @throws FileFormatException if the File's format is incorrect
+     */
     public static Location makeFromFileString(String str) throws FileFormatException {
         String[] tokens = str.split("\t");
 
@@ -87,6 +122,11 @@ public class Location implements Serializable {
        return new Location(lat, longit, tokens[3], tokens[2], cond, type);
     }
 
+    /**
+     * ToString method. Returns a string in the form "33.0N, 77.4W", based off of the longitude and latitude of the
+     * location
+     * @return a String representation of the location.
+     */
     public String toString() {
         String returnString = "";
         double checker = Math.abs(latitude);

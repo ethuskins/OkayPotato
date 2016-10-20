@@ -18,6 +18,8 @@ public class LoginCredentialsController {
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
 
+    private Main mainApplication;
+
     /**
      * Checks to see whether a valid username/password combination is entered. If so, logs the user in. If not, shows
      * an error.
@@ -59,7 +61,10 @@ public class LoginCredentialsController {
         controller.setMainApp(mainApplication);
     }
 
-    private Main mainApplication;
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }

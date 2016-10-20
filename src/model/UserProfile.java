@@ -53,45 +53,114 @@ public class UserProfile {
         this.title = "";
     }
 
-    //Getters and Setters
+    /**
+     * getter for name
+     * @return name
+     */
     public String getName() {return name;}
+
+    /**
+     * setter for name
+     * @param name the new name
+     */
     public void setName(String name){this.name = name;}
+
+    /**
+     * getter for id
+     * @return the id
+     */
     public String getId() {return id;}
+
+    /**
+     * setter for id
+     * @param id the new id
+     */
     public void setId(String id){this.id = id;}
+
+    /**
+     * getter for password
+     * @return the password
+     */
     public String getPassword() {return password;}
+
+    /**
+     * setter for password
+     * @param password the new password
+     */
     public void setPassword(String password){this.password = password;}
 
+    /**
+     * getter for accountType
+     * @return the accountType
+     */
     public AccountType getAccountType() {return accountType;}
 
+    /**
+     * setter for accountType
+     * @param accountType the new accountType
+     */
     public void setAccountType(AccountType accountType){this.accountType = accountType;}
 
+    /**
+     * getter for address
+     * @return the address
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * setter for address
+     * @param address the new address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * getter for email address
+     * @return the email address
+     */
     public String getEmailAddress() {
         return emailAddress;
     }
 
+    /**
+     * setter for email address
+     * @param emailAddress the new email address
+     */
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
+    /**
+     * getter for title
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * setter for title
+     * @param title the new title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
+
+    /**
+     * getter for age
+     * @return the age
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * setter for age
+     * @param age the new age
+     */
     public void setAge(int age) {
         this.age = age;
     }

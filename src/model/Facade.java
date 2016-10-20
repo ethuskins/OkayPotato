@@ -39,6 +39,10 @@ public class Facade {
         */
     }
 
+    /**
+     * Getter method for locations.
+     * @return locations the list of locations
+     */
     public List<Location> getLocations() { return locations; }
 
     public void saveModelToText(File file) {
@@ -71,6 +75,9 @@ public class Facade {
         pm.saveToJson(file);
     }
 
+    /**
+     * Adds a locaiton to the locations array list.
+     */
     public void addLocations() {
         locations.add(new Location(33.75, -84.4, "New Marker", "Some new data", WaterCondition.POTABLE, WaterType.BOTTLED));
     }

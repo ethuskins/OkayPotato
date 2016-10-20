@@ -18,6 +18,8 @@ public class UserProfileController {
     @FXML private TextField titleTextField;
     @FXML private TextField ageTextField;
 
+    private Main mainApplication;
+
     /**
      * Takes the user to the Main Menu screen
      */
@@ -62,7 +64,10 @@ public class UserProfileController {
         ageTextField.setText("" + temp.getAge());
     }
 
-    private Main mainApplication;
+    /**
+     * Sets the main application. This is the object that carries info needed between screens.
+     * @param main the object containing cross-screen info.
+     */
     public void setMainApp(Main main) {
         mainApplication = main;
     }
