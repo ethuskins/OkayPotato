@@ -56,6 +56,18 @@ public class MainMenuController {
     }
 
     /**
+     * Takes the user to the Submit Water Quality Report page.
+     */
+    @FXML
+    public void submitQualityReportButtonPressed() {
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(Main.class.getResource("../view/waterQualityReportForm.fxml"));
+        mainApplication.setWindow(loader2);
+        WaterQualityReportController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+
+    /**
      * Takes the user to the Water Source Report List page.
      */
     @FXML
