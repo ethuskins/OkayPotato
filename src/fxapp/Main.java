@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Facade;
 import model.UserProfile;
+import model.WaterQualityReport;
 import model.WaterSourceReport;
 
 import java.io.IOException;
@@ -35,6 +36,10 @@ public class Main extends Application {
     //has a hashmap that stores the water source reports
     private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
     public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
+
+    //has a hashmap that stores the water quality reports
+    private static HashMap<Integer, WaterQualityReport> waterQualityReportHashMap = new HashMap<Integer, WaterQualityReport>();
+    public static HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
 
     /**
      * Adds a userProfile to the Hashmap

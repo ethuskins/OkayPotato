@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -28,6 +28,7 @@
             <Button fx:id="submitReportButton" layoutX="98.0" layoutY="300.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Water Report" />
             <Button fx:id="reportListButton" layoutX="261.0" layoutY="300.0" mnemonicParsing="false" onAction="#reportListButtonPressed" text="View Report List" />
             <Button fx:id="viewReportMapButton" layoutX="261.0" layoutY="342.0" mnemonicParsing="false" onAction="#viewReportMapButtonPressed" prefHeight="25.0" prefWidth="119.0" text="View Report Map" />
+            <Button fx:id="submitQualityReportButton" layoutX="57.0" layoutY="342.0" mnemonicParsing="false" onAction="#submitQualityReportButtonPressed" text="Submit Water Quality Report" />
          </children>
       </Pane>
    </children>
