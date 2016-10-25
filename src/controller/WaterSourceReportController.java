@@ -45,17 +45,17 @@ public class WaterSourceReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, waterCondition, type );
             HashMap<Integer, WaterSourceReport> sourceReportMap = mainApplication.getWaterSourceReportHashMap();
-            HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
+            //HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
 
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !waterCondition.equals(null) && !type.equals(null)) {
                 //creates the new water report and puts it in the hash map
                 int reportNum = mainApplication.reportnumber;
                 WaterSourceReport sourceReport = new WaterSourceReport(reportNum, mainApplication.getCurrentUser(), location, type, waterCondition);
-                WaterQualityReport qualityReport = new WaterQualityReport(reportNum, mainApplication.getCurrentUser(), location, type, waterCondition);
+                //WaterQualityReport qualityReport = new WaterQualityReport(reportNum, mainApplication.getCurrentUser(), location);
 
                 sourceReportMap.put(reportNum, sourceReport);
-                qualityReportMap.put(reportNum, qualityReport);
+                //qualityReportMap.put(reportNum, qualityReport);
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));

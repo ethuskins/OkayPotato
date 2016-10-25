@@ -30,8 +30,9 @@ public class Location implements Serializable {
     private final double latitude;
     private final String description;
     private final String title;
-    private final WaterCondition cond;
-    private final WaterType type;
+    private WaterCondition cond=null;
+    private QuaCondition quaCond=null;
+    private WaterType type=null;
 
     public Location(double lat, double lg, String ti, String desc, WaterCondition cond, WaterType type) {
         LOGGER.entering("Location", "Constructor");
@@ -42,6 +43,16 @@ public class Location implements Serializable {
         LOGGER.exiting("Location", "Constructor");
         this.cond = cond;
         this.type = type;
+    }
+    public Location(double lat, double lg, String ti, String desc, QuaCondition quaCond) {
+        LOGGER.entering("Location", "Constructor");
+        longitude = lg;
+        latitude = lat;
+        description = desc;
+        title = ti;
+        LOGGER.exiting("Location", "Constructor");
+        this.quaCond = quaCond;
+        //this.type = type;
     }
 
     /**
@@ -73,6 +84,12 @@ public class Location implements Serializable {
      * @return condition
      */
     public WaterCondition getCond() { return cond; }
+
+    /**
+     * getter for quality condition
+     * @return quaCondition
+     */
+    public QuaCondition getQuaCond() { return quaCond; }
 
     /**
      * getter for type

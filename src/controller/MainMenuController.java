@@ -71,11 +71,22 @@ public class MainMenuController {
      * Takes the user to the Water Source Report List page.
      */
     @FXML
-    public void reportListButtonPressed() {
+    public void sourceReportListButtonPressed() {
         FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(Main.class.getResource("../view/reportListForm.fxml"));
+        loader2.setLocation(Main.class.getResource("../view/sourceReportListForm.fxml"));
         mainApplication.setWindow(loader2);
-        ReportListController controller2 = loader2.getController();
+        SourceReportListController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+    /**
+     * Takes the user to the Water Quality Report List page.
+     */
+    @FXML
+    public void qualityReportListButtonPressed() {
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(Main.class.getResource("../view/qualityReportListForm.fxml"));
+        mainApplication.setWindow(loader2);
+        QualityReportListController controller2 = loader2.getController();
         controller2.setMainApp(mainApplication);
     }
 
