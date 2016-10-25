@@ -20,6 +20,8 @@ public class WaterQualityReportController {
     @FXML private TextField titleTextField;
     @FXML private TextField descriptionTextField;
     @FXML private ComboBox<QuaCondition> quaConditionComboBox = new ComboBox<QuaCondition>();
+    @FXML private ComboBox<WaterCondition> waterConditionComboBox = new ComboBox<WaterCondition>();
+    @FXML private ComboBox<WaterType> waterTypeComboBox = new ComboBox<WaterType>();
     @FXML private TextField virusTextField;
     @FXML private TextField contamTextField;
 
@@ -28,6 +30,8 @@ public class WaterQualityReportController {
     @FXML
     private void initialize() {
         quaConditionComboBox.getItems().addAll(FXCollections.observableArrayList(QuaCondition.values()));
+        waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
+        waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
     }
 
     @FXML
@@ -38,18 +42,25 @@ public class WaterQualityReportController {
         Alert ruined = new Alert(Alert.AlertType.ERROR);
         String title = titleTextField.getText();
         String description = descriptionTextField.getText();
-        QuaCondition condition = quaConditionComboBox.getValue();
+        QuaCondition quaCondition = quaConditionComboBox.getValue();
+        WaterCondition waterCondition = waterConditionComboBox.getValue();
+        WaterType waterType = waterTypeComboBox.getValue();
+
         String virusPPM = virusTextField.getText();
         String contPPM = contamTextField.getText();
         try{
             double longitude = Double.valueOf(longitudeString);
             double latitude = Double.valueOf(latitudeString);
-            QuaLocation location = new QuaLocation(latitude, longitude, title, description, condition);
+            Location location = new Location(latitude, longitude, title, description, waterCondition, waterType);
+            //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
             HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
 
-            if (!longitudeString.equals("") && !latitudeString.equals("") && !condition.equals(null)) {
+            if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                qualityReportMap.put(mainApplication.reportnumber, new WaterQualityReport(mainApplication.reportnumber, mainApplication.getCurrentUser(), location, condition, virusPPM, contPPM));
+                int reportNum = mainApplication.reportnumber;
+
+                WaterQualityReport qualityReport = new WaterQualityReport(reportNum, mainApplication.getCurrentUser(), location, waterType, waterCondition, quaCondition, virusPPM, contPPM);
+                qualityReportMap.put(reportNum, qualityReport);
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));

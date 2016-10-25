@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 /**
  * Created by Jack Winski on 10/24/2016.
  */
+
 public class QuaLocation implements Serializable {
 
     private static Logger LOGGER = Logger.getLogger("Location");

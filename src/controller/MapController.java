@@ -70,8 +70,9 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         /* now we communciate with the model to get all the locations for markers */
         List<Location> locations = new ArrayList<Location>();
-        HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
-        for(Map.Entry<Integer, WaterSourceReport> report : reports.entrySet()){
+        //HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
+        HashMap<Integer, WaterQualityReport> reports = Main.getWaterQualityReportHashMap();
+        for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
             Location l = report.getValue().getLocation();
             locations.add(l);
         }
@@ -82,23 +83,30 @@ public class MapController implements Initializable, MapComponentInitializedList
         Facade fc = Facade.getInstance();
         //List<Location> locations = fc.getLocations();
 
-        for (Location l: locations) {
+        //for (Location l: locations) {
+        for (Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
+            WaterQualityReport r = report.getValue();
+            Location l = r.getLocation();
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(l.getLatitude(), l.getLongitude());
 
             markerOptions.position(loc)
                     .visible(Boolean.TRUE)
                     .title(l.getTitle());
-
+            //markerOptions.label(l.getDescription());
             Marker marker = new Marker(markerOptions);
 
             map.addUIEventHandler(marker,
                     UIEventType.click,
                     (JSObject obj) -> {
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-                        infoWindowOptions.content("<h2>" + l.getTitle() + "</h2><br>" + l.getDescription()
-                                + "<br>Water Condition: " + l.getCond().toString() + "<br>Water Type: " + l.getType().toString());
-
+                        infoWindowOptions.content("<h2>" + l.getTitle()
+                                + "</h2><br>" + l.getDescription()
+                                + "<br>Water Condition: " + l.getCond().toString()
+                                + "<br>Water Type: " + l.getType().toString()
+                                + "<br>Quality Condition: " + r.getQuaCondition()
+                                + "<br>Location: " + l.getLatitude() + "," + l.getLongitude()
+                                + "<br>Added: " + r.getDateTime());
                         InfoWindow window = new InfoWindow(infoWindowOptions);
                         window.open(map, marker);
                     });
