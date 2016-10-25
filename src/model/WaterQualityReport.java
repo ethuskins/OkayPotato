@@ -36,6 +36,31 @@ import java.time.LocalDateTime;
         stringLocation = location.toString();
     }
 
+
+    /**
+     * getter for the virusPPM
+     * @return the virusPPM
+     */
+    public String getVirusPPM() { return virusPPM;}
+
+    /**
+     * setter for the virusPPM
+     * @param virusPPM the virusPPM
+     */
+    public void setVirusPPM(String virusPPM) { this.virusPPM = virusPPM; }
+
+    /**
+     * getter for the contamPPM
+     * @return the contamPPM
+     */
+    public String getContamPPM() { return contamPPM;}
+
+    /**
+     * setter for the contamPPM
+     * @param contamPPM the contamPPM
+     */
+    public void setContamPPM(String contamPPM) { this.contamPPM = contamPPM; }
+
     /**
      * getter for the report number
      * @return The report number

@@ -27,6 +27,8 @@ public class QualityReportListController {
     @FXML private TableColumn<WaterQualityReport, String> tableLocation;
     @FXML private TableColumn<WaterQualityReport, String> tableType;
     @FXML private TableColumn<WaterQualityReport, String> tableCondition;
+    @FXML private TableColumn<WaterQualityReport, String> tableVirusPPM;
+    @FXML private TableColumn<WaterQualityReport, String> tableContPPM;
     @FXML private Button buttonPopulate;
     @FXML private Button buttonReturn;
 
@@ -79,6 +81,8 @@ public class QualityReportListController {
         tableLocation.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("stringLocation"));
         //tableType.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("waterType"));
         tableCondition.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("quaCondition"));
+        tableVirusPPM.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("virusPPM"));
+        tableContPPM.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("contamPPM"));
         tableReports.setItems(reportlist);
         //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
