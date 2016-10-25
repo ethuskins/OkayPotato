@@ -15,6 +15,7 @@ import model.WaterSourceReport;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * The Main class. Contains all User Profile information and current user information..
@@ -28,7 +29,7 @@ public class Main extends Application {
     //This is used to increment the report number when a report is generated
     public Integer reportnumber = 1;
     //we can remove this array list if we want. the hashmap should do what we want but better
-    private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
+    private List<UserProfile> userProfileList = new ArrayList<UserProfile>();
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
     private UserProfile currentUser;
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}

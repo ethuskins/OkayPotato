@@ -10,22 +10,30 @@ import java.time.LocalDateTime;
     private LocalDateTime dateTime;
     private String reporterName;
     private String reporterID;
-    private QuaLocation waterLocation;
-    private QuaCondition waterCondition;
+    private Location waterLocation;
+    private WaterCondition waterCondition;
+    private QuaCondition quaCondition;
     private String stringLocation;
     private String virusPPM;
     private String contamPPM;
+    private WaterType waterType;
 
-    public WaterQualityReport(int reportNum, UserProfile user, QuaLocation location, QuaCondition condition, String virPPM, String conPPM) {
-        reportNumber = reportNum;
-        dateTime = LocalDateTime.now();
-        reporterName = user.getName();
-        reporterID = user.getId();
-        waterLocation = location;
-        waterCondition = condition;
-        stringLocation = location.toString();
+
+    public WaterQualityReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition waterCondition, QuaCondition quaCondition, String virPPM, String conPPM) {
+        this(reportNum, user, location, type, waterCondition);
+        this.quaCondition = quaCondition;
         virusPPM = virPPM;
         contamPPM = conPPM;
+    }
+    public WaterQualityReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition waterCondition){
+        this.waterCondition = waterCondition;
+        reportNumber = reportNum;
+        reporterName = user.getName();
+        reporterID = user.getId();
+        dateTime = LocalDateTime.now();
+        waterLocation = location;
+        this.waterType  = type;
+        stringLocation = location.toString();
     }
 
     /**
@@ -45,8 +53,38 @@ import java.time.LocalDateTime;
     }
 
     /**
+     * getter for the water type
+     * @return The water type
+     */
+    public WaterType getWaterType() {
+        return waterType;
+    }
+    /**
+     * Setter for the water type
+     * @param waterType the water type
+     */
+    public void setWaterType(WaterType waterType) {
+        this.waterType = waterType;
+    }
+    /**
+     * getter for the water condition
+     * @return The water condition
+     */
+    public WaterCondition getWaterCondition() {
+        return waterCondition;
+    }
+    /**
+     * Setter for the water condition
+     * @param waterCondition the water condition
+     */
+    public void setWaterCondition(WaterCondition waterCondition) {
+        this.waterCondition = waterCondition;
+    }
+
+    /**
      * Getter for the dateTime attribute
      * @return dateTime the dateTime attribute.
+
      */
     public LocalDateTime getDateTime() {
         return dateTime;
@@ -88,7 +126,7 @@ import java.time.LocalDateTime;
      * Getter for the waterLocation
      * @return the waterLocation
      */
-    public QuaLocation getLocation() {
+    public Location getLocation() {
         return waterLocation;
     }
 
@@ -96,7 +134,7 @@ import java.time.LocalDateTime;
      * Setter for location
      * @param location the new location
      */
-    public void setLocation(QuaLocation location) {
+    public void setLocation(Location location) {
         this.waterLocation = location;
     }
 
@@ -105,7 +143,7 @@ import java.time.LocalDateTime;
      * @return waterCondition the new waterCondition
      */
     public QuaCondition getQuaCondition() {
-        return waterCondition;
+        return quaCondition;
     }
 
     /**
@@ -113,8 +151,10 @@ import java.time.LocalDateTime;
      * @param waterCondition the new waterCondition
      */
     public void setQuaCondition(QuaCondition waterCondition) {
-        this.waterCondition = waterCondition;
+        this.quaCondition = quaCondition;
     }
+
+
 
     /**
      * Getter for string location
