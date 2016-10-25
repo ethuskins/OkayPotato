@@ -19,20 +19,20 @@ import java.time.LocalDateTime;
     private WaterType waterType;
 
 
-    public WaterQualityReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition waterCondition, QuaCondition quaCondition, String virPPM, String conPPM) {
-        this(reportNum, user, location, type, waterCondition);
+    public WaterQualityReport(int reportNum, UserProfile user, Location location, QuaCondition quaCondition, String virPPM, String conPPM) {
+        this(reportNum, user, location);
         this.quaCondition = quaCondition;
         virusPPM = virPPM;
         contamPPM = conPPM;
     }
-    public WaterQualityReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition waterCondition){
+    public WaterQualityReport(int reportNum, UserProfile user, Location location){
         this.waterCondition = waterCondition;
         reportNumber = reportNum;
         reporterName = user.getName();
         reporterID = user.getId();
         dateTime = LocalDateTime.now();
         waterLocation = location;
-        this.waterType  = type;
+        //this.waterType  = type;
         stringLocation = location.toString();
     }
 

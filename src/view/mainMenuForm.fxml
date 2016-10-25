@@ -26,9 +26,10 @@
             <Button fx:id="logoutButton" layoutX="162.0" layoutY="246.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Log Out" />
             <Button fx:id="editProfileButton" layoutX="261.0" layoutY="246.0" mnemonicParsing="false" onAction="#editProfileButtonPressed" text="Edit Profile" />
             <Button fx:id="submitReportButton" layoutX="57.0" layoutY="300.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Source Water Report" />
-            <Button fx:id="reportListButton" layoutX="261.0" layoutY="300.0" mnemonicParsing="false" onAction="#reportListButtonPressed" text="View Report List" />
+            <Button fx:id="sourceReportListButton" layoutX="261.0" layoutY="275.0" mnemonicParsing="false" onAction="#sourceReportListButtonPressed" text="View Source Report List" />
             <Button fx:id="viewReportMapButton" layoutX="261.0" layoutY="342.0" mnemonicParsing="false" onAction="#viewReportMapButtonPressed" prefHeight="25.0" prefWidth="119.0" text="View Report Map" />
             <Button fx:id="submitQualityReportButton" layoutX="57.0" layoutY="342.0" mnemonicParsing="false" onAction="#submitQualityReportButtonPressed" text="Submit Water Quality Report" />
+            <Button fx:id="qualityReportListButton" layoutX="261.0" layoutY="306.0" mnemonicParsing="false" onAction="#qualityReportListButtonPressed" text="View Quality Report List" />
          </children>
       </Pane>
    </children>

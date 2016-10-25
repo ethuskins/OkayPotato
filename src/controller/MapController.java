@@ -78,7 +78,7 @@ public class MapController implements Initializable, MapComponentInitializedList
         }
         System.out.println("There are " + reports.size() + " reports.");
 
-        locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
+        //locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
         Facade fc = Facade.getInstance();
         //List<Location> locations = fc.getLocations();
@@ -92,18 +92,19 @@ public class MapController implements Initializable, MapComponentInitializedList
 
             markerOptions.position(loc)
                     .visible(Boolean.TRUE)
-                    .title(l.getTitle());
+                    .title("Quality Report: " + l.getTitle());
             //markerOptions.label(l.getDescription());
             Marker marker = new Marker(markerOptions);
 
             map.addUIEventHandler(marker,
                     UIEventType.click,
                     (JSObject obj) -> {
+                        
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
                         infoWindowOptions.content("<h2>" + l.getTitle()
                                 + "</h2><br>" + l.getDescription()
-                                + "<br>Water Condition: " + l.getCond().toString()
-                                + "<br>Water Type: " + l.getType().toString()
+                                //+ "<br>Water Condition: " + l.getCond().toString()
+                                //+ "<br>Water Type: " + l.getType().toString()
                                 + "<br>Quality Condition: " + r.getQuaCondition()
                                 + "<br>Location: " + l.getLatitude() + "," + l.getLongitude()
                                 + "<br>Added: " + r.getDateTime());

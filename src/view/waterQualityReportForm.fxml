@@ -35,10 +35,6 @@
             <TextField fx:id="contamTextField" layoutX="309.0" layoutY="293.0" />
             <Label layoutX="145.0" layoutY="276.0" text="Virus Parts Per Million" />
             <Label layoutX="306.0" layoutY="276.0" text="Contaminant Parts Per Million" />
-            <ComboBox fx:id="waterConditionComboBox" layoutX="61.0" layoutY="234.0" prefWidth="150.0" />
-            <Label layoutX="61.0" layoutY="217.0" text="Water Condition" />
-            <ComboBox fx:id="waterTypeComboBox" layoutX="389.0" layoutY="234.0" prefWidth="150.0" />
-            <Label layoutX="389.0" layoutY="217.0" text="Water Type" />
          </children>
       </Pane>
    </children>

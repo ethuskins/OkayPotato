@@ -22,14 +22,14 @@ import java.util.Set;
 /**
  * Controller for the report list screen. Allows the user to either login or make a new account.
  */
-public class ReportListController {
-    @FXML private TableView<WaterQualityReport> tableReports;
-    @FXML private TableColumn<WaterQualityReport, Integer> tableReportNumber;
-    @FXML private TableColumn<WaterQualityReport, Integer> tableDateTime;
-    @FXML private TableColumn<WaterQualityReport, String> tableReporter;
-    @FXML private TableColumn<WaterQualityReport, String> tableLocation;
-    @FXML private TableColumn<WaterQualityReport, String> tableType;
-    @FXML private TableColumn<WaterQualityReport, String> tableCondition;
+public class SourceReportListController {
+    @FXML private TableView<WaterSourceReport> tableReports;
+    @FXML private TableColumn<WaterSourceReport, Integer> tableReportNumber;
+    @FXML private TableColumn<WaterSourceReport, Integer> tableDateTime;
+    @FXML private TableColumn<WaterSourceReport, String> tableReporter;
+    @FXML private TableColumn<WaterSourceReport, String> tableLocation;
+    @FXML private TableColumn<WaterSourceReport, String> tableType;
+    @FXML private TableColumn<WaterSourceReport, String> tableCondition;
     @FXML private Button buttonPopulate;
     @FXML private Button buttonReturn;
 
@@ -65,33 +65,33 @@ public class ReportListController {
     //Populates the table with Water Source Reports.
     @FXML
     private void populateTable() {
-        //HashMap<Integer, WaterSourceReport> testermap = mainApplication.getWaterSourceReportHashMap();
-        HashMap<Integer, WaterQualityReport> testermap = mainApplication.getWaterQualityReportHashMap();
+        HashMap<Integer, WaterSourceReport> testermap = mainApplication.getWaterSourceReportHashMap();
+        //HashMap<Integer, WaterQualityReport> testermap = mainApplication.getWaterQualityReportHashMap();
         Set<Integer> keylist = testermap.keySet();
-        ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
+        ObservableList<WaterSourceReport> reportlist = FXCollections.observableArrayList();
         for (Integer x : keylist) {
             reportlist.add(testermap.get(x));
         }
-        ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testermap);
+        ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testermap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, Integer>("reportNumber"));
+                new PropertyValueFactory<WaterSourceReport, Integer>("reportNumber"));
         tableDateTime.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, Integer>("dateTime")
+                new PropertyValueFactory<WaterSourceReport, Integer>("dateTime")
         );
         tableReporter.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, String>("reporterName")
+                new PropertyValueFactory<WaterSourceReport, String>("reporterName")
         );
         tableLocation.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, String>("stringLocation")
+                new PropertyValueFactory<WaterSourceReport, String>("stringLocation")
         );
         tableType.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, String>("waterType")
+                new PropertyValueFactory<WaterSourceReport, String>("waterType")
         );
         tableCondition.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, String>("waterCondition")
+                new PropertyValueFactory<WaterSourceReport, String>("waterCondition")
         );
         tableReports.setItems(reportlist);
         //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);

@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-10-24T20:05:07</date>
-  <millis>1477353907610</millis>
+  <date>2016-10-25T00:07:24</date>
+  <millis>1477368444569</millis>
   <sequence>0</sequence>
   <logger>Location</logger>
   <level>FINER</level>
@@ -13,31 +13,9 @@
   <message>ENTRY</message>
 </record>
 <record>
-  <date>2016-10-24T20:05:07</date>
-  <millis>1477353907621</millis>
+  <date>2016-10-25T00:07:24</date>
+  <millis>1477368444578</millis>
   <sequence>1</sequence>
-  <logger>Location</logger>
-  <level>FINER</level>
-  <class>Location</class>
-  <method>Constructor</method>
-  <thread>15</thread>
-  <message>RETURN</message>
-</record>
-<record>
-  <date>2016-10-24T20:05:35</date>
-  <millis>1477353935324</millis>
-  <sequence>2</sequence>
-  <logger>Location</logger>
-  <level>FINER</level>
-  <class>Location</class>
-  <method>Constructor</method>
-  <thread>15</thread>
-  <message>ENTRY</message>
-</record>
-<record>
-  <date>2016-10-24T20:05:35</date>
-  <millis>1477353935324</millis>
-  <sequence>3</sequence>
   <logger>Location</logger>
   <level>FINER</level>
   <class>Location</class>
