@@ -4,8 +4,10 @@ import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.AccountType;
 
 /**
  * Controls the Home page.
@@ -14,6 +16,7 @@ public class MainMenuController {
 
     private Main mainApplication;
     private Main map;
+
 
     /**
      * Logs out the user and returns to the title screen.
@@ -60,6 +63,12 @@ public class MainMenuController {
      */
     @FXML
     public void submitQualityReportButtonPressed() {
+        Alert ruined = new Alert(Alert.AlertType.ERROR); //TODO: make
+        if (mainApplication.getCurrentUser().getAccountType() == AccountType.USER) {
+            ruined.setHeaderText("You do not have the neccessary access to access this page.");
+            ruined.showAndWait();
+            return;
+        }
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(Main.class.getResource("../view/waterQualityReportForm.fxml"));
         mainApplication.setWindow(loader2);
