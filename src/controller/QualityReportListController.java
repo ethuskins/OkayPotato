@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.Main;
+import fxapp.SessionInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -65,7 +66,7 @@ public class QualityReportListController {
     @FXML
     private void populateTable() {
         //HashMap<Integer, WaterSourceReport> testermap = mainApplication.getWaterSourceReportHashMap();
-        HashMap<Integer, WaterQualityReport> testermap = mainApplication.getWaterQualityReportHashMap();
+        HashMap<Integer, WaterQualityReport> testermap = SessionInfo.getInstance().getWaterQualityReportHashMap();
         Set<Integer> keylist = testermap.keySet();
         ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
         for (Integer x : keylist) {

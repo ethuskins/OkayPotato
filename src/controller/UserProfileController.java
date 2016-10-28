@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.Main;
+import fxapp.SessionInfo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -37,11 +38,11 @@ public class UserProfileController {
      */
     @FXML
     public void saveButtonPressed() {
-        mainApplication.getCurrentUser().setPassword(passwordTextField.getText());
-        mainApplication.getCurrentUser().setAddress(addressTextField.getText());
-        mainApplication.getCurrentUser().setEmailAddress(emailTextField.getText());
-        mainApplication.getCurrentUser().setTitle(titleTextField.getText());
-        mainApplication.getCurrentUser().setAge(Integer.parseInt(ageTextField.getText()));
+        SessionInfo.getInstance().getCurrentUser().setPassword(passwordTextField.getText());
+        SessionInfo.getInstance().getCurrentUser().setAddress(addressTextField.getText());
+        SessionInfo.getInstance().getCurrentUser().setEmailAddress(emailTextField.getText());
+        SessionInfo.getInstance().getCurrentUser().setTitle(titleTextField.getText());
+        SessionInfo.getInstance().getCurrentUser().setAge(Integer.parseInt(ageTextField.getText()));
     }
 
     /**
@@ -49,7 +50,7 @@ public class UserProfileController {
      */
     @FXML
     public void populate() {
-        UserProfile temp = mainApplication.getCurrentUser();
+        UserProfile temp = SessionInfo.getInstance().getCurrentUser();
         nameTextField.setText(temp.getName());
         passwordTextField.setText(temp.getPassword());
         if (temp.getAddress() != null) {

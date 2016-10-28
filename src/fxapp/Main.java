@@ -24,34 +24,6 @@ public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
     MapController controller;
-    //TODO Separate into singleton and main method
-
-    //This is used to increment the report number when a report is generated
-    public Integer reportnumber = 1;
-    //we can remove this array list if we want. the hashmap should do what we want but better
-    private List<UserProfile> userProfileList = new ArrayList<UserProfile>();
-    private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
-    private UserProfile currentUser;
-    private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
-    private static HashMap<Integer, WaterQualityReport> waterQualityReportHashMap = new HashMap<Integer, WaterQualityReport>();
-
-    public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
-
-    //has a hashmap that stores the water source reports
-    public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
-
-    //has a hashmap that stores the water quality reports
-    public static HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
-
-    /**
-     * Adds a userProfile to the Hashmap
-     * @param userProfile the User Profile to add to the hashmap.
-     */
-    public void addUserProfile(UserProfile userProfile){
-        //we can remove the array list if we want.
-        userProfileList.add(userProfile);
-        userProfileStringHashMap.put(userProfile.getId(),userProfile);
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -113,21 +85,6 @@ public class Main extends Application {
 
     }
 
-    /**
-     * Getter for current user
-     * @return currentUser the current user
-     */
-    public UserProfile getCurrentUser() {
-        return currentUser;
-    }
-
-    /**
-     * Setter for current user
-     * @param currentUser the UserProfile of the Current User
-     */
-    public void setCurrentUser(UserProfile currentUser) {
-        this.currentUser = currentUser;
-    }
     /**
      * The main method. launches the app
      * @param args

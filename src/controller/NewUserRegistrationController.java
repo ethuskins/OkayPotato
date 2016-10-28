@@ -1,6 +1,7 @@
 package controller;
 
 import fxapp.Main;
+import fxapp.SessionInfo;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +46,7 @@ public class NewUserRegistrationController {
         String password = passwordTextField.getText();
         AccountType accountType = accountTypeComboBox.getValue();
        // AccountType accountType = AccountType.USER;
-        HashMap<String, UserProfile> userProfileHashMap = mainApplication.getUserProfileStringHashMap();
+        HashMap<String, UserProfile> userProfileHashMap = SessionInfo.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
         if (!name.equals("") && !password.equals("")
@@ -59,9 +60,9 @@ public class NewUserRegistrationController {
 
 
             //add the UserProfile to the list of UserProfiles
-            mainApplication.addUserProfile(userProfile);
+            SessionInfo.getInstance().addUserProfile(userProfile);
             //Makes the UserProfile the current UserProfile
-            mainApplication.setCurrentUser(userProfile);
+            SessionInfo.getInstance().setCurrentUser(userProfile);
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
