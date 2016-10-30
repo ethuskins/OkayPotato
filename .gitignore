@@ -3,3 +3,5 @@ out/*
 .idea/workspace.xml
 out/production/OkayPotato/fxapp/Main.class
 *.xml
+.idea/workspace.xml
+*.class

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 
 
 /**
@@ -20,7 +20,7 @@ public class Facade {
 
     //this is our simple model
     private List<Location> locations = new ArrayList<Location>();
-    private HashMap<Integer, WaterSourceReport> reports = SessionInfo.getInstance().getWaterSourceReportHashMap();
+    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
 
     private Facade() {
         //dummy make some data

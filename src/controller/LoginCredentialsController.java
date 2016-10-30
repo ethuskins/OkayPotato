@@ -1,7 +1,7 @@
 package controller;
 
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -28,7 +28,7 @@ public class LoginCredentialsController {
     @FXML
     public void signInButtonPressed() {
         //load the logged in scene from LoggedInForm.fxml
-        HashMap<String, UserProfile> userProfileHashMap = SessionInfo.getInstance().getUserProfileStringHashMap();
+        HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
         String userName = usernameTextField.getText();
         String pass = null;
         UserProfile userProfile = userProfileHashMap.get(userName);
@@ -37,7 +37,7 @@ public class LoginCredentialsController {
         }
         //checks if entered info matches an entry in the hashmap
         if (userProfile != null && passwordTextField.getText().equals(pass)){
-            SessionInfo.getInstance().setCurrentUser(userProfile);
+            Session.getInstance().setCurrentUser(userProfile);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
             mainApplication.setWindow(loader);

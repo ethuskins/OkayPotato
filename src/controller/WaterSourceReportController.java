@@ -1,6 +1,6 @@
 package controller;
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,14 +45,14 @@ public class WaterSourceReportController {
             double longitude = Double.valueOf(longitudeString);
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, waterCondition, type );
-            HashMap<Integer, WaterSourceReport> sourceReportMap = SessionInfo.getInstance().getWaterSourceReportHashMap();
+            HashMap<Integer, WaterSourceReport> sourceReportMap = Session.getInstance().getWaterSourceReportHashMap();
             //HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
 
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !waterCondition.equals(null) && !type.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = SessionInfo.getInstance().reportnumber;
-                WaterSourceReport sourceReport = new WaterSourceReport(reportNum, SessionInfo.getInstance().getCurrentUser(), location, type, waterCondition);
+                int reportNum = Session.getInstance().reportnumber;
+                WaterSourceReport sourceReport = new WaterSourceReport(reportNum, Session.getInstance().getCurrentUser(), location, type, waterCondition);
                 //WaterQualityReport qualityReport = new WaterQualityReport(reportNum, mainApplication.getCurrentUser(), location);
 
                 sourceReportMap.put(reportNum, sourceReport);
@@ -63,7 +63,7 @@ public class WaterSourceReportController {
                 mainApplication.setWindow(loader);
                 MainMenuController controller = loader.getController();
                 controller.setMainApp(mainApplication);
-                SessionInfo.getInstance().reportnumber++;
+                Session.getInstance().reportnumber++;
             }else {
                 ruined.setHeaderText("Invalid Input. Try again.");
                 ruined.showAndWait();

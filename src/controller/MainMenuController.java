@@ -1,7 +1,7 @@
 package controller;
 
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,7 +25,7 @@ public class MainMenuController {
     @FXML
     public void logoutButtonPressed() {
         //load the user and password scene from loginCredentialsForm.fxml
-        SessionInfo.getInstance().setCurrentUser(null);
+        Session.getInstance().setCurrentUser(null);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/titleScreenForm.fxml"));
         mainApplication.setWindow(loader);
@@ -65,7 +65,7 @@ public class MainMenuController {
     @FXML
     public void submitQualityReportButtonPressed() {
         Alert ruined = new Alert(Alert.AlertType.ERROR); //TODO: make
-        if (SessionInfo.getInstance().getCurrentUser().getAccountType() == AccountType.USER) {
+        if (Session.getInstance().getCurrentUser().getAccountType() == AccountType.USER) {
             ruined.setHeaderText("You do not have the neccessary access to access this page.");
             ruined.showAndWait();
             return;
