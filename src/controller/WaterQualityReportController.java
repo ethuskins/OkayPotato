@@ -1,7 +1,7 @@
 package controller;
 
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,13 +54,13 @@ public class WaterQualityReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, quaCondition);
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
-            HashMap<Integer, WaterQualityReport> qualityReportMap = SessionInfo.getInstance().getWaterQualityReportHashMap();
+            HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getInstance().getWaterQualityReportHashMap();
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = SessionInfo.getInstance().reportnumber;
+                int reportNum = Session.getInstance().reportnumber;
 
-                WaterQualityReport qualityReport = new WaterQualityReport(reportNum, SessionInfo.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
+                WaterQualityReport qualityReport = new WaterQualityReport(reportNum, Session.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
                 qualityReportMap.put(reportNum, qualityReport);
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
@@ -68,7 +68,7 @@ public class WaterQualityReportController {
                 mainApplication.setWindow(loader);
                 MainMenuController controller = loader.getController();
                 controller.setMainApp(mainApplication);
-                SessionInfo.getInstance().reportnumber++;
+                Session.getInstance().reportnumber++;
             }else {
                 ruined.setHeaderText("Invalid Input. Try again.");
                 ruined.showAndWait();

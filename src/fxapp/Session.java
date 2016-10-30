@@ -1,8 +1,9 @@
 package fxapp;
 
-import controller.MapController;
-import javafx.stage.Stage;
-import model.Facade;
+/**
+ * Created by Forrest on 10/30/2016.
+ */
+
 import model.UserProfile;
 import model.WaterQualityReport;
 import model.WaterSourceReport;
@@ -14,16 +15,16 @@ import java.util.List;
 /**
  * Singleton class that holds the session info.
  */
-public class SessionInfo {
-    private static final SessionInfo instance = new SessionInfo();
-    public static SessionInfo getInstance() {
+public class Session {
+    private static final Session instance = new Session();
+    public static Session getInstance() {
         return instance;
     }
 
     /**
      * Private constructor; so only 1 instance of this class is garunteed
      */
-    private SessionInfo() {
+    private Session() {
 
     }
 

@@ -5,7 +5,7 @@ import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.Main;
-import fxapp.SessionInfo;
+import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.FileChooser;
@@ -30,7 +30,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     private Main theApp;
 
-    private HashMap<Integer, WaterSourceReport> reports = SessionInfo.getInstance().getWaterSourceReportHashMap();
+    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,7 +72,7 @@ public class MapController implements Initializable, MapComponentInitializedList
         /* now we communciate with the model to get all the locations for markers */
         List<Location> locations = new ArrayList<Location>();
         //HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
-        HashMap<Integer, WaterQualityReport> reports = SessionInfo.getInstance().getWaterQualityReportHashMap();
+        HashMap<Integer, WaterQualityReport> reports = Session.getInstance().getWaterQualityReportHashMap();
         for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
             Location l = report.getValue().getLocation();
             locations.add(l);
