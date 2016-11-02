@@ -11,7 +11,11 @@ import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-
+/**
+ * Added by Emily Huskins 11/2/2016
+ * Created by Brandon Gresham (bane73)
+ * Original source found on GitHub at:https://github.com/bane73/firebase4j
+ */
 public class Demo {
 
 	public static void main(String[] args) throws FirebaseException, JsonParseException, JsonMappingException, IOException, JacksonUtilityException {

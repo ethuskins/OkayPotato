@@ -10,7 +10,11 @@ import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
-
+/**
+ * Added by Emily Huskins 11/2/2016
+ * Created by Brandon Gresham (bane73)
+ * Original source found on GitHub at:https://github.com/bane73/firebase4j
+ */
 public class JacksonUtility {
 
 	protected static final Logger 			LOGGER 					= Logger.getRootLogger();

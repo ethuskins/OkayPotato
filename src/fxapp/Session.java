@@ -11,9 +11,7 @@ import model.WaterQualityReport;
 import model.WaterSourceReport;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
@@ -26,14 +24,15 @@ public class Session {
         return instance;
     }
 
-    /**
-     * Private constructor; so only 1 instance of this class is garunteed
-     */
+
+    //URL components to connect to firebase instance
     private String baseURL = "https://okaypotato-2368f.firebaseio.com/";
     private String wsrURL = "WaterSourceReports";
     private String wqrURL = "WaterQualityReports";
     private String peopleURL = "People";
+    //our current connection to firebase
     private Firebase fbCurrent = null;
+    //The information on the current connections
     private FirebaseResponse wsrFirebase = null;
     private FirebaseResponse wqrFirebase = null;
     private FirebaseResponse peopleFirebase = null;
@@ -79,15 +78,15 @@ public class Session {
             System.out.println("Unsupported Encoding people");
         }
 
-        //get maps of the info in the tables
-        if (wsrFirebase != null) {
+        //checks HTTP status code for connection, then get maps of the info in the tables
+        if (wsrFirebase.getCode() == 200) {
             wsrFBMap =  wsrFirebase.getBody();
         }
 
-        if (wqrFirebase != null) {
+        if (wqrFirebase.getCode() == 200) {
             wqrFBMap =  wqrFirebase.getBody();
         }
-        if (peopleFirebase != null) {
+        if (peopleFirebase.getCode() == 200) {
             peopleFBMap =  peopleFirebase.getBody();
         }
 
@@ -102,7 +101,7 @@ public class Session {
             userProfileStringHashMap.put(entry.getKey(), (UserProfile) entry.getValue());
         }
 
-        
+
 
 
 
@@ -110,9 +109,9 @@ public class Session {
 
 
     //Maps that are filled by Firebase with table information
-    public Map<String, Object> wsrFBMap = null;
-    public Map<String, Object> wqrFBMap = null;
-    public Map<String, Object> peopleFBMap = null;
+    private Map<String, Object> wsrFBMap = null;
+    private Map<String, Object> wqrFBMap = null;
+    private Map<String, Object> peopleFBMap = null;
 
 
 
@@ -127,8 +126,7 @@ public class Session {
 
     //This is used to increment the report number when a report is generated
     public Integer reportnumber = 1;
-    //we can remove this array list if we want. the hashmap should do what we want but better
-    private List<UserProfile> userProfileList = new ArrayList<UserProfile>();
+
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
     private UserProfile currentUser;
     private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
@@ -148,7 +146,7 @@ public class Session {
      */
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
-        userProfileList.add(userProfile);
+
         userProfileStringHashMap.put(userProfile.getId(),userProfile);
     }
 
