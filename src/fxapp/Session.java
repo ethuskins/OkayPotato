@@ -3,7 +3,7 @@ package fxapp;
 /**
  * Created by Forrest on 10/30/2016.
  */
-
+import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
 import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
 import model.UserProfile;
@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
+
 /**
  * Singleton class that holds the session info.
  */
@@ -172,5 +172,26 @@ public class Session {
     /**
      * dummy method to simulate a callback from the map view
      */
+
+
+    public String getBaseURL() {
+        return baseURL;
+    }
+
+    public String getWsrURL() {
+        return wsrURL;
+    }
+
+    public String getWqrURL() {
+        return wqrURL;
+    }
+
+    public String getPeopleURL() {
+        return peopleURL;
+    }
+
+    public Firebase getFbCurrent() {
+        return fbCurrent;
+    }
 
 }

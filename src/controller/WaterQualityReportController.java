@@ -1,5 +1,6 @@
 package controller;
 
+import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
@@ -11,6 +12,12 @@ import javafx.scene.control.TextField;
 import model.*;
 
 import java.util.HashMap;
+import java.util.Map;
+
+
+import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
+import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
+import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
 
 /**
  * Created by jackwinski on 10/24/16.
@@ -62,6 +69,21 @@ public class WaterQualityReportController {
 
                 WaterQualityReport qualityReport = new WaterQualityReport(reportNum, Session.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
                 qualityReportMap.put(reportNum, qualityReport);
+
+                //sending modified table back up to firebase
+                Firebase fb = Session.getInstance().getFbCurrent();
+                Map<String, Object> fbInsert = new HashMap<String, Object>();
+                for (Map.Entry<Integer, WaterQualityReport> entry : qualityReportMap.entrySet()) {
+                    fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+                }
+                try {
+                    FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
+                } catch (JacksonUtilityException juex) {
+
+                } catch (FirebaseException fbex) {
+
+                }
+
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
