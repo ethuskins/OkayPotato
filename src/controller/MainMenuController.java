@@ -128,6 +128,18 @@ public class MainMenuController {
     }
 
     /**
+     * Takes the user to the Historical Report Selector page.
+     */
+    @FXML
+    public void viewHistoricalReportButtonPressed() {
+        FXMLLoader loader2 = new FXMLLoader();
+        loader2.setLocation(Main.class.getResource("../view/historicalReportSelectorForm.fxml"));
+        mainApplication.setWindow(loader2);
+        HistoricalReportSelectorController controller2 = loader2.getController();
+        controller2.setMainApp(mainApplication);
+    }
+
+    /**
      * Sets the main application. This is the object that carries info needed between screens.
      * @param main the object containing cross-screen info.
      */

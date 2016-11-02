@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -23,13 +23,14 @@
                   <Font size="41.0" />
                </font>
             </Label>
-            <Button fx:id="logoutButton" layoutX="162.0" layoutY="246.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Log Out" />
+            <Button fx:id="logoutButton" layoutX="164.0" layoutY="246.0" mnemonicParsing="false" onAction="#logoutButtonPressed" text="Log Out" />
             <Button fx:id="editProfileButton" layoutX="261.0" layoutY="246.0" mnemonicParsing="false" onAction="#editProfileButtonPressed" text="Edit Profile" />
-            <Button fx:id="submitReportButton" layoutX="57.0" layoutY="300.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Water Source Report" />
+            <Button fx:id="submitReportButton" layoutX="56.0" layoutY="275.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Water Source Report" />
             <Button fx:id="sourceReportListButton" layoutX="261.0" layoutY="275.0" mnemonicParsing="false" onAction="#sourceReportListButtonPressed" text="View Source Report List" />
             <Button fx:id="viewReportMapButton" layoutX="261.0" layoutY="342.0" mnemonicParsing="false" onAction="#viewReportMapButtonPressed" prefHeight="25.0" prefWidth="119.0" text="View Report Map" />
-            <Button fx:id="submitQualityReportButton" layoutX="57.0" layoutY="342.0" mnemonicParsing="false" onAction="#submitQualityReportButtonPressed" text="Submit Water Quality Report" />
+            <Button fx:id="submitQualityReportButton" layoutX="56.0" layoutY="306.0" mnemonicParsing="false" onAction="#submitQualityReportButtonPressed" text="Submit Water Quality Report" />
             <Button fx:id="qualityReportListButton" layoutX="261.0" layoutY="306.0" mnemonicParsing="false" onAction="#qualityReportListButtonPressed" text="View Quality Report List" />
+            <Button fx:id="viewHistoricalReportButton" layoutX="90.0" layoutY="342.0" mnemonicParsing="false" onAction="#viewHistoricalReportButtonPressed" text="View Historical Report" />
          </children>
       </Pane>
    </children>

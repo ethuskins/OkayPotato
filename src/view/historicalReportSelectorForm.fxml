@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportSelectorController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="416.0" prefWidth="484.0">
+         <children>
+            <Label layoutX="106.0" layoutY="48.0" text="Select Location">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Button fx:id="viewButton" layoutX="202.0" layoutY="314.0" mnemonicParsing="false" onAction="#viewButtonPressed" text="View Report" />
+            <Button fx:id="cancelButton" layoutX="394.0" layoutY="367.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
+            <ComboBox layoutX="167.0" layoutY="245.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
