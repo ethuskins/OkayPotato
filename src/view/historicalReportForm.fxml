@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="416.0" prefWidth="484.0">
+         <children>
+            <Label layoutX="91.0" layoutY="14.0" text="Historical Report">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Button fx:id="backButton" layoutX="367.0" layoutY="366.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
