@@ -33,7 +33,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
-
+/**
+ * Added by Emily Huskins 11/2/2016
+ * Created by Brandon Gresham (bane73)
+ * Original source found on GitHub at:https://github.com/bane73/firebase4j
+ */
 public class Firebase {
 	
 	protected static final Logger 			LOGGER 					= Logger.getRootLogger();

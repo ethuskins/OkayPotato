@@ -1,4 +1,5 @@
 package controller;
+import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
@@ -10,6 +11,11 @@ import javafx.scene.control.TextField;
 import model.*;
 
 import java.util.HashMap;
+import java.util.Map;
+
+import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
+import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
+import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
 
 /**
  * Created by emilyhuskins on 10/12/16.
@@ -53,10 +59,22 @@ public class WaterSourceReportController {
                 //creates the new water report and puts it in the hash map
                 int reportNum = Session.getInstance().reportnumber;
                 WaterSourceReport sourceReport = new WaterSourceReport(reportNum, Session.getInstance().getCurrentUser(), location, type, waterCondition);
-                //WaterQualityReport qualityReport = new WaterQualityReport(reportNum, mainApplication.getCurrentUser(), location);
-
                 sourceReportMap.put(reportNum, sourceReport);
-                //qualityReportMap.put(reportNum, qualityReport);
+
+                //sending modified table back up to firebase
+                Firebase fb = Session.getInstance().getFbCurrent();
+                Map<String, Object> fbInsert = new HashMap<String, Object>();
+                for (Map.Entry<Integer, WaterSourceReport> entry : sourceReportMap.entrySet()) {
+                    fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+                }
+                try {
+                    FirebaseResponse resp = fb.put(Session.getInstance().getWsrURL(), fbInsert);
+                } catch (JacksonUtilityException juex) {
+
+                } catch (FirebaseException fbex) {
+
+                }
+
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
