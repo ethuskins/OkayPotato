@@ -26,23 +26,34 @@ public class Session {
         return instance;
     }
 
-    String baseURL = "https://okaypotato-2368f.firebaseio.com/";
-    String wsrURL = "WaterSourceReports";
-    String wqrURL = "WaterQualityReports";
-    String peopleURL = "People";
-    Firebase fbCurrent = null;
+    /**
+     * Private constructor; so only 1 instance of this class is garunteed
+     */
+    private String baseURL = "https://okaypotato-2368f.firebaseio.com/";
+    private String wsrURL = "WaterSourceReports";
+    private String wqrURL = "WaterQualityReports";
+    private String peopleURL = "People";
+    private Firebase fbCurrent = null;
+    private FirebaseResponse wsrFirebase = null;
+    private FirebaseResponse wqrFirebase = null;
+    private FirebaseResponse peopleFirebase = null;
+
+
     /**
      * Private constructor; so only 1 instance of this class is garunteed
      */
     private Session() {
+
+        //open connection to firebase instance
         try {
             fbCurrent = new Firebase(baseURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase url");
         }
 
+        //get the three tables in firebase that store the Water Source Reports, Water Quality Reports, and User Profiles
         try {
-            FirebaseResponse wsrFirebase = fbCurrent.get(wsrURL);
+            wsrFirebase = fbCurrent.get(wsrURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase wsr url");
 
@@ -51,7 +62,7 @@ public class Session {
         }
 
         try {
-            FirebaseResponse wqrFirebase = fbCurrent.get(wqrURL);
+            wqrFirebase = fbCurrent.get(wqrURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase wqr url");
 
@@ -60,7 +71,7 @@ public class Session {
         }
 
         try {
-            FirebaseResponse peopleFirebase = fbCurrent.get(peopleURL);
+             peopleFirebase = fbCurrent.get(peopleURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase people url");
 
@@ -68,12 +79,40 @@ public class Session {
             System.out.println("Unsupported Encoding people");
         }
 
+        //get maps of the info in the tables
+        if (wsrFirebase != null) {
+            wsrFBMap =  wsrFirebase.getBody();
+        }
+
+        if (wqrFirebase != null) {
+            wqrFBMap =  wqrFirebase.getBody();
+        }
+        if (peopleFirebase != null) {
+            peopleFBMap =  peopleFirebase.getBody();
+        }
+
+        //process firebase maps to fill the HashMaps we want the project to use
+        for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
+            waterSourceReportHashMap.put(Integer.valueOf(entry.getKey()), (WaterSourceReport) entry.getValue());
+        }
+        for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
+            waterQualityReportHashMap.put(Integer.valueOf(entry.getKey()), (WaterQualityReport) entry.getValue());
+        }
+        for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
+            userProfileStringHashMap.put(entry.getKey(), (UserProfile) entry.getValue());
+        }
+
         
+
 
 
     }
 
 
+    //Maps that are filled by Firebase with table information
+    public Map<String, Object> wsrFBMap = null;
+    public Map<String, Object> wqrFBMap = null;
+    public Map<String, Object> peopleFBMap = null;
 
 
 
