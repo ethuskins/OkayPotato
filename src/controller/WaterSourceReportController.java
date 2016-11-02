@@ -68,7 +68,7 @@ public class WaterSourceReportController {
                     fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
                 }
                 try {
-                    FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
+                    FirebaseResponse resp = fb.put(Session.getInstance().getWsrURL(), fbInsert);
                 } catch (JacksonUtilityException juex) {
 
                 } catch (FirebaseException fbex) {

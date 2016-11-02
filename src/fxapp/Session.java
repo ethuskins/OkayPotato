@@ -3,6 +3,7 @@ package fxapp;
 /**
  * Created by Forrest on 10/30/2016.
  */
+import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
 import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
@@ -100,7 +101,7 @@ public class Session {
         for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
             waterQualityReportHashMap.put(Integer.valueOf(entry.getKey()), (WaterQualityReport) entry.getValue());
         }
-        for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
+        for (Map.Entry<String, Object> entry : peopleFBMap.entrySet()) {
             userProfileStringHashMap.put(entry.getKey(), (UserProfile) entry.getValue());
         }
 
@@ -151,6 +152,21 @@ public class Session {
         //we can remove the array list if we want.
 
         userProfileStringHashMap.put(userProfile.getId(),userProfile);
+
+        //sending modified table back up to firebase
+        Map<String, Object> fbInsert = new HashMap<String, Object>();
+        for (Map.Entry<String, UserProfile> entry : userProfileStringHashMap.entrySet()) {
+            fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+        }
+        try {
+            FirebaseResponse resp = fbCurrent.put(Session.getInstance().getPeopleURL(), fbInsert);
+        } catch (JacksonUtilityException juex) {
+
+        } catch (FirebaseException fbex) {
+
+        } catch (UnsupportedEncodingException ueex) {
+
+        }
     }
 
     /**

@@ -43,6 +43,7 @@ public class UserProfileController {
         Session.getInstance().getCurrentUser().setEmailAddress(emailTextField.getText());
         Session.getInstance().getCurrentUser().setTitle(titleTextField.getText());
         Session.getInstance().getCurrentUser().setAge(Integer.parseInt(ageTextField.getText()));
+        
     }
 
     /**
