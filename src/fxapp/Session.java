@@ -19,8 +19,11 @@ import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
  * Singleton class that holds the session info.
  */
 public class Session {
-    private static final Session instance = new Session();
+    private static Session instance = null;
     public static Session getInstance() {
+        if (instance == null) {
+            instance = new Session();
+        }
         return instance;
     }
 
