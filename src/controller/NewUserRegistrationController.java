@@ -1,5 +1,6 @@
 package controller;
 
+
 import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
@@ -12,7 +13,9 @@ import javafx.scene.control.TextField;
 import model.AccountType;
 import model.UserProfile;
 
+
 import java.util.HashMap;
+
 
 /**
  * Created by Scott Simmons on 9/27/2016.
@@ -63,6 +66,7 @@ public class NewUserRegistrationController {
             Session.getInstance().addUserProfile(userProfile);
             //Makes the UserProfile the current UserProfile
             Session.getInstance().setCurrentUser(userProfile);
+
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
