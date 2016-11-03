@@ -196,4 +196,6 @@ import java.time.LocalDateTime;
     public void setStringLocation(String stringLocation) {
         this.stringLocation = stringLocation;
     }
+
+
 }
