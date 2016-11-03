@@ -66,7 +66,7 @@ public class MainMenuController {
     public void submitQualityReportButtonPressed() {
         Alert ruined = new Alert(Alert.AlertType.ERROR); //TODO: make
         if (Session.getInstance().getCurrentUser().getAccountType() == AccountType.USER) {
-            ruined.setHeaderText("You do not have the neccessary access to access this page.");
+            ruined.setHeaderText("You do not have the necessary access to access this page.");
             ruined.showAndWait();
             return;
         }
@@ -132,6 +132,12 @@ public class MainMenuController {
      */
     @FXML
     public void viewHistoricalReportButtonPressed() {
+        Alert ruined = new Alert(Alert.AlertType.ERROR); //TODO: make
+        if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
+            ruined.setHeaderText("You do not have the necessary access to access this page.");
+            ruined.showAndWait();
+            return;
+        }
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setLocation(Main.class.getResource("../view/historicalReportSelectorForm.fxml"));
         mainApplication.setWindow(loader2);
