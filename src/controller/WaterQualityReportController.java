@@ -65,7 +65,7 @@ public class WaterQualityReportController {
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = Session.getInstance().reportnumber;
+                int reportNum = Session.getInstance().getWqrnumber();
 
                 WaterQualityReport qualityReport = new WaterQualityReport(reportNum, Session.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
                 qualityReportMap.put(reportNum, qualityReport);
@@ -81,6 +81,23 @@ public class WaterQualityReportController {
                 } catch (JacksonUtilityException juex) {
 
                 } catch (FirebaseException fbex) {
+                    System.out.println("FB exception in wqrcontroller");
+                }
+
+
+                Session.getInstance().incrementWqrnumber();
+
+
+
+
+                Map<String, Object> fbInsertNum = new HashMap<String, Object>();
+                fbInsertNum.put("wsrNumber", (Object) Session.getInstance().getWsrnumber());
+                fbInsertNum.put("wqrNumber", (Object) Session.getInstance().getWqrnumber());
+                try {
+                    FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
+                } catch (JacksonUtilityException juex) {
+
+                } catch (FirebaseException fbex) {
 
                 }
 
@@ -90,7 +107,7 @@ public class WaterQualityReportController {
                 mainApplication.setWindow(loader);
                 MainMenuController controller = loader.getController();
                 controller.setMainApp(mainApplication);
-                Session.getInstance().reportnumber++;
+
             }else {
                 ruined.setHeaderText("Invalid Input. Try again.");
                 ruined.showAndWait();

@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.AccountType;
+import javafx.scene.control.Alert;
 
 /**
  * Controls the Home page.
@@ -150,6 +151,13 @@ public class MainMenuController {
      * @param main the object containing cross-screen info.
      */
     public void setMainApp(Main main) {
+
+        /*if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
+            Alert ruined = new Alert(Alert.AlertType.ERROR);
+            ruined.setHeaderText("You do not have the neccessary access to access this page.");
+            ruined.showAndWait();
+            return;
+        }*/
         mainApplication = main;
     }
 
