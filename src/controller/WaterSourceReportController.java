@@ -57,7 +57,7 @@ public class WaterSourceReportController {
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !waterCondition.equals(null) && !type.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = Session.getInstance().reportnumber;
+                int reportNum = Session.getInstance().getWsrnumber();
                 WaterSourceReport sourceReport = new WaterSourceReport(reportNum, Session.getInstance().getCurrentUser(), location, type, waterCondition);
                 sourceReportMap.put(reportNum, sourceReport);
 
@@ -75,13 +75,27 @@ public class WaterSourceReportController {
 
                 }
 
+                Session.getInstance().incrementWsrnumber();
+
+                Map<String, Object> fbInsertNum = new HashMap<String, Object>();
+                fbInsertNum.put("wsrNumber", (Object) Session.getInstance().getWsrnumber());
+                fbInsertNum.put("wqrNumber", (Object) Session.getInstance().getWqrnumber());
+                try {
+                    FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
+                } catch (JacksonUtilityException juex) {
+
+                } catch (FirebaseException fbex) {
+
+                }
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
                 mainApplication.setWindow(loader);
                 MainMenuController controller = loader.getController();
                 controller.setMainApp(mainApplication);
-                Session.getInstance().reportnumber++;
+
+
+
             }else {
                 ruined.setHeaderText("Invalid Input. Try again.");
                 ruined.showAndWait();
