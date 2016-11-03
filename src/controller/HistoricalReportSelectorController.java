@@ -7,16 +7,18 @@ import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import model.*;
 import netscape.javascript.JSObject;
 
 import java.awt.*;
+import java.awt.TextField;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -27,6 +29,9 @@ import java.util.*;
 public class HistoricalReportSelectorController {
 
     @FXML private ComboBox<ReportType> reportTypeComboBox = new ComboBox<ReportType>();
+    @FXML private javafx.scene.control.TextField longitudeTextField;
+    @FXML private javafx.scene.control.TextField latitudeTextField;
+    @FXML private javafx.scene.control.TextField yearTextField;
 
     private Main mainApplication;
 
@@ -43,11 +48,28 @@ public class HistoricalReportSelectorController {
      */
     @FXML
     public void viewButtonPressed() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("../view/historicalReportForm.fxml"));
-        mainApplication.setWindow(loader);
-        HistoricalReportController controller = loader.getController();
-        controller.setMainApp(mainApplication);
+        double lat = Double.valueOf(latitudeTextField.getText());
+        double lon = Double.valueOf(longitudeTextField.getText());
+        int year = Integer.valueOf(yearTextField.getText());
+        boolean test = false;
+        HashMap<Integer, WaterQualityReport> testermap = Session.getInstance().getWaterQualityReportHashMap();
+        Set<Integer> keylist = testermap.keySet();
+        ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
+        for (Integer x : keylist) {
+            if (testermap.get(x).getLocation().getLatitude() == lat && testermap.get(x).getLocation().getLongitude() == lon && testermap.get(x).getDateTime().getYear() == year) {
+                test = true;
+            }
+        }
+        if (test) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/historicalReportForm.fxml"));
+            mainApplication.setWindow(loader);
+            HistoricalReportController controller = loader.getController();
+            controller.populate(lat,lon,year,reportTypeComboBox.getValue());
+            controller.setMainApp(mainApplication);
+        } else {
+            //Put a pop up here
+        }
     }
 
     /**
