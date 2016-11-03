@@ -8,14 +8,18 @@ import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
 import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
+import model.Location;
 import model.UserProfile;
 import model.WaterQualityReport;
 import model.WaterSourceReport;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
+
 import com.google.gson.Gson;
 
 
@@ -117,8 +121,21 @@ public class Session {
         for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
 
             LinkedHashMap jsonmap = (LinkedHashMap) entry.getValue();
+            LinkedHashMap datetime = (LinkedHashMap) jsonmap.get("dateTime");
+            LinkedHashMap loc = (LinkedHashMap)jsonmap.get("location");
             String jsonString = gson.toJson(jsonmap,LinkedHashMap.class);
+            String jsondate = gson.toJson(datetime, Object.class);
+            String jsonloc = gson.toJson(loc, Object.class);
+
+
             WaterSourceReport parsedWSR = gson.fromJson(jsonString, WaterSourceReport.class);
+            Location parsedloc = gson.fromJson(jsonloc, Location.class);
+            LocalDateTime parseddt = gson.fromJson(jsondate, LocalDateTime.class);
+            //System.out.println(parsedWQR.getLocation());
+            parsedWSR.setLocation(parsedloc);
+            parsedWSR.setDateTime(parseddt);
+            System.out.println(parsedWSR.getLocation().toString());
+
 
             waterSourceReportHashMap.put(parsedWSR.getReportNumber(), parsedWSR);
         }
@@ -126,8 +143,19 @@ public class Session {
 
         for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
             LinkedHashMap jsonmap = (LinkedHashMap) entry.getValue();
+            LinkedHashMap datetime = (LinkedHashMap) jsonmap.get("dateTime");
+            LinkedHashMap loc = (LinkedHashMap) jsonmap.get("location");
             String jsonString = gson.toJson(jsonmap,LinkedHashMap.class);
+            //System.out.println(jsonString);
+            String jsondate = gson.toJson(datetime, Object.class);
+            String jsonloc = gson.toJson(loc, Object.class);
+
             WaterQualityReport parsedWQR = gson.fromJson(jsonString, WaterQualityReport.class);
+            Location parsedloc = gson.fromJson(jsonloc, Location.class);
+            LocalDateTime parseddt = gson.fromJson(jsondate, LocalDateTime.class);
+            //System.out.println(parsedWQR.getLocation());
+            parsedWQR.setLocation(parsedloc);
+            parsedWQR.setDateTime(parseddt);
 
             waterQualityReportHashMap.put(parsedWQR.getReportNumber(), parsedWQR);
         }
