@@ -44,8 +44,8 @@ public class HistoricalReportController {
         Set<Integer> keylist = reportsMap.keySet();
         ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
         for (Integer x : keylist) {
-            if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getDateTime().getYear() == year) {
-                int month = reportsMap.get(x).getDateTime().getMonth().getValue();
+            if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {
+                int month = reportsMap.get(x).getMonth();
                 double ppm = 0;
                 if (type == ReportType.VIRUS) {
                     ppm = Double.valueOf(reportsMap.get(x).getVirusPPM());

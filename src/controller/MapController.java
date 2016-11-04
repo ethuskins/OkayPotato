@@ -108,7 +108,7 @@ public class MapController implements Initializable, MapComponentInitializedList
                                 //+ "<br>Water Type: " + l.getType().toString()
                                 + "<br>Quality Condition: " + r.getQuaCondition()
                                 + "<br>Location: " + l.getLatitude() + "," + l.getLongitude()
-                                + "<br>Added: " + r.getDateTime());
+                                + "<br>Added: " + r.getDay() + "-"+ r.getMonth() + "-" +r.getYear());
                         InfoWindow window = new InfoWindow(infoWindowOptions);
                         window.open(map, marker);
                     });

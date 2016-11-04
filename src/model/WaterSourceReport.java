@@ -1,12 +1,14 @@
 package model;
-import java.time.LocalDateTime;
+import java.util.Calendar;
 
 /**
  * Created by emilyhuskins on 10/12/16.
  */
 public class WaterSourceReport {
     private int reportNumber;
-    private LocalDateTime dateTime;
+    private int year;
+    private int month;
+    private int day;
     private String reporterName;
     private String reporterID;
     private Location waterLocation;
@@ -17,13 +19,18 @@ public class WaterSourceReport {
 //Basic constructor. Passes in the current user object to extract the name and id of the user
     public WaterSourceReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition condition) {
         reportNumber = reportNum;
-        dateTime = LocalDateTime.now();
+
         reporterName = user.getName();
         reporterID = user.getId();
         waterLocation = location;
         waterType = type;
         waterCondition = condition;
         stringLocation = location.toString();
+
+        Calendar timenow = Calendar.getInstance();
+        month = timenow.MONTH;
+        day = timenow.DAY_OF_MONTH;
+        year = timenow.YEAR;
     }
 
     /**
@@ -42,21 +49,6 @@ public class WaterSourceReport {
         this.reportNumber = reportNumber;
     }
 
-    /**
-     * Getter for the dateTime attribute
-     * @return dateTime the dateTime attribute.
-     */
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    /**
-     * Setter for the dateTime attribute
-     * @param dateTime the new dateTime attribute.
-     */
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
     /**
      * getter method for reporterName
@@ -145,4 +137,31 @@ public class WaterSourceReport {
     public void setStringLocation(String stringLocation) {
         this.stringLocation = stringLocation;
     }
+
+
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
 }

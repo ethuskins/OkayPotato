@@ -56,7 +56,7 @@ public class HistoricalReportSelectorController {
         Set<Integer> keylist = testermap.keySet();
         ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
         for (Integer x : keylist) {
-            if (testermap.get(x).getLocation().getLatitude() == lat && testermap.get(x).getLocation().getLongitude() == lon && testermap.get(x).getDateTime().getYear() == year) {
+            if (testermap.get(x).getLocation().getLatitude() == lat && testermap.get(x).getLocation().getLongitude() == lon && testermap.get(x).getYear() == year) {
                 test = true;
             }
         }
