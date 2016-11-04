@@ -51,30 +51,25 @@ public class HistoricalReportSelectorController {
         double lat = Double.valueOf(latitudeTextField.getText());
         double lon = Double.valueOf(longitudeTextField.getText());
         int year = Integer.valueOf(yearTextField.getText());
-        Alert ruined = new Alert(Alert.AlertType.ERROR);
         boolean test = false;
         HashMap<Integer, WaterQualityReport> testermap = Session.getInstance().getWaterQualityReportHashMap();
         Set<Integer> keylist = testermap.keySet();
-        /*for (Integer x : keylist) {
-            if (testermap.get(x).getLocation().getLatitude() == lat) {
-                if (testermap.get(x).getLocation().getLongitude() == lon) {
-                    if (testermap.get(x).getDateTime().getYear() == year) {
-                        test = true;
-                    }
-                }
+        ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
+        for (Integer x : keylist) {
+            if (testermap.get(x).getLocation().getLatitude() == lat && testermap.get(x).getLocation().getLongitude() == lon && testermap.get(x).getDateTime().getYear() == year) {
+                test = true;
             }
         }
-        if (test) {*/
+        if (test) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/historicalReportForm.fxml"));
             mainApplication.setWindow(loader);
             HistoricalReportController controller = loader.getController();
             controller.populate(lat,lon,year,reportTypeComboBox.getValue());
             controller.setMainApp(mainApplication);
-        /*} else {
-            ruined.setHeaderText("There are no reports falling under those locations and that year.");
-            ruined.showAndWait();
-        }*/
+        } else {
+            //Put a pop up here
+        }
     }
 
     /**

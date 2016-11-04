@@ -47,7 +47,9 @@ public class SourceReportListController {
     }
 
     @FXML
-    private void initialize() { populateTable(); }
+    private void initialize() {
+        populateTable();
+    }
 
     /**
      * Returns to the main menu screen.
