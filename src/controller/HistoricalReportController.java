@@ -31,11 +31,15 @@ public class HistoricalReportController {
      * Populates the graph
      */
     public void populate(double latitude, double longitude, int year, ReportType type) {
+        final NumberAxis monthAxis = new NumberAxis();
+        final NumberAxis partsAxis = new NumberAxis();
+        monthAxis.setLabel("Month");
         if (type == ReportType.VIRUS) {
             partsAxis.setLabel("Virus PPM");
         } else {
             partsAxis.setLabel("Contaminant PPM");
         }
+        reportGraph = new LineChart<>(monthAxis,partsAxis);
         reportGraph.setTitle("Historical Report at " + latitude + " by " + longitude + " in " + year);
 
         XYChart.Series series = new XYChart.Series();
@@ -43,9 +47,9 @@ public class HistoricalReportController {
         Set<Integer> keylist = reportsMap.keySet();
         ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
         for (Integer x : keylist) {
-            if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude/* && reportsMap.get(x).getDateTime().getYear() == year*/) {
-                int month = 5; //reportsMap.get(x).getDateTime().getMonth().getValue();
-                double ppm;
+            if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {
+                int month = reportsMap.get(x).getMonth();
+                double ppm = 0;
                 if (type == ReportType.VIRUS) {
                     ppm = Double.valueOf(reportsMap.get(x).getVirusPPM());
                 } else {

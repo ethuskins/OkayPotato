@@ -1,13 +1,16 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 /**
  * Created by Jack Winski on 10/24/2016.
  */
     public class WaterQualityReport {
     private int reportNumber;
-    private LocalDateTime dateTime;
+    private int year;
+    private int month;
+    private int day;
     private String reporterName;
     private String reporterID;
     private Location waterLocation;
@@ -30,10 +33,14 @@ import java.time.LocalDateTime;
         reportNumber = reportNum;
         reporterName = user.getName();
         reporterID = user.getId();
-        dateTime = LocalDateTime.now();
         waterLocation = location;
         //this.waterType  = type;
         stringLocation = location.toString();
+
+        Calendar timenow = Calendar.getInstance();
+        month = timenow.MONTH;
+        day = timenow.DAY_OF_MONTH;
+        year = timenow.YEAR;
     }
 
 
@@ -106,22 +113,6 @@ import java.time.LocalDateTime;
         this.waterCondition = waterCondition;
     }
 
-    /**
-     * Getter for the dateTime attribute
-     * @return dateTime the dateTime attribute.
-
-     */
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    /**
-     * Setter for the dateTime attribute
-     * @param dateTime the new dateTime attribute.
-     */
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
     /**
      * getter method for reporterName
@@ -197,5 +188,27 @@ import java.time.LocalDateTime;
         this.stringLocation = stringLocation;
     }
 
+    public int getYear() {
+        return year;
+    }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
 }
