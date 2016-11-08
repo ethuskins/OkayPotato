@@ -55,26 +55,26 @@ public class HistoricalReportSelectorController {
         boolean test = false;
         HashMap<Integer, WaterQualityReport> testermap = Session.getInstance().getWaterQualityReportHashMap();
         Set<Integer> keylist = testermap.keySet();
-        /*for (Integer x : keylist) {
+        for (Integer x : keylist) {
             if (testermap.get(x).getLocation().getLatitude() == lat) {
                 if (testermap.get(x).getLocation().getLongitude() == lon) {
-                    if (testermap.get(x).getDateTime().getYear() == year) {
+                    if (testermap.get(x).getYear() == year) {
                         test = true;
                     }
                 }
             }
         }
-        if (test) {*/
+        if (test) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/historicalReportForm.fxml"));
             mainApplication.setWindow(loader);
             HistoricalReportController controller = loader.getController();
             controller.populate(lat,lon,year,reportTypeComboBox.getValue());
             controller.setMainApp(mainApplication);
-        /*} else {
+        } else {
             ruined.setHeaderText("There are no reports falling under those locations and that year.");
             ruined.showAndWait();
-        }*/
+        }
     }
 
     /**

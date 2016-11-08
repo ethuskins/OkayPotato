@@ -31,31 +31,37 @@ public class HistoricalReportController {
      * Populates the graph
      */
     public void populate(double latitude, double longitude, int year, ReportType type) {
-        final NumberAxis monthAxis = new NumberAxis();
-        final NumberAxis partsAxis = new NumberAxis();
         monthAxis.setLabel("Month");
         if (type == ReportType.VIRUS) {
             partsAxis.setLabel("Virus PPM");
         } else {
             partsAxis.setLabel("Contaminant PPM");
         }
-        reportGraph = new LineChart<>(monthAxis,partsAxis);
+
         reportGraph.setTitle("Historical Report at " + latitude + " by " + longitude + " in " + year);
 
         XYChart.Series series = new XYChart.Series();
         HashMap<Integer, WaterQualityReport> reportsMap = Session.getInstance().getWaterQualityReportHashMap();
         Set<Integer> keylist = reportsMap.keySet();
         ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
+        double[][] reports = new double[12][2];
         for (Integer x : keylist) {
             if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {
                 int month = reportsMap.get(x).getMonth();
-                double ppm = 0;
+                double ppm;
                 if (type == ReportType.VIRUS) {
                     ppm = Double.valueOf(reportsMap.get(x).getVirusPPM());
                 } else {
                     ppm = Double.valueOf(reportsMap.get(x).getContamPPM());
                 }
-                series.getData().add(new XYChart.Data(month,ppm));
+                reports[month][0] += ppm;
+                reports[month][1] ++;
+            }
+        }
+        for (int i = 0; i < 12; i++) {
+            if (reports[i][1] != 0) {
+                double temp = reports[i][0]/reports[i][1];
+                series.getData().add(new XYChart.Data(i,temp));
             }
         }
         reportGraph.getData().add(series);
