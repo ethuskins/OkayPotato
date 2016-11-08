@@ -5,6 +5,7 @@ import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import model.Password;
 import model.UserProfile;
 
 /**
@@ -38,7 +39,13 @@ public class UserProfileController {
      */
     @FXML
     public void saveButtonPressed() {
-        Session.getInstance().getCurrentUser().setPassword(passwordTextField.getText());
+        String hashedPass = "";
+        try {
+            hashedPass = Password.getSaltedHash(passwordTextField.getText());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Session.getInstance().getCurrentUser().setPassword(hashedPass);
         Session.getInstance().getCurrentUser().setAddress(addressTextField.getText());
         Session.getInstance().getCurrentUser().setEmailAddress(emailTextField.getText());
         Session.getInstance().getCurrentUser().setTitle(titleTextField.getText());
@@ -53,7 +60,7 @@ public class UserProfileController {
     public void populate() {
         UserProfile temp = Session.getInstance().getCurrentUser();
         nameTextField.setText(temp.getName());
-        passwordTextField.setText(temp.getPassword());
+        //passwordTextField.setText(temp.getPassword());
         if (temp.getAddress() != null) {
             addressTextField.setText(temp.getAddress());
         }
