@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import model.Password;
 import model.UserProfile;
 
 import java.util.HashMap;
@@ -35,8 +36,15 @@ public class LoginCredentialsController {
         if (userProfile != null) {
             pass = userProfile.getPassword();
         }
+        String password = passwordTextField.getText();
+        Boolean correctPassword = false;
+        try {
+            correctPassword = Password.check(password,pass);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //checks if entered info matches an entry in the hashmap
-        if (userProfile != null && passwordTextField.getText().equals(pass)){
+        if (userProfile != null && correctPassword){
             Session.getInstance().setCurrentUser(userProfile);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
