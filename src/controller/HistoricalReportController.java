@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import model.ReportType;
 import model.WaterQualityReport;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Set;
 import javafx.scene.chart.LineChart;
@@ -23,6 +24,8 @@ public class HistoricalReportController {
     private Main mainApplication;
 
     @FXML private LineChart reportGraph;
+    @FXML private NumberAxis monthAxis;
+    @FXML private NumberAxis partsAxis;
 
     /**
      * Populates the graph
