@@ -69,16 +69,26 @@
             </ImageView>
             <Label layoutX="181.0" layoutY="52.0" prefHeight="53.0" prefWidth="310.0" text="Create Water Source Report" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Calibri Light" size="24.0" />
                </font>
             </Label>
+            <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="65.0" layoutY="105.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
+               <image>
+                  <Image url="@mountains.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
    <columnConstraints>
       <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+      <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints />
    </rowConstraints>
 </GridPane>
