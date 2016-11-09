@@ -152,6 +152,8 @@ public class Location implements Serializable {
             returnString = returnString + "N, ";
         } else if (latitude < 0.0) {
             returnString = returnString + "S, ";
+        } else {
+            returnString = returnString + ", ";
         }
         checker = Math.abs(longitude);
         returnString = returnString + Double.toString(checker);
