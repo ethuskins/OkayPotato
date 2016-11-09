@@ -4,37 +4,84 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.72" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterQualityReportController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterQualityReportController">
    <children>
       <Pane prefHeight="403.0" prefWidth="600.0">
          <children>
-            <TextField fx:id="latitudeTextField" layoutX="145.0" layoutY="179.0" promptText="33.75" />
-            <Button fx:id="waterQualityReportSubmitButton" layoutX="326.0" layoutY="365.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" text="Submit Report" />
-            <Button fx:id="waterQualityReportCancelButton" layoutX="207.0" layoutY="365.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" text="Cancel" />
-            <Label layoutX="190.0" layoutY="11.0" prefHeight="42.0" prefWidth="236.0" text="Create Water Quality Report">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+                     <stops>
+                        <Stop color="#1987c2" />
+                        <Stop color="#1987c2" offset="0.011494252873563218" />
+                        <Stop color="#24e8e4" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="65.0" layoutY="83.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
+               <image>
+                  <Image url="@mountains.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="latitudeTextField" layoutX="337.0" layoutY="151.0" prefHeight="25.0" prefWidth="150.0" promptText="33.75" />
+            <Button fx:id="waterQualityReportSubmitButton" layoutX="333.0" layoutY="348.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Submit " />
+            <Button fx:id="waterQualityReportCancelButton" layoutX="207.0" layoutY="348.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel" />
+            <Label layoutX="178.0" layoutY="30.0" prefHeight="53.0" prefWidth="310.0" text="Create Water Quality Report" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <ComboBox fx:id="quaConditionComboBox" layoutX="227.0" layoutY="234.0" prefWidth="150.0" />
-            <TextField fx:id="longitudeTextField" layoutX="309.0" layoutY="179.0" promptText="-84.4" />
-            <Label layoutX="309.0" layoutY="162.0" text="Longitude" />
-            <Label layoutX="145.0" layoutY="162.0" text="Latitude" />
-            <Label layoutX="227.0" layoutY="217.0" text="Water Quality Condition" />
-            <TextField fx:id="descriptionTextField" layoutX="234.0" layoutY="120.0" />
-            <Label layoutX="234.0" layoutY="103.0" text="Description" />
-            <Label layoutX="234.0" layoutY="53.0" text="Title" />
-            <TextField fx:id="titleTextField" layoutX="234.0" layoutY="70.0" />
-            <TextField fx:id="virusTextField" layoutX="145.0" layoutY="293.0" />
-            <TextField fx:id="contamTextField" layoutX="309.0" layoutY="293.0" />
-            <Label layoutX="145.0" layoutY="276.0" text="Virus Parts Per Million" />
-            <Label layoutX="306.0" layoutY="276.0" text="Contaminant Parts Per Million" />
+            <ComboBox fx:id="quaConditionComboBox" layoutX="113.0" layoutY="298.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="longitudeTextField" layoutX="337.0" layoutY="201.0" prefHeight="25.0" prefWidth="150.0" promptText="-84.4" />
+            <Label layoutX="334.0" layoutY="177.0" text="Longitude" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="337.0" layoutY="131.0" text="Latitude" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="111.0" layoutY="275.0" text="Water Quality Condition" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <TextField fx:id="descriptionTextField" layoutX="116.0" layoutY="231.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="116.0" layoutY="209.0" text="Description" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="116.0" layoutY="142.0" text="Title" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <TextField fx:id="titleTextField" layoutX="116.0" layoutY="167.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="virusTextField" layoutX="338.0" layoutY="253.0" prefHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="contamTextField" layoutX="338.0" layoutY="307.0" prefHeight="25.0" prefWidth="150.0" />
+            <Label layoutX="337.0" layoutY="230.0" text="Virus Parts Per Million" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="338.0" layoutY="285.0" text="Contaminant Parts Per Million" textFill="#f8f8f8">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="20.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
