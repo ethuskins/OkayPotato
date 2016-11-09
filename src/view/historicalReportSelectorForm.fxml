@@ -4,13 +4,18 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportSelectorController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportSelectorController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -18,23 +23,51 @@
       <RowConstraints />
    </rowConstraints>
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+               <stops>
+                  <Stop color="#1987c2" />
+                  <Stop color="#1987c2" offset="0.011494252873563218" />
+                  <Stop color="#24e8e4" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <Pane prefHeight="416.0" prefWidth="484.0">
          <children>
-            <Label layoutX="106.0" layoutY="48.0" text="Select Location">
+            <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="49.0" layoutY="75.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
+               <image>
+                  <Image url="@mountains.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="178.0" layoutY="27.0" text="Select Location" textFill="WHITE">
                <font>
-                  <Font size="41.0" />
+                  <Font name="Calibri Light" size="41.0" />
                </font>
             </Label>
-            <Button fx:id="viewButton" layoutX="191.0" layoutY="314.0" mnemonicParsing="false" onAction="#viewButtonPressed" text="View Report" />
-            <Button fx:id="cancelButton" layoutX="394.0" layoutY="367.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <ComboBox fx:id="reportTypeComboBox" layoutX="207.0" layoutY="231.0" prefWidth="150.0" />
-            <TextField fx:id="latitudeTextField" layoutX="208.0" layoutY="156.0" />
-            <TextField fx:id="longitudeTextField" layoutX="208.0" layoutY="196.0" />
-            <Label layoutX="125.0" layoutY="160.0" prefWidth="51.0" text="Latitude" />
-            <Label layoutX="124.0" layoutY="200.0" text="Longitude" />
-            <Label layoutX="138.0" layoutY="235.0" text="Type" />
-            <Label layoutX="137.0" layoutY="266.0" text="Year" />
-            <TextField fx:id="yearTextField" layoutX="207.0" layoutY="262.0" />
+            <Button fx:id="viewButton" layoutX="349.0" layoutY="355.0" mnemonicParsing="false" onAction="#viewButtonPressed" prefHeight="35.0" prefWidth="86.0" text="View Report" />
+            <Button fx:id="cancelButton" layoutX="230.0" layoutY="355.0" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel" />
+            <ComboBox fx:id="reportTypeComboBox" layoutX="263.0" layoutY="226.0" prefWidth="150.0" />
+            <TextField fx:id="latitudeTextField" layoutX="264.0" layoutY="117.0" />
+            <TextField fx:id="longitudeTextField" layoutX="264.0" layoutY="169.0" />
+            <Label layoutX="196.0" layoutY="119.0" prefHeight="22.0" prefWidth="60.0" text="Latitude" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="184.0" layoutY="171.0" text="Longitude" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="219.0" layoutY="227.0" text="Type" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <Label layoutX="220.0" layoutY="285.0" text="Year" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="18.0" />
+               </font></Label>
+            <TextField fx:id="yearTextField" layoutX="264.0" layoutY="283.0" />
          </children>
       </Pane>
    </children>

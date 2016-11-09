@@ -40,7 +40,7 @@
             <Button fx:id="waterQualityReportCancelButton" layoutX="207.0" layoutY="348.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel" />
             <Label layoutX="178.0" layoutY="30.0" prefHeight="53.0" prefWidth="310.0" text="Create Water Quality Report" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Calibri Light" size="24.0" />
                </font>
             </Label>
             <ComboBox fx:id="quaConditionComboBox" layoutX="113.0" layoutY="298.0" prefHeight="25.0" prefWidth="150.0" />
