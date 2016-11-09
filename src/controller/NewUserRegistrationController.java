@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.AccountType;
+import model.Password;
 import model.UserProfile;
 
 
@@ -47,6 +48,12 @@ public class NewUserRegistrationController {
         String name = nameTextField.getText();
         String id = idTextField.getText();
         String password = passwordTextField.getText();
+        String hashedPass = "";
+        try {
+            hashedPass = Password.getSaltedHash(password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         AccountType accountType = accountTypeComboBox.getValue();
        // AccountType accountType = AccountType.USER;
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
@@ -59,7 +66,7 @@ public class NewUserRegistrationController {
             //create a UserProfile with the parameters in the fields
             //UserProfile userProfile = new UserProfile(nameTextField.getText(), idTextField.getText(),
             //        passwordTextField.getText(), accountTypeComboBox.getSelectionModel().getSelectedItem());
-            UserProfile userProfile = new UserProfile(name, id, password, accountType);
+            UserProfile userProfile = new UserProfile(name, id, hashedPass, accountType);
 
 
             //add the UserProfile to the list of UserProfiles

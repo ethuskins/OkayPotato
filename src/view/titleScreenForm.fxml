@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TitleScreenController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TitleScreenController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -18,13 +21,24 @@
    <children>
       <Pane prefHeight="416.0" prefWidth="484.0">
          <children>
-            <Button fx:id="loginButton" layoutX="217.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonPressed" text="Login" />
-            <Button fx:id="registerButton" layoutX="212.0" layoutY="307.0" mnemonicParsing="false" onAction="#registerButtonPressed" text="Register" />
-            <Label layoutX="138.0" layoutY="35.0" text="WELCOME!">
-               <font>
-                  <Font size="41.0" />
-               </font>
-            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="484.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+                     <stops>
+                        <Stop color="#1987c2" />
+                        <Stop color="#1987c2" offset="0.011494252873563218" />
+                        <Stop color="#24e8e4" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Button fx:id="loginButton" layoutX="208.0" layoutY="259.0" mnemonicParsing="false" onAction="#loginButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Login" />
+            <Button fx:id="registerButton" layoutX="208.0" layoutY="321.0" mnemonicParsing="false" onAction="#registerButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Register" />
+            <ImageView fitHeight="200.0" fitWidth="325.0" layoutX="87.0" layoutY="45.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
