@@ -14,11 +14,9 @@ import model.WaterQualityReport;
 import model.WaterSourceReport;
 
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import com.google.gson.Gson;
 
@@ -37,23 +35,17 @@ public class Session {
 
 
     //URL components to connect to firebase instance
-    private String baseURL = "https://okaypotato-2368f.firebaseio.com/";
-    private String wsrURL = "WaterSourceReports";
-    private String wqrURL = "WaterQualityReports";
-    private String peopleURL = "People";
-    private String numURL = "Numbers";
+    private final String baseURL = "https://okaypotato-2368f.firebaseio.com/";
+    private final String wsrURL = "WaterSourceReports";
+    private final String wqrURL = "WaterQualityReports";
+    private final String peopleURL = "People";
+    private final String numURL = "Numbers";
     //our current connection to firebase
     private Firebase fbCurrent = null;
-    //The information on the current connections
-    private FirebaseResponse wsrFirebase = null;
-    private FirebaseResponse wqrFirebase = null;
-    private FirebaseResponse peopleFirebase = null;
-    private FirebaseResponse numFirebase = null;
-
 
 
     /**
-     * Private constructor; so only 1 instance of this class is garunteed
+     * Private constructor; so only 1 instance of this class is guaranteed
      */
     private Session() {
 
@@ -65,6 +57,7 @@ public class Session {
         }
 
         //get the three tables in firebase that store the Water Source Reports, Water Quality Reports, and User Profiles
+        FirebaseResponse wsrFirebase = null;
         try {
             wsrFirebase = fbCurrent.get(wsrURL);
         } catch (FirebaseException ex) {
@@ -74,6 +67,7 @@ public class Session {
             System.out.println("Unsupported Encoding wsr");
         }
 
+        FirebaseResponse wqrFirebase = null;
         try {
             wqrFirebase = fbCurrent.get(wqrURL);
         } catch (FirebaseException ex) {
@@ -83,34 +77,40 @@ public class Session {
             System.out.println("Unsupported Encoding wqr");
         }
 
+        FirebaseResponse peopleFirebase = null;
         try {
              peopleFirebase = fbCurrent.get(peopleURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase people url");
 
-        } catch (UnsupportedEncodingException useex) {
+        } catch (UnsupportedEncodingException usex) {
             System.out.println("Unsupported Encoding people");
         }
 
+        FirebaseResponse numFirebase = null;
         try {
             numFirebase = fbCurrent.get(numURL);
         } catch (FirebaseException ex) {
             System.out.println("Invalid firebase num url");
 
-        } catch (UnsupportedEncodingException useex) {
+        } catch (UnsupportedEncodingException usex) {
             System.out.println("Unsupported Encoding num");
         }
 
         //checks HTTP status code for connection, then get maps of the info in the tables
+        Map<String, Object> wsrFBMap = null;
         if (wsrFirebase.getCode() == 200) {
             wsrFBMap =  wsrFirebase.getBody();
         }
+        Map<String, Object> wqrFBMap = null;
         if (wqrFirebase.getCode() == 200) {
             wqrFBMap =  wqrFirebase.getBody();
         }
+        Map<String, Object> peopleFBMap = null;
         if (peopleFirebase.getCode() == 200) {
             peopleFBMap =  peopleFirebase.getBody();
         }
+        Map<String, Object> numFBMap = null;
         if (numFirebase.getCode() == 200) {
             numFBMap =  numFirebase.getBody();
         }
@@ -120,44 +120,45 @@ public class Session {
         Gson gson = new Gson();
         for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
 
-            LinkedHashMap jsonmap = (LinkedHashMap) entry.getValue();
-            LinkedHashMap loc = (LinkedHashMap)jsonmap.get("location");
+            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+            LinkedHashMap loc = (LinkedHashMap)jsonMap.get("location");
 
-            String jsonString = gson.toJson(jsonmap,LinkedHashMap.class);
-            String jsonloc = gson.toJson(loc, Object.class);
+            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
+            String jsonLoc = gson.toJson(loc, Object.class);
 
             WaterSourceReport parsedWSR = gson.fromJson(jsonString, WaterSourceReport.class);
-            Location parsedloc = gson.fromJson(jsonloc, Location.class);
+            Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
 
-            parsedWSR.setLocation(parsedloc);
+            parsedWSR.setLocation(parsedLoc);
 
             waterSourceReportHashMap.put(parsedWSR.getReportNumber(), parsedWSR);
         }
 
 
         for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
-            LinkedHashMap jsonmap = (LinkedHashMap) entry.getValue();
-            LinkedHashMap loc = (LinkedHashMap) jsonmap.get("location");
+            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+            LinkedHashMap loc = (LinkedHashMap) jsonMap.get("location");
 
-            String jsonString = gson.toJson(jsonmap,LinkedHashMap.class);
-            String jsonloc = gson.toJson(loc, Object.class);
+            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
+            String jsonLoc = gson.toJson(loc, Object.class);
 
             WaterQualityReport parsedWQR = gson.fromJson(jsonString, WaterQualityReport.class);
-            Location parsedloc = gson.fromJson(jsonloc, Location.class);
+            Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
 
-            parsedWQR.setLocation(parsedloc);
+            parsedWQR.setLocation(parsedLoc);
 
             waterQualityReportHashMap.put(parsedWQR.getReportNumber(), parsedWQR);
         }
 
         for (Map.Entry<String, Object> entry : peopleFBMap.entrySet()) {
-            LinkedHashMap jsonmap = (LinkedHashMap) entry.getValue();
-            String jsonString = gson.toJson(jsonmap,LinkedHashMap.class);
+            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
             UserProfile parsedPeople = gson.fromJson(jsonString, UserProfile.class);
 
             userProfileStringHashMap.put(parsedPeople.getId(), parsedPeople);
         }
 
+        HashMap<String, Integer> numberingReports = new HashMap<>();
         for (Map.Entry<String, Object> entry : numFBMap.entrySet()) {
             numberingReports.put(entry.getKey(), (Integer) entry.getValue());
         }
@@ -168,8 +169,8 @@ public class Session {
             numberingReports.put("wsrNumber", 1);
             numberingReports.put("wqrNumber", 1);
         }
-        wsrnumber = numberingReports.get("wsrNumber");
-        wqrnumber = numberingReports.get("wqrNumber");
+        wsrNumber = numberingReports.get("wsrNumber");
+        wqrNumber = numberingReports.get("wqrNumber");
 
 
 
@@ -178,46 +179,31 @@ public class Session {
     }
 
 
-    //Maps that are filled by Firebase with table information
-    private Map<String, Object> wsrFBMap = null;
-    private Map<String, Object> wqrFBMap = null;
-    private Map<String, Object> peopleFBMap = null;
-    private Map<String, Object> numFBMap = null;
-
-
-
-
-
-
-
-
     //This is used to increment the report number when a report is generated
-    private Integer wsrnumber = null;
-    private Integer wqrnumber = null;
-    // map where reportnumbers are stored to be sent back up to Firebase later
-    private HashMap<String, Integer> numberingReports = new HashMap<String, Integer>();
+    private Integer wsrNumber = null;
+    private Integer wqrNumber = null;
 
     //collection of users that have accounts
-    private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
+    private final HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<>();
     private UserProfile currentUser;
 
     //where all water source reports are stored
-    private static HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<Integer, WaterSourceReport>();
+    private static final HashMap<Integer, WaterSourceReport> waterSourceReportHashMap = new HashMap<>();
 
     //where all water quality reports are stored
-    private static HashMap<Integer, WaterQualityReport> waterQualityReportHashMap = new HashMap<Integer, WaterQualityReport>();
+    private static final HashMap<Integer, WaterQualityReport> waterQualityReportHashMap = new HashMap<>();
 
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
 
-    //has a hashmap that stores the water source reports
+    //has a HashMap that stores the water source reports
     public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
-    //has a hashmap that stores the water quality reports
+    //has a HashMap that stores the water quality reports
     public static HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
 
     /**
-     * Adds a userProfile to the Hashmap
-     * @param userProfile the User Profile to add to the hashmap.
+     * Adds a userProfile to the HashMap
+     * @param userProfile the User Profile to add to the HashMap.
      */
     public void addUserProfile(UserProfile userProfile){
         //we can remove the array list if we want.
@@ -225,17 +211,17 @@ public class Session {
         userProfileStringHashMap.put(userProfile.getId(),userProfile);
 
         //sending modified table back up to firebase
-        Map<String, Object> fbInsert = new HashMap<String, Object>();
+        Map<String, Object> fbInsert = new HashMap<>();
         for (Map.Entry<String, UserProfile> entry : userProfileStringHashMap.entrySet()) {
-            fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+            fbInsert.put(entry.getKey(), entry.getValue());
         }
         try {
             FirebaseResponse resp = fbCurrent.put(Session.getInstance().getPeopleURL(), fbInsert);
-        } catch (JacksonUtilityException juex) {
+        } catch (JacksonUtilityException ignored) {
 
-        } catch (FirebaseException fbex) {
+        } catch (FirebaseException ignored) {
 
-        } catch (UnsupportedEncodingException ueex) {
+        } catch (UnsupportedEncodingException ignored) {
 
         }
     }
@@ -273,7 +259,7 @@ public class Session {
         return wqrURL;
     }
 
-    public String getPeopleURL() {
+    private String getPeopleURL() {
         return peopleURL;
     }
     public String getNumURL() {
@@ -284,18 +270,18 @@ public class Session {
         return fbCurrent;
     }
 
-    public Integer getWqrnumber() {
-        return wqrnumber;
+    public Integer getWqrNumber() {
+        return wqrNumber;
     }
 
-    public Integer getWsrnumber() {
-        return wsrnumber;
+    public Integer getWsrNumber() {
+        return wsrNumber;
     }
-    public void incrementWqrnumber() {
-        wqrnumber++;
+    public void incrementWqrNumber() {
+        wqrNumber++;
     }
 
-    public void incrementWsrnumber() {
-        wsrnumber++;
+    public void incrementWsrNumber() {
+        wsrNumber++;
     }
 }

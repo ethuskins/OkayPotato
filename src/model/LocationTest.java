@@ -1,18 +1,17 @@
+
 package model;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Created by Forrest on 11/8/2016.
  */
+
 public class LocationTest {
 
-    Location location1;
-    Location location2;
-    Location location3;
-    Location location4;
+    private Location location1;
+    private Location location2;
+    private Location location3;
+    private Location location4;
 
 
     @Before

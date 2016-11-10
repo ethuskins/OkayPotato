@@ -17,7 +17,7 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class JacksonUtility {
 
-	protected static final Logger 			LOGGER 					= Logger.getRootLogger();
+	private static final Logger 			LOGGER 					= Logger.getRootLogger();
 	
 	
 	
@@ -35,7 +35,7 @@ public class JacksonUtility {
 		
 		if( dataMap == null || dataMap.isEmpty() ) {
 			LOGGER.info( "cannot convert data from map into json when map is null/empty" );
-			return new String(); // don't want to return null to avoid NPEs
+			return ""; // don't want to return null to avoid NPEs
 		}
 		
 		Writer writer = new StringWriter();		
@@ -74,7 +74,7 @@ public class JacksonUtility {
 		
 		if( jsonResponse == null || jsonResponse.trim().isEmpty() ) {
 			LOGGER.warn( "jsonResponse was null/empty, returning empty map; was: '" + jsonResponse + "'" );
-			return new HashMap<String, Object>(); // don't want to return null to avoid NPEs
+			return new HashMap<>(); // don't want to return null to avoid NPEs
 		}
 		jsonResponse = jsonResponse.trim();
 		
@@ -98,7 +98,7 @@ public class JacksonUtility {
 		
 		// don't want to return null to avoid NPEs
 		if( result == null ) {
-			result = new LinkedHashMap<String, Object>();
+			result = new LinkedHashMap<>();
 		}
 		
 		return result;

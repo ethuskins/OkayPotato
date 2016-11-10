@@ -2,12 +2,7 @@ package model;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import fxapp.Main;
-import fxapp.Session;
 
 
 /**
@@ -19,8 +14,7 @@ public class Facade {
     public static Facade getInstance() { return instance; }
 
     //this is our simple model
-    private List<Location> locations = new ArrayList<Location>();
-    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
+    private final List<Location> locations = new ArrayList<>();
 
     private Facade() {
         //dummy make some data
@@ -39,11 +33,13 @@ public class Facade {
         */
     }
 
-    /**
-     * Getter method for locations.
-     * @return locations the list of locations
-     */
-    public List<Location> getLocations() { return locations; }
+// --Commented out by Inspection START (11/10/2016 5:15 PM):
+//    /**
+//     * Getter method for locations.
+//     * @return locations the list of locations
+//     */
+//    public List<Location> getLocations() { return locations; }
+// --Commented out by Inspection STOP (11/10/2016 5:15 PM)
 
     public void saveModelToText(File file) {
         PersistenceManager pm = new PersistenceManager(locations);
@@ -76,7 +72,7 @@ public class Facade {
     }
 
     /**
-     * Adds a locaiton to the locations array list.
+     * Adds a location to the locations array list.
      */
     public void addLocations() {
         locations.add(new Location(33.75, -84.4, "New Marker", "Some new data", WaterCondition.POTABLE, WaterType.BOTTLED));

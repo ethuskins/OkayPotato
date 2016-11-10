@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import model.ReportType;
 import model.WaterQualityReport;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Set;
 import javafx.scene.chart.LineChart;
@@ -41,11 +40,11 @@ public class HistoricalReportController {
         reportGraph.setTitle("Historical Report at " + latitude + " by " + longitude + " in " + year);
 
         XYChart.Series series = new XYChart.Series();
-        HashMap<Integer, WaterQualityReport> reportsMap = Session.getInstance().getWaterQualityReportHashMap();
-        Set<Integer> keylist = reportsMap.keySet();
-        ObservableList<WaterQualityReport> reportlist = FXCollections.observableArrayList();
+        HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
+        Set<Integer> keyList = reportsMap.keySet();
+        ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
         double[][] reports = new double[12][2];
-        for (Integer x : keylist) {
+        for (Integer x : keyList) {
             if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {
                 int month = reportsMap.get(x).getMonth();
                 double ppm;

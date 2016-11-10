@@ -13,12 +13,12 @@ import java.util.logging.Logger;
  */
 public class Location implements Serializable {
 
-    private static Logger LOGGER = Logger.getLogger("Location");
-    private static FileHandler logFileHandler;
+    private static final Logger LOGGER = Logger.getLogger("Location");
+
     static {
         LOGGER.setLevel(Level.FINER);
         try {
-            logFileHandler = new FileHandler("LogFile");
+            FileHandler logFileHandler = new FileHandler("LogFile");
             logFileHandler.setLevel(Level.ALL);
             LOGGER.addHandler(logFileHandler);
         } catch (IOException ex) {
@@ -30,7 +30,6 @@ public class Location implements Serializable {
     private final double latitude;
     private final String description;
     private final String title;
-    private WaterCondition cond=null;
     private QuaCondition quaCond=null;
     private WaterType type=null;
 
@@ -41,7 +40,7 @@ public class Location implements Serializable {
         description = desc;
         title = ti;
         LOGGER.exiting("Location", "Constructor");
-        this.cond = cond;
+        WaterCondition cond1 = cond;
         this.type = type;
     }
     public Location(double lat, double lg, String ti, String desc, QuaCondition quaCond) {
@@ -78,12 +77,6 @@ public class Location implements Serializable {
      * @return title
      */
     public String getTitle() { return title; }
-
-    /**
-     * getter for condition
-     * @return condition
-     */
-    public WaterCondition getCond() { return cond; }
 
     /**
      * getter for quality condition

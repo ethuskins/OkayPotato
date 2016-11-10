@@ -30,7 +30,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     private Main theApp;
 
-    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
+    private HashMap<Integer, WaterSourceReport> reports = Session.getWaterSourceReportHashMap();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,9 +70,9 @@ public class MapController implements Initializable, MapComponentInitializedList
 
 
         /* now we communciate with the model to get all the locations for markers */
-        List<Location> locations = new ArrayList<Location>();
+        List<Location> locations = new ArrayList<>();
         //HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
-        HashMap<Integer, WaterQualityReport> reports = Session.getInstance().getWaterQualityReportHashMap();
+        HashMap<Integer, WaterQualityReport> reports = Session.getWaterQualityReportHashMap();
         for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
             Location l = report.getValue().getLocation();
             locations.add(l);

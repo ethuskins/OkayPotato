@@ -27,7 +27,7 @@ public class WaterQualityReportController {
     @FXML private TextField latitudeTextField;
     @FXML private TextField titleTextField;
     @FXML private TextField descriptionTextField;
-    @FXML private ComboBox<QuaCondition> quaConditionComboBox = new ComboBox<QuaCondition>();
+    @FXML private ComboBox<QuaCondition> quaConditionComboBox = new ComboBox<>();
     //@FXML private ComboBox<WaterCondition> waterConditionComboBox = new ComboBox<WaterCondition>();
     //@FXML private ComboBox<WaterType> waterTypeComboBox = new ComboBox<WaterType>();
     @FXML private TextField virusTextField;
@@ -61,43 +61,43 @@ public class WaterQualityReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, quaCondition);
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
-            HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getInstance().getWaterQualityReportHashMap();
+            HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getWaterQualityReportHashMap();
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = Session.getInstance().getWqrnumber();
+                int reportNum = Session.getInstance().getWqrNumber();
 
                 WaterQualityReport qualityReport = new WaterQualityReport(reportNum, Session.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
                 qualityReportMap.put(reportNum, qualityReport);
 
                 //sending modified table back up to firebase
                 Firebase fb = Session.getInstance().getFbCurrent();
-                Map<String, Object> fbInsert = new HashMap<String, Object>();
+                Map<String, Object> fbInsert = new HashMap<>();
                 for (Map.Entry<Integer, WaterQualityReport> entry : qualityReportMap.entrySet()) {
-                    fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+                    fbInsert.put(entry.getKey().toString(), entry.getValue());
                 }
                 try {
                     FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
-                } catch (JacksonUtilityException juex) {
+                } catch (JacksonUtilityException ignored) {
 
                 } catch (FirebaseException fbex) {
                     System.out.println("FB exception in wqrcontroller");
                 }
 
 
-                Session.getInstance().incrementWqrnumber();
+                Session.getInstance().incrementWqrNumber();
 
 
 
 
-                Map<String, Object> fbInsertNum = new HashMap<String, Object>();
-                fbInsertNum.put("wsrNumber", (Object) Session.getInstance().getWsrnumber());
-                fbInsertNum.put("wqrNumber", (Object) Session.getInstance().getWqrnumber());
+                Map<String, Object> fbInsertNum = new HashMap<>();
+                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrNumber());
+                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrNumber());
                 try {
                     FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
-                } catch (JacksonUtilityException juex) {
+                } catch (JacksonUtilityException ignored) {
 
-                } catch (FirebaseException fbex) {
+                } catch (FirebaseException ignored) {
 
                 }
 

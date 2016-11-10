@@ -12,64 +12,78 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <columnConstraints>
-      <ColumnConstraints />
+      <ColumnConstraints/>
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints />
+      <RowConstraints/>
    </rowConstraints>
-   <children>
-      <Pane prefHeight="416.0" prefWidth="484.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="484.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
-                     <stops>
-                        <Stop color="#1987c2" />
-                        <Stop color="#1987c2" offset="0.011494252873563218" />
-                        <Stop color="#24e8e4" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <ImageView fitHeight="385.0" fitWidth="626.0" layoutX="55.0" layoutY="125.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.63">
-               <image>
-                  <Image url="@mountains.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="logoutButton" layoutX="386.0" layoutY="25.0" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="39.0" prefWidth="75.0" text="Log Out" textAlignment="CENTER" />
-            <Button fx:id="editProfileButton" layoutX="293.0" layoutY="25.0" mnemonicParsing="false" onAction="#editProfileButtonPressed" prefHeight="39.0" prefWidth="75.0" text="Edit Profile" />
-            <Button fx:id="submitReportButton" layoutX="257.0" layoutY="230.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" prefHeight="56.0" prefWidth="190.0" text="Submit Water Source Report">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <Button fx:id="sourceReportListButton" layoutX="36.0" layoutY="230.0" mnemonicParsing="false" onAction="#sourceReportListButtonPressed" prefHeight="56.0" prefWidth="190.0" text="View Source Report List">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <Button fx:id="viewReportMapButton" layoutX="257.0" layoutY="317.0" mnemonicParsing="false" onAction="#viewReportMapButtonPressed" prefHeight="56.0" prefWidth="190.0" text="View Report Map">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <Button fx:id="submitQualityReportButton" layoutX="257.0" layoutY="143.0" mnemonicParsing="false" onAction="#submitQualityReportButtonPressed" prefHeight="56.0" prefWidth="190.0" text="Submit Water Quality Report" textOverrun="CLIP">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <Button fx:id="qualityReportListButton" layoutX="36.0" layoutY="143.0" mnemonicParsing="false" onAction="#qualityReportListButtonPressed" prefHeight="56.0" prefWidth="190.0" text="View Quality Report List">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <Button fx:id="viewHistoricalReportButton" layoutX="36.0" layoutY="317.0" mnemonicParsing="false" onAction="#viewHistoricalReportButtonPressed" prefHeight="56.0" prefWidth="190.0" text="View Historical Report">
-               <font>
-                  <Font name="Calibri Light" size="14.0" />
-               </font></Button>
-            <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
+   <Pane prefHeight="416.0" prefWidth="484.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="484.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+               <stops>
+                  <Stop color="#1987c2"/>
+                  <Stop color="#1987c2" offset="0.011494252873563218"/>
+                  <Stop color="#24e8e4" offset="1.0"/>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView fitHeight="385.0" fitWidth="626.0" layoutX="55.0" layoutY="125.0" nodeOrientation="RIGHT_TO_LEFT"
+                 opacity="0.63">
+         <Image url="@mountains.png"/>
+      </ImageView>
+      <Button fx:id="logoutButton" layoutX="386.0" layoutY="25.0" mnemonicParsing="false"
+              onAction="#logoutButtonPressed" prefHeight="39.0" prefWidth="75.0" text="Log Out"
+              textAlignment="CENTER"/>
+      <Button fx:id="editProfileButton" layoutX="293.0" layoutY="25.0" mnemonicParsing="false"
+              onAction="#editProfileButtonPressed" prefHeight="39.0" prefWidth="75.0" text="Edit Profile"/>
+      <Button fx:id="submitReportButton" layoutX="257.0" layoutY="230.0" mnemonicParsing="false"
+              onAction="#submitReportButtonPressed" prefHeight="56.0" prefWidth="190.0"
+              text="Submit Water Source Report">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <Button fx:id="sourceReportListButton" layoutX="36.0" layoutY="230.0" mnemonicParsing="false"
+              onAction="#sourceReportListButtonPressed" prefHeight="56.0" prefWidth="190.0"
+              text="View Source Report List">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <Button fx:id="viewReportMapButton" layoutX="257.0" layoutY="317.0" mnemonicParsing="false"
+              onAction="#viewReportMapButtonPressed" prefHeight="56.0" prefWidth="190.0" text="View Report Map">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <Button fx:id="submitQualityReportButton" layoutX="257.0" layoutY="143.0" mnemonicParsing="false"
+              onAction="#submitQualityReportButtonPressed" prefHeight="56.0" prefWidth="190.0"
+              text="Submit Water Quality Report" textOverrun="CLIP">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <Button fx:id="qualityReportListButton" layoutX="36.0" layoutY="143.0" mnemonicParsing="false"
+              onAction="#qualityReportListButtonPressed" prefHeight="56.0" prefWidth="190.0"
+              text="View Quality Report List">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <Button fx:id="viewHistoricalReportButton" layoutX="36.0" layoutY="317.0" mnemonicParsing="false"
+              onAction="#viewHistoricalReportButtonPressed" prefHeight="56.0" prefWidth="190.0"
+              text="View Historical Report">
+         <font>
+            <Font name="Calibri Light" size="14.0"/>
+         </font>
+      </Button>
+      <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0">
+         <Image url="@logo.png"/>
+      </ImageView>
+   </Pane>
 </GridPane>
