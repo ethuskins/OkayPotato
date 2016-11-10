@@ -13,13 +13,7 @@
    <top>
        <MenuBar BorderPane.alignment="CENTER">
            <Menu mnemonicParsing="false" text="File">
-               <MenuItem mnemonicParsing="false" onAction="#onOpenTextFileMenu" text="Open Text File "/>
-               <MenuItem mnemonicParsing="false" onAction="#onOpenBinaryFileMenu" text="Open Binary File"/>
-               <MenuItem mnemonicParsing="false" onAction="#onOpenJsonFileMenu" text="Open JSON File"/>
                <SeparatorMenuItem mnemonicParsing="false"/>
-               <MenuItem mnemonicParsing="false" onAction="#onSaveTextFileMenu" text="Save Text File"/>
-               <MenuItem mnemonicParsing="false" onAction="#onSaveBinaryFileMenu" text="Save Binary File"/>
-               <MenuItem mnemonicParsing="false" onAction="#onSaveJsonMenu" text="Save As JSON"/>
                <MenuItem mnemonicParsing="false" onAction="#onCloseMenu" text="Close"/>
            </Menu>
            <Menu mnemonicParsing="false" text="Edit">

@@ -2,6 +2,10 @@
 package model;
 
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 /**
  * Created by Forrest on 11/8/2016.
  */

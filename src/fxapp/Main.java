@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Facade;
 
 import java.io.IOException;
 
@@ -95,8 +94,6 @@ public class Main extends Application {
      * dummy method to simulate a callback from the map view
      */
     public void closeMapView() {
-        Facade fc = Facade.getInstance();
-        fc.addLocations();
         controller.mapInitialized();
         //mainStage.setScene(mapScene);
     }
