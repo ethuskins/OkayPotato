@@ -45,10 +45,10 @@ public class Session {
     //our current connection to firebase
     private Firebase fbCurrent = null;
     //The information on the current connections
-    private FirebaseResponse wsrFirebase = null;
-    private FirebaseResponse wqrFirebase = null;
-    private FirebaseResponse peopleFirebase = null;
-    private FirebaseResponse numFirebase = null;
+    private FirebaseResponse wsrFirebase;
+    private FirebaseResponse wqrFirebase;
+    private FirebaseResponse peopleFirebase;
+    private FirebaseResponse numFirebase;
 
 
 
@@ -179,10 +179,10 @@ public class Session {
 
 
     //Maps that are filled by Firebase with table information
-    private Map<String, Object> wsrFBMap = null;
-    private Map<String, Object> wqrFBMap = null;
-    private Map<String, Object> peopleFBMap = null;
-    private Map<String, Object> numFBMap = null;
+    private Map<String, Object> wsrFBMap;
+    private Map<String, Object> wqrFBMap;
+    private Map<String, Object> peopleFBMap;
+    private Map<String, Object> numFBMap;
 
 
 
@@ -195,7 +195,7 @@ public class Session {
     private Integer wsrnumber = null;
     private Integer wqrnumber = null;
     // map where reportnumbers are stored to be sent back up to Firebase later
-    private HashMap<String, Integer> numberingReports = new HashMap<String, Integer>();
+    private HashMap<String, Integer> numberingReports;
 
     //collection of users that have accounts
     private HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<String, UserProfile>();
@@ -210,10 +210,10 @@ public class Session {
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
 
     //has a hashmap that stores the water source reports
-    public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
+    public HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
     //has a hashmap that stores the water quality reports
-    public static HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
+    public HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
 
     /**
      * Adds a userProfile to the Hashmap
@@ -227,10 +227,10 @@ public class Session {
         //sending modified table back up to firebase
         Map<String, Object> fbInsert = new HashMap<String, Object>();
         for (Map.Entry<String, UserProfile> entry : userProfileStringHashMap.entrySet()) {
-            fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+            fbInsert.put(entry.getKey(), (Object) entry.getValue());
         }
         try {
-            FirebaseResponse resp = fbCurrent.put(Session.getInstance().getPeopleURL(), fbInsert);
+            fbCurrent.put(Session.getInstance().getPeopleURL(), fbInsert);
         } catch (JacksonUtilityException juex) {
 
         } catch (FirebaseException fbex) {

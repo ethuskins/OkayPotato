@@ -81,7 +81,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         //locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
-        Facade fc = Facade.getInstance();
         //List<Location> locations = fc.getLocations();
 
         //for (Location l: locations) {

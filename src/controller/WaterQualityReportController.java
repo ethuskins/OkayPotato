@@ -63,6 +63,7 @@ public class WaterQualityReportController {
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
             HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getInstance().getWaterQualityReportHashMap();
 
+            //noinspection ObjectEqualsNull
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
                 int reportNum = Session.getInstance().getWqrnumber();
@@ -77,7 +78,7 @@ public class WaterQualityReportController {
                     fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
                 }
                 try {
-                    FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
+                    fb.put(Session.getInstance().getWqrURL(), fbInsert);
                 } catch (JacksonUtilityException juex) {
 
                 } catch (FirebaseException fbex) {
@@ -94,7 +95,7 @@ public class WaterQualityReportController {
                 fbInsertNum.put("wsrNumber", (Object) Session.getInstance().getWsrnumber());
                 fbInsertNum.put("wqrNumber", (Object) Session.getInstance().getWqrnumber());
                 try {
-                    FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
+                    fb.put(Session.getInstance().getNumURL(), fbInsertNum);
                 } catch (JacksonUtilityException juex) {
 
                 } catch (FirebaseException fbex) {

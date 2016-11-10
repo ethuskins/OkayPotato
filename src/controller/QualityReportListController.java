@@ -72,7 +72,6 @@ public class QualityReportListController {
         for (Integer x : keylist) {
             reportlist.add(testermap.get(x));
         }
-        ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testermap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 

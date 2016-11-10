@@ -59,6 +59,7 @@ public class NewUserRegistrationController {
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
+        //noinspection ObjectEqualsNull
         if (!name.equals("") && !password.equals("")
                 && !id.equals("") && !accountType.equals(null) && !idExists){
 
