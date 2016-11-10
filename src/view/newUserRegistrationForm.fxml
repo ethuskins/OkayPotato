@@ -64,7 +64,7 @@
                   <Font name="Calibri Light" size="18.0" />
                </font></Label>
             <PasswordField fx:id="passwordTextField" layoutX="266.0" layoutY="186.0" />
-            <ImageView fitHeight="123.0" fitWidth="200.0" layoutX="22.0" layoutY="14.0">
+            <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="24.0" layoutY="24.0">
                <image>
                   <Image url="@logo.png" />
                </image>
