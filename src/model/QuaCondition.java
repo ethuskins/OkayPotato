@@ -1,8 +1,6 @@
 package model;
 
-/**
- * Created by Jack Winski on 10/24/2016.
- */
+
 
     public enum QuaCondition {
         SAFE, TREATABLE, UNSAFE;

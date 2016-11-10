@@ -7,10 +7,6 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by Jack Winski on 10/24/2016.
- */
-
 class QuaLocation implements Serializable {
 
     private static final Logger LOGGER = Logger.getLogger("Location");

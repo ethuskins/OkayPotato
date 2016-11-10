@@ -1,11 +1,11 @@
-
+/*
 package model;
 
 
 /**
  * Created by Forrest on 11/8/2016.
  */
-
+/*
 public class LocationTest {
 
     private Location location1;
@@ -46,3 +46,4 @@ public class LocationTest {
         Assert.assertEquals(test, location4.toString());
     }
 }
+*/
