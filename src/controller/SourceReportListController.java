@@ -7,9 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import model.AccountType;
-import model.WaterQualityReport;
 import model.WaterSourceReport;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -66,35 +63,35 @@ public class SourceReportListController {
     //Populates the table with Water Source Reports.
     @FXML
     private void populateTable() {
-        HashMap<Integer, WaterSourceReport> testermap = Session.getInstance().getWaterSourceReportHashMap();
-        //HashMap<Integer, WaterQualityReport> testermap = mainApplication.getWaterQualityReportHashMap();
-        Set<Integer> keylist = testermap.keySet();
-        ObservableList<WaterSourceReport> reportlist = FXCollections.observableArrayList();
-        for (Integer x : keylist) {
-            reportlist.add(testermap.get(x));
+        HashMap<Integer, WaterSourceReport> testerMap = Session.getWaterSourceReportHashMap();
+        //HashMap<Integer, WaterQualityReport> testerMap = mainApplication.getWaterQualityReportHashMap();
+        Set<Integer> keyList = testerMap.keySet();
+        ObservableList<WaterSourceReport> reportList = FXCollections.observableArrayList();
+        for (Integer x : keyList) {
+            reportList.add(testerMap.get(x));
         }
-        ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testermap);
+        ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, Integer>("reportNumber"));
+                new PropertyValueFactory<>("reportNumber"));
         tableDateTime.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, Integer>("dateTime")
+                new PropertyValueFactory<>("dateTime")
         );
         tableReporter.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("reporterName")
+                new PropertyValueFactory<>("reporterName")
         );
         tableLocation.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("stringLocation")
+                new PropertyValueFactory<>("stringLocation")
         );
         tableType.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("waterType")
+                new PropertyValueFactory<>("waterType")
         );
         tableCondition.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("waterCondition")
+                new PropertyValueFactory<>("waterCondition")
         );
-        tableReports.setItems(reportlist);
+        tableReports.setItems(reportList);
         //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
 }

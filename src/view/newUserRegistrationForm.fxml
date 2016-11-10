@@ -16,60 +16,60 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewUserRegistrationController">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <Pane prefHeight="416.0" prefWidth="484.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="484.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
-                     <stops>
-                        <Stop color="#1987c2" />
-                        <Stop color="#1987c2" offset="0.011494252873563218" />
-                        <Stop color="#24e8e4" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <TextField fx:id="nameTextField" layoutX="79.0" layoutY="186.0" />
-            <TextField fx:id="idTextField" layoutX="79.0" layoutY="245.0" />
-            <ImageView fitHeight="385.0" fitWidth="626.0" layoutX="65.0" layoutY="135.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
-               <image>
-                  <Image url="@mountains.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="79.0" layoutY="167.0" text="Name" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label layoutX="79.0" layoutY="227.0" text="ID" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label layoutX="263.0" layoutY="167.0" text="Password" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Button fx:id="confirmButton" layoutX="262.0" layoutY="313.0" mnemonicParsing="false" onAction="#confirmButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Confirm" />
-            <Button fx:id="cancelButton" layoutX="160.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel" />
-            <ComboBox fx:id="accountTypeComboBox" layoutX="263.0" layoutY="246.0" prefWidth="150.0" />
-            <Label layoutX="262.0" layoutY="227.0" text="Account Type" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <PasswordField fx:id="passwordTextField" layoutX="266.0" layoutY="186.0" />
-            <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="24.0" layoutY="24.0">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewUserRegistrationController">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <Pane prefHeight="416.0" prefWidth="484.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="484.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+                    <stops>
+                        <Stop color="#1987c2"/>
+                        <Stop color="#1987c2" offset="0.011494252873563218"/>
+                        <Stop color="#24e8e4" offset="1.0"/>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <TextField fx:id="nameTextField" layoutX="79.0" layoutY="186.0"/>
+        <TextField fx:id="idTextField" layoutX="79.0" layoutY="245.0"/>
+        <ImageView fitHeight="385.0" fitWidth="626.0" layoutX="65.0" layoutY="135.0" nodeOrientation="RIGHT_TO_LEFT"
+                   opacity="0.27">
+            <Image url="@mountains.png"/>
+        </ImageView>
+        <Label layoutX="79.0" layoutY="167.0" text="Name" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="79.0" layoutY="227.0" text="ID" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="263.0" layoutY="167.0" text="Password" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="confirmButton" layoutX="262.0" layoutY="313.0" mnemonicParsing="false"
+                onAction="#confirmButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Confirm"/>
+        <Button fx:id="cancelButton" layoutX="160.0" layoutY="313.0" mnemonicParsing="false"
+                onAction="#cancelButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel"/>
+        <ComboBox fx:id="accountTypeComboBox" layoutX="263.0" layoutY="246.0" prefWidth="150.0"/>
+        <Label layoutX="262.0" layoutY="227.0" text="Account Type" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <PasswordField fx:id="passwordTextField" layoutX="266.0" layoutY="186.0"/>
+        <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="24.0" layoutY="24.0">
+            <Image url="@logo.png"/>
+        </ImageView>
+    </Pane>
 </GridPane>

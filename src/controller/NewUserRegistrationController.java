@@ -26,7 +26,7 @@ public class NewUserRegistrationController {
     @FXML private TextField nameTextField;
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
-    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<AccountType>();
+    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<>();
 
     private Main mainApplication;
 

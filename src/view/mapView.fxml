@@ -11,32 +11,24 @@
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.MapController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onOpenTextFileMenu" text="Open Text File " />
-                  <MenuItem mnemonicParsing="false" onAction="#onOpenBinaryFileMenu" text="Open Binary File" />
-                  <MenuItem mnemonicParsing="false" onAction="#onOpenJsonFileMenu" text="Open JSON File" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#onSaveTextFileMenu" text="Save Text File" />
-                  <MenuItem mnemonicParsing="false" onAction="#onSaveBinaryFileMenu" text="Save Binary File" />
-                  <MenuItem mnemonicParsing="false" onAction="#onSaveJsonMenu" text="Save As JSON" />
-              <MenuItem mnemonicParsing="false" onAction="#onCloseMenu" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="File">
+               <MenuItem mnemonicParsing="false" onAction="#onOpenTextFileMenu" text="Open Text File "/>
+               <MenuItem mnemonicParsing="false" onAction="#onOpenBinaryFileMenu" text="Open Binary File"/>
+               <MenuItem mnemonicParsing="false" onAction="#onOpenJsonFileMenu" text="Open JSON File"/>
+               <SeparatorMenuItem mnemonicParsing="false"/>
+               <MenuItem mnemonicParsing="false" onAction="#onSaveTextFileMenu" text="Save Text File"/>
+               <MenuItem mnemonicParsing="false" onAction="#onSaveBinaryFileMenu" text="Save Binary File"/>
+               <MenuItem mnemonicParsing="false" onAction="#onSaveJsonMenu" text="Save As JSON"/>
+               <MenuItem mnemonicParsing="false" onAction="#onCloseMenu" text="Close"/>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Edit">
+               <MenuItem mnemonicParsing="false" text="Delete"/>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Help">
+               <MenuItem mnemonicParsing="false" text="About"/>
+           </Menu>
+       </MenuBar>
    </top>
    <center>
       <GoogleMapView fx:id="mapView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />

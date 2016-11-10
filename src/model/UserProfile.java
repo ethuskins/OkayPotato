@@ -1,7 +1,5 @@
 package model;
 
-import javafx.beans.property.SimpleStringProperty;
-
 /**
  * Contains the user's information
  */

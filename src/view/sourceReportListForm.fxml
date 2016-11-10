@@ -7,25 +7,29 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.72" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SourceReportListController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.72"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SourceReportListController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
-    <children>
-        <TableView fx:id="tableReports" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="550.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-            <columns>
-                <TableColumn fx:id="tableReportNumber" prefWidth="75.0" text="Report #" />
-                <TableColumn fx:id="tableDateTime" prefWidth="75.0" text="Date submitted" />
-                <TableColumn fx:id="tableReporter" prefWidth="75.0" text="Reporter" />
-                <TableColumn fx:id="tableLocation" prefWidth="75.0" text="Location" />
-                <TableColumn fx:id="tableType" prefWidth="57.0" text="Type" />
-                <TableColumn fx:id="tableCondition" prefWidth="93.0" text="Condition" />
-            </columns>
-        </TableView>
-        <Button fx:id="buttonPopulate" mnemonicParsing="false" onAction="#populateTable" text="Populate Reports" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-        <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#returnButtonPressed" text="Back to Home" GridPane.valignment="TOP" />
-    </children>
+    <TableView fx:id="tableReports" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="300.0" prefWidth="550.0" GridPane.halignment="CENTER"
+               GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <columns>
+            <TableColumn fx:id="tableReportNumber" prefWidth="75.0" text="Report #"/>
+            <TableColumn fx:id="tableDateTime" prefWidth="75.0" text="Date submitted"/>
+            <TableColumn fx:id="tableReporter" prefWidth="75.0" text="Reporter"/>
+            <TableColumn fx:id="tableLocation" prefWidth="75.0" text="Location"/>
+            <TableColumn fx:id="tableType" prefWidth="57.0" text="Type"/>
+            <TableColumn fx:id="tableCondition" prefWidth="93.0" text="Condition"/>
+        </columns>
+    </TableView>
+    <Button fx:id="buttonPopulate" mnemonicParsing="false" onAction="#populateTable" text="Populate Reports"
+            GridPane.halignment="CENTER" GridPane.valignment="BOTTOM"/>
+    <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#returnButtonPressed" text="Back to Home"
+            GridPane.valignment="TOP"/>
 </GridPane>

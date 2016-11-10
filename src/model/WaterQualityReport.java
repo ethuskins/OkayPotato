@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDateTime;
 import java.util.Calendar;
 
 /**
@@ -11,7 +10,7 @@ import java.util.Calendar;
     private int year;
     private int month;
     private int day;
-    private String reporterName;
+    private final String reporterName;
     private String reporterID;
     private Location waterLocation;
     private WaterCondition waterCondition;
@@ -29,7 +28,6 @@ import java.util.Calendar;
         contamPPM = conPPM;
     }
     public WaterQualityReport(int reportNum, UserProfile user, Location location){
-        this.waterCondition = waterCondition;
         reportNumber = reportNum;
         reporterName = user.getName();
         reporterID = user.getId();
@@ -38,9 +36,9 @@ import java.util.Calendar;
         stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
-        month = timenow.MONTH;
-        day = timenow.DAY_OF_MONTH;
-        year = timenow.YEAR;
+        month = Calendar.MONTH;
+        day = Calendar.DAY_OF_MONTH;
+        year = Calendar.YEAR;
     }
 
 
@@ -167,7 +165,6 @@ import java.util.Calendar;
      * @param waterCondition the new waterCondition
      */
     public void setQuaCondition(QuaCondition waterCondition) {
-        this.quaCondition = quaCondition;
     }
 
 

@@ -8,26 +8,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportController">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <Pane prefHeight="416.0" prefWidth="484.0">
-         <children>
-            <Button fx:id="backButton" layoutX="429.0" layoutY="377.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
-            <LineChart fx:id="reportGraph" layoutX="14.0" layoutY="12.0" prefHeight="365.0" prefWidth="457.0" title="Water Quality Report">
-              <xAxis>
-                <NumberAxis fx:id="monthAxis" autoRanging="false" forceZeroInRange="false" label="Month" lowerBound="1.0" side="BOTTOM" tickLabelGap="0.0" tickUnit="1.0" upperBound="12.0" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis fx:id="partsAxis" label="PPM" side="LEFT" upperBound="300" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </Pane>
-   </children>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.60"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricalReportController">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <Pane prefHeight="416.0" prefWidth="484.0">
+        <Button fx:id="backButton" layoutX="429.0" layoutY="377.0" mnemonicParsing="false"
+                onAction="#backButtonPressed" text="Back"/>
+        <LineChart fx:id="reportGraph" layoutX="14.0" layoutY="12.0" prefHeight="365.0" prefWidth="457.0"
+                   title="Water Quality Report">
+            <xAxis>
+                <NumberAxis fx:id="monthAxis" autoRanging="false" forceZeroInRange="false" label="Month"
+                            lowerBound="1.0" side="BOTTOM" tickLabelGap="0.0" tickUnit="1.0" upperBound="12.0"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="partsAxis" label="PPM" side="LEFT" upperBound="300"/>
+            </yAxis>
+        </LineChart>
+    </Pane>
 </GridPane>
