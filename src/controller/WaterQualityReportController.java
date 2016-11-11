@@ -111,7 +111,7 @@ public class WaterQualityReportController {
     }
 
     /**
-     * Controls what happenes when the cangel button is pressed.
+     * Controls what happens when the cancel button is pressed.
      */
     @FXML
     public void cancelReportButtonPressed() {

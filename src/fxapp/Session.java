@@ -116,7 +116,7 @@ public class Session {
         //process firebase maps to fill the HashMaps we want the project to use
 
         Gson gson = new Gson();
-        if (wsrFBMap.entrySet() != null) {
+        if (wsrFBMap != null && !wsrFBMap.entrySet().isEmpty()) {
             for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
 
                 LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
@@ -135,7 +135,7 @@ public class Session {
         }
 
 
-        if (wqrFBMap.entrySet() != null) {
+        if (wqrFBMap != null && !wqrFBMap.entrySet().isEmpty()) {
             for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
                 LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
                 LinkedHashMap loc = (LinkedHashMap) jsonMap.get("location");
@@ -152,7 +152,7 @@ public class Session {
             }
         }
 
-        if (peopleFBMap.entrySet() != null) {
+        if (peopleFBMap != null && !peopleFBMap.entrySet().isEmpty()) {
             for (Map.Entry<String, Object> entry : peopleFBMap.entrySet()) {
                 LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
                 String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
@@ -162,7 +162,7 @@ public class Session {
             }
         }
 
-        if (numFBMap.entrySet() != null) {
+        if (numFBMap != null && !numFBMap.entrySet().isEmpty()) {
             HashMap<String, Integer> numberingReports = new HashMap<>();
             for (Map.Entry<String, Object> entry : numFBMap.entrySet()) {
                 numberingReports.put(entry.getKey(), (Integer) entry.getValue());
