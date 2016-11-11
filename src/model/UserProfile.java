@@ -36,7 +36,7 @@ public class UserProfile {
      * @param name the name of the user
      * @param id the id of the user
      * @param password the password of the user
-     * @param accountType the accounttype of the user
+     * @param accountType the accountType of the user
      */
 
     public UserProfile(String name, String id, String password, AccountType accountType){
