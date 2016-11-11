@@ -1,15 +1,15 @@
 package controller;
 
-import javafx.fxml.FXML;
+
 import javafx.scene.control.TextField;
-import junit.framework.Assert;
+
 import model.AccountType;
 import model.UserProfile;
-import org.junit.After;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 
-import static org.junit.Assert.*;
 
 public class UserProfileControllerTest {
 
