@@ -59,7 +59,7 @@ public class NewUserRegistrationController {
 
         boolean idExists = userProfileHashMap.containsKey(id);
         if (!name.equals("") && !password.equals("")
-                && !id.equals("") && !accountType.equals(null) && !idExists){
+                && !id.equals("") && accountType != null && !idExists){
 
 
             //create a UserProfile with the parameters in the fields

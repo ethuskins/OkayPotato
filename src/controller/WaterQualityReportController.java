@@ -55,7 +55,7 @@ public class WaterQualityReportController {
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
             HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getWaterQualityReportHashMap();
 
-            if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
+            if (!longitudeString.equals("") && !latitudeString.equals("") && quaCondition != null) {
                 //creates the new water report and puts it in the hash map
                 int reportNum = Session.getInstance().getWqrNumber();
 
