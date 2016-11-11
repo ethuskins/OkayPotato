@@ -64,14 +64,12 @@ public class SourceReportListController {
     @FXML
     private void populateTable() {
         HashMap<Integer, WaterSourceReport> testerMap = Session.getWaterSourceReportHashMap();
-        //HashMap<Integer, WaterQualityReport> testerMap = mainApplication.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterSourceReport> reportList = FXCollections.observableArrayList();
         for (Integer x : keyList) {
             reportList.add(testerMap.get(x));
         }
         ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
-        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(
@@ -92,6 +90,5 @@ public class SourceReportListController {
                 new PropertyValueFactory<>("waterCondition")
         );
         tableReports.setItems(reportList);
-        //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
 }

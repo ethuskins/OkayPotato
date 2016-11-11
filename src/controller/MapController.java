@@ -69,7 +69,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         /* now we communciate with the model to get all the locations for markers */
         List<Location> locations = new ArrayList<>();
-        //HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
         HashMap<Integer, WaterQualityReport> reports = Session.getWaterQualityReportHashMap();
         for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
             Location l = report.getValue().getLocation();
@@ -77,10 +76,7 @@ public class MapController implements Initializable, MapComponentInitializedList
         }
         System.out.println("There are " + reports.size() + " reports.");
 
-        //locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
-
-        //for (Location l: locations) {
         for (Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
             WaterQualityReport r = report.getValue();
             Location l = r.getLocation();
@@ -90,7 +86,6 @@ public class MapController implements Initializable, MapComponentInitializedList
             markerOptions.position(loc)
                     .visible(Boolean.TRUE)
                     .title("Quality Report: " + l.getTitle());
-            //markerOptions.label(l.getDescription());
             Marker marker = new Marker(markerOptions);
 
             map.addUIEventHandler(marker,
@@ -100,8 +95,6 @@ public class MapController implements Initializable, MapComponentInitializedList
                         InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
                         infoWindowOptions.content("<h2>" + l.getTitle()
                                 + "</h2><br>" + l.getDescription()
-                                //+ "<br>Water Condition: " + l.getCond().toString()
-                                //+ "<br>Water Type: " + l.getType().toString()
                                 + "<br>Quality Condition: " + r.getQuaCondition()
                                 + "<br>Location: " + l.getLatitude() + "," + l.getLongitude()
                                 + "<br>Added: " + r.getDay() + "-"+ r.getMonth() + "-" +r.getYear());

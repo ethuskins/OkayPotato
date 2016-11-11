@@ -31,7 +31,6 @@ public class TitleScreenController {
     public void registerButtonPressed(){
         //load the new user scene from newUserRegistrationForm.fxml
         FXMLLoader loader2 = new FXMLLoader();
-        //loader2.setLocation(Main.class.getResource("../view/loginCredentialsForm.fxml"));
         loader2.setLocation(Main.class.getResource("../view/newUserRegistrationForm.fxml"));
         mainApplication.setWindow(loader2);
         NewUserRegistrationController controller2 = loader2.getController();

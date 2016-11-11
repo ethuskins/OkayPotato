@@ -53,19 +53,13 @@ public class NewUserRegistrationController {
             e.printStackTrace();
         }
         AccountType accountType = accountTypeComboBox.getValue();
-       // AccountType accountType = AccountType.USER;
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
         if (!name.equals("") && !password.equals("")
                 && !id.equals("") && !accountType.equals(null) && !idExists){
 
-
-            //create a UserProfile with the parameters in the fields
-            //UserProfile userProfile = new UserProfile(nameTextField.getText(), idTextField.getText(),
-            //        passwordTextField.getText(), accountTypeComboBox.getSelectionModel().getSelectedItem());
             UserProfile userProfile = new UserProfile(name, id, hashedPass, accountType);
-
 
             //add the UserProfile to the list of UserProfiles
             Session.getInstance().addUserProfile(userProfile);

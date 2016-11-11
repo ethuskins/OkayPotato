@@ -65,7 +65,6 @@ public class QualityReportListController {
     //Populates the table with Water Source Reports.
     @FXML
     private void populateTable() {
-        //HashMap<Integer, WaterSourceReport> testerMap = mainApplication.getWaterSourceReportHashMap();
         HashMap<Integer, WaterQualityReport> testerMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
@@ -73,18 +72,15 @@ public class QualityReportListController {
             reportList.add(testerMap.get(x));
         }
         ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testerMap);
-        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(new PropertyValueFactory<>("reportNumber"));
         tableDateTime.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
         tableReporter.setCellValueFactory(new PropertyValueFactory<>("reporterName"));
         tableLocation.setCellValueFactory(new PropertyValueFactory<>("stringLocation"));
-        //tableType.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("waterType"));
         tableCondition.setCellValueFactory(new PropertyValueFactory<>("quaCondition"));
         tableVirusPPM.setCellValueFactory(new PropertyValueFactory<>("virusPPM"));
         tableContPPM.setCellValueFactory(new PropertyValueFactory<>("contamPPM"));
         tableReports.setItems(reportList);
-        //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
 }

@@ -37,7 +37,6 @@ public class WaterSourceReportController {
 
     @FXML
     public void submitReportButtonPressed() {
-        //String location = locationTextField.getText();
         String longitudeString = longitudeTextField.getText();
         String latitudeString = latitudeTextField.getText();
         Alert ruined = new Alert(Alert.AlertType.ERROR);
@@ -50,7 +49,6 @@ public class WaterSourceReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, waterCondition, type );
             HashMap<Integer, WaterSourceReport> sourceReportMap = Session.getWaterSourceReportHashMap();
-            //HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
 
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && !waterCondition.equals(null) && !type.equals(null)) {

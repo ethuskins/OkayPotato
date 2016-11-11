@@ -120,11 +120,6 @@ public class MainMenuController {
         }catch(Exception e){
             e.printStackTrace();
         }
-
-        //mainApplication.setWindow(loader);
-        //map.setWindow(loader2);
-
-        //controller2.setMainApp(mainApplication);
     }
 
     /**
@@ -157,13 +152,6 @@ public class MainMenuController {
      * @param main the object containing cross-screen info.
      */
     public void setMainApp(Main main) {
-
-        /*if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
-            Alert ruined = new Alert(Alert.AlertType.ERROR);
-            ruined.setHeaderText("You do not have the neccessary access to access this page.");
-            ruined.showAndWait();
-            return;
-        }*/
         mainApplication = main;
     }
 
