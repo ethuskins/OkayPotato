@@ -133,7 +133,7 @@ public class MainMenuController {
     @FXML
     public void viewHistoricalReportButtonPressed() {
         Alert ruined = new Alert(Alert.AlertType.ERROR); //TODO: make
-        if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
+        if (!isManager()) {
             ruined.setHeaderText("You do not have the necessary access to access this page.");
             ruined.showAndWait();
             return;
@@ -143,6 +143,13 @@ public class MainMenuController {
         mainApplication.setWindow(loader2);
         HistoricalReportSelectorController controller2 = loader2.getController();
         controller2.setMainApp(mainApplication);
+    }
+
+    public boolean isManager() {
+        if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
+            return false;
+        }
+        return true;
     }
 
     /**
