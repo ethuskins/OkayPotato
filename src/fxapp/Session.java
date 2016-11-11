@@ -97,89 +97,93 @@ public class Session {
 
         //checks HTTP status code for connection, then get maps of the info in the tables
         Map<String, Object> wsrFBMap = null;
-        if (wsrFirebase.getCode() == 200) {
+        if (wsrFirebase != null && wsrFirebase.getCode() == 200) {
             wsrFBMap =  wsrFirebase.getBody();
         }
         Map<String, Object> wqrFBMap = null;
-        if (wqrFirebase.getCode() == 200) {
+        if (wqrFirebase != null && wqrFirebase.getCode() == 200) {
             wqrFBMap =  wqrFirebase.getBody();
         }
         Map<String, Object> peopleFBMap = null;
-        if (peopleFirebase.getCode() == 200) {
+        if (peopleFirebase != null && peopleFirebase.getCode() == 200) {
             peopleFBMap =  peopleFirebase.getBody();
         }
         Map<String, Object> numFBMap = null;
-        if (numFirebase.getCode() == 200) {
+        if (numFirebase != null && numFirebase.getCode() == 200) {
             numFBMap =  numFirebase.getBody();
         }
 
         //process firebase maps to fill the HashMaps we want the project to use
 
         Gson gson = new Gson();
-        for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
+        if (wsrFBMap.entrySet() != null) {
+            for (Map.Entry<String, Object> entry : wsrFBMap.entrySet()) {
 
-            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
-            LinkedHashMap loc = (LinkedHashMap)jsonMap.get("location");
+                LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+                LinkedHashMap loc = (LinkedHashMap)jsonMap.get("location");
 
-            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
-            String jsonLoc = gson.toJson(loc, Object.class);
+                String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
+                String jsonLoc = gson.toJson(loc, Object.class);
 
-            WaterSourceReport parsedWSR = gson.fromJson(jsonString, WaterSourceReport.class);
-            Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
+                WaterSourceReport parsedWSR = gson.fromJson(jsonString, WaterSourceReport.class);
+                Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
 
-            parsedWSR.setLocation(parsedLoc);
+                parsedWSR.setLocation(parsedLoc);
 
-            waterSourceReportHashMap.put(parsedWSR.getReportNumber(), parsedWSR);
+                waterSourceReportHashMap.put(parsedWSR.getReportNumber(), parsedWSR);
+            }
         }
 
 
-        for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
-            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
-            LinkedHashMap loc = (LinkedHashMap) jsonMap.get("location");
+        if (wqrFBMap.entrySet() != null) {
+            for (Map.Entry<String, Object> entry : wqrFBMap.entrySet()) {
+                LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+                LinkedHashMap loc = (LinkedHashMap) jsonMap.get("location");
 
-            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
-            String jsonLoc = gson.toJson(loc, Object.class);
+                String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
+                String jsonLoc = gson.toJson(loc, Object.class);
 
-            WaterQualityReport parsedWQR = gson.fromJson(jsonString, WaterQualityReport.class);
-            Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
+                WaterQualityReport parsedWQR = gson.fromJson(jsonString, WaterQualityReport.class);
+                Location parsedLoc = gson.fromJson(jsonLoc, Location.class);
 
-            parsedWQR.setLocation(parsedLoc);
+                parsedWQR.setLocation(parsedLoc);
 
-            waterQualityReportHashMap.put(parsedWQR.getReportNumber(), parsedWQR);
+                waterQualityReportHashMap.put(parsedWQR.getReportNumber(), parsedWQR);
+            }
         }
 
-        for (Map.Entry<String, Object> entry : peopleFBMap.entrySet()) {
-            LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
-            String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
-            UserProfile parsedPeople = gson.fromJson(jsonString, UserProfile.class);
+        if (peopleFBMap.entrySet() != null) {
+            for (Map.Entry<String, Object> entry : peopleFBMap.entrySet()) {
+                LinkedHashMap jsonMap = (LinkedHashMap) entry.getValue();
+                String jsonString = gson.toJson(jsonMap,LinkedHashMap.class);
+                UserProfile parsedPeople = gson.fromJson(jsonString, UserProfile.class);
 
-            userProfileStringHashMap.put(parsedPeople.getId(), parsedPeople);
+                userProfileStringHashMap.put(parsedPeople.getId(), parsedPeople);
+            }
         }
 
-        HashMap<String, Integer> numberingReports = new HashMap<>();
-        for (Map.Entry<String, Object> entry : numFBMap.entrySet()) {
-            numberingReports.put(entry.getKey(), (Integer) entry.getValue());
+        if (numFBMap.entrySet() != null) {
+            HashMap<String, Integer> numberingReports = new HashMap<>();
+            for (Map.Entry<String, Object> entry : numFBMap.entrySet()) {
+                numberingReports.put(entry.getKey(), (Integer) entry.getValue());
+            }
+            //this initializes the reports numbers to one if no reports have ever been added
+            if (numberingReports.size() < 2) {
+                numberingReports.clear();
+                numberingReports.put("wsrNumber", 1);
+                numberingReports.put("wqrNumber", 1);
+            }
+            wsrNumber = numberingReports.get("wsrNumber");
+            wqrNumber = numberingReports.get("wqrNumber");
         }
-
-        //this initializes the reports numbers to one if no reports have ever been added
-        if (numberingReports.size() < 2) {
-            numberingReports.clear();
-            numberingReports.put("wsrNumber", 1);
-            numberingReports.put("wqrNumber", 1);
-        }
-        wsrNumber = numberingReports.get("wsrNumber");
-        wqrNumber = numberingReports.get("wqrNumber");
-
-
-
 
 
     }
 
 
     //This is used to increment the report number when a report is generated
-    private Integer wsrNumber = null;
-    private Integer wqrNumber = null;
+    private Integer wsrNumber = 0;
+    private Integer wqrNumber = 0;
 
     //collection of users that have accounts
     private final HashMap<String, UserProfile> userProfileStringHashMap = new HashMap<>();
