@@ -4,12 +4,8 @@ import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import model.AccountType;
-import model.WaterQualityReport;
 import model.WaterSourceReport;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -18,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.HashMap;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 /**
@@ -46,10 +43,12 @@ public class SourceReportListController {
         mainApplication = main;
     }
 
-    @FXML
-    private void initialize() {
-        populateTable();
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    @FXML
+//    private void initialize() {
+//        populateTable();
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     /**
      * Returns to the main menu screen.
@@ -66,35 +65,33 @@ public class SourceReportListController {
     //Populates the table with Water Source Reports.
     @FXML
     private void populateTable() {
-        HashMap<Integer, WaterSourceReport> testermap = Session.getInstance().getWaterSourceReportHashMap();
-        //HashMap<Integer, WaterQualityReport> testermap = mainApplication.getWaterQualityReportHashMap();
-        Set<Integer> keylist = testermap.keySet();
-        ObservableList<WaterSourceReport> reportlist = FXCollections.observableArrayList();
-        for (Integer x : keylist) {
-            reportlist.add(testermap.get(x));
-        }
-        ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testermap);
+        HashMap<Integer, WaterSourceReport> testerMap = Session.getWaterSourceReportHashMap();
+        //HashMap<Integer, WaterQualityReport> testerMap = mainApplication.getWaterQualityReportHashMap();
+        Set<Integer> keyList = testerMap.keySet();
+        ObservableList<WaterSourceReport> reportList = FXCollections.observableArrayList();
+        reportList.addAll(keyList.stream().map(testerMap::get).collect(Collectors.toList()));
+        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, Integer>("reportNumber"));
+                new PropertyValueFactory<>("reportNumber"));
         tableDateTime.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, Integer>("dateTime")
+                new PropertyValueFactory<>("dateTime")
         );
         tableReporter.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("reporterName")
+                new PropertyValueFactory<>("reporterName")
         );
         tableLocation.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("stringLocation")
+                new PropertyValueFactory<>("stringLocation")
         );
         tableType.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("waterType")
+                new PropertyValueFactory<>("waterType")
         );
         tableCondition.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, String>("waterCondition")
+                new PropertyValueFactory<>("waterCondition")
         );
-        tableReports.setItems(reportlist);
+        tableReports.setItems(reportList);
         //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
 }

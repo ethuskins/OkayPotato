@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 /**
- * Created by robertwaters on 10/12/16.
+ * Created by robertwaters on 10/12/16
  */
 public class MapController implements Initializable, MapComponentInitializedListener {
     @FXML
@@ -30,7 +30,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     private Main theApp;
 
-    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
+    // --Commented out by Inspection (11/10/2016 6:30 PM):private HashMap<Integer, WaterSourceReport> reports = Session.getWaterSourceReportHashMap();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,19 +69,19 @@ public class MapController implements Initializable, MapComponentInitializedList
         map = mapView.createMap(options);
 
 
-        /* now we communciate with the model to get all the locations for markers */
-        List<Location> locations = new ArrayList<Location>();
+        /* now we communicate with the model to get all the locations for markers */
+        //List<Location> locations = new ArrayList<>();
         //HashMap<Integer, WaterSourceReport> reports = Main.getWaterSourceReportHashMap();
-        HashMap<Integer, WaterQualityReport> reports = Session.getInstance().getWaterQualityReportHashMap();
-        for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
-            Location l = report.getValue().getLocation();
-            locations.add(l);
-        }
+        HashMap<Integer, WaterQualityReport> reports = Session.getWaterQualityReportHashMap();
+        /*for(Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
+            //Location l = report.getValue().getLocation();
+            //locations.add(l);
+        }*/
         System.out.println("There are " + reports.size() + " reports.");
 
         //locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
-        Facade fc = Facade.getInstance();
+        //Facade fc = Facade.getInstance();
         //List<Location> locations = fc.getLocations();
 
         //for (Location l: locations) {

@@ -1,47 +1,35 @@
 package controller;
 
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.event.UIEventType;
-import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
 import model.*;
-import netscape.javascript.JSObject;
 
-import java.awt.*;
-import java.awt.TextField;
-import java.io.File;
-import java.net.URL;
 import java.util.*;
 
 /**
- * Created by Jack Winski on 11/2/2016.
+ * Created by Jack Winski on 11/2/2016
  */
 public class HistoricalReportSelectorController {
 
-    @FXML private ComboBox<ReportType> reportTypeComboBox = new ComboBox<ReportType>();
+    @FXML private ComboBox<ReportType> reportTypeComboBox = new ComboBox<>();
     @FXML private javafx.scene.control.TextField longitudeTextField;
     @FXML private javafx.scene.control.TextField latitudeTextField;
     @FXML private javafx.scene.control.TextField yearTextField;
 
     private Main mainApplication;
 
-    /**
-     * called automatically after load
-     */
-    @FXML
-    private void initialize() {
-        reportTypeComboBox.getItems().addAll(FXCollections.observableArrayList(ReportType.values()));
-    }
+// --Commented out by Inspection START (11/10/2016 6:29 PM):
+//    /**
+//     * called automatically after load
+//     */
+//    @FXML
+//    private void initialize() {
+//        reportTypeComboBox.getItems().addAll(FXCollections.observableArrayList(ReportType.values()));
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:29 PM)
 
     /**
      * Takes in the information selected and goes to the historical report screen.
@@ -53,12 +41,12 @@ public class HistoricalReportSelectorController {
         int year = Integer.valueOf(yearTextField.getText());
         Alert ruined = new Alert(Alert.AlertType.ERROR);
         boolean test = false;
-        HashMap<Integer, WaterQualityReport> testermap = Session.getInstance().getWaterQualityReportHashMap();
-        Set<Integer> keylist = testermap.keySet();
-        for (Integer x : keylist) {
-            if (testermap.get(x).getLocation().getLatitude() == lat) {
-                if (testermap.get(x).getLocation().getLongitude() == lon) {
-                    if (testermap.get(x).getYear() == year) {
+        HashMap<Integer, WaterQualityReport> testerMap = Session.getWaterQualityReportHashMap();
+        Set<Integer> keyList = testerMap.keySet();
+        for (Integer x : keyList) {
+            if (testerMap.get(x).getLocation().getLatitude() == lat) {
+                if (testerMap.get(x).getLocation().getLongitude() == lon) {
+                    if (testerMap.get(x).getYear() == year) {
                         test = true;
                     }
                 }

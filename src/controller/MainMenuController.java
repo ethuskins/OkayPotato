@@ -5,7 +5,6 @@ import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.AccountType;
@@ -17,7 +16,7 @@ import javafx.scene.control.Alert;
 public class MainMenuController {
 
     private Main mainApplication;
-    private Main map;
+    // --Commented out by Inspection (11/10/2016 6:30 PM):private Main map;
 
 
     /**
@@ -154,7 +153,7 @@ public class MainMenuController {
 
         /*if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
             Alert ruined = new Alert(Alert.AlertType.ERROR);
-            ruined.setHeaderText("You do not have the neccessary access to access this page.");
+            ruined.setHeaderText("You do not have the necessary access to access this page.");
             ruined.showAndWait();
             return;
         }*/

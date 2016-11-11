@@ -1,9 +1,7 @@
 package controller;
 
-import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -12,22 +10,16 @@ import javafx.scene.control.TextField;
 import model.*;
 
 import java.util.HashMap;
-import java.util.Map;
-
-
-import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
-import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
-import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
 
 /**
- * Created by jackwinski on 10/24/16.
+ * Created by jackwinski on 10/24/16
  */
 public class WaterQualityReportController {
     @FXML private TextField longitudeTextField;
     @FXML private TextField latitudeTextField;
     @FXML private TextField titleTextField;
     @FXML private TextField descriptionTextField;
-    @FXML private ComboBox<QuaCondition> quaConditionComboBox = new ComboBox<QuaCondition>();
+    @FXML private ComboBox<QuaCondition> quaConditionComboBox = new ComboBox<>();
     //@FXML private ComboBox<WaterCondition> waterConditionComboBox = new ComboBox<WaterCondition>();
     //@FXML private ComboBox<WaterType> waterTypeComboBox = new ComboBox<WaterType>();
     @FXML private TextField virusTextField;
@@ -35,12 +27,14 @@ public class WaterQualityReportController {
 
     private Main mainApplication;
 
-    @FXML
-    private void initialize() {
-        quaConditionComboBox.getItems().addAll(FXCollections.observableArrayList(QuaCondition.values()));
-        //waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
-        //waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    @FXML
+//    private void initialize() {
+//        quaConditionComboBox.getItems().addAll(FXCollections.observableArrayList(QuaCondition.values()));
+//        //waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
+//        //waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     @FXML
     public void submitReportButtonPressed() {
@@ -61,8 +55,9 @@ public class WaterQualityReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, quaCondition);
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
-            HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getInstance().getWaterQualityReportHashMap();
-
+            HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getWaterQualityReportHashMap();
+            //.equals(null) is intentional. The comboBox could never have selected an option.
+            //noinspection ObjectEqualsNull
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
                 int reportNum = Session.getInstance().getWqrnumber();
@@ -71,18 +66,18 @@ public class WaterQualityReportController {
                 qualityReportMap.put(reportNum, qualityReport);
 
                 //sending modified table back up to firebase
-                Firebase fb = Session.getInstance().getFbCurrent();
-                Map<String, Object> fbInsert = new HashMap<String, Object>();
+                //Firebase fb = Session.getInstance().getFbCurrent();
+                /*Map<String, Object> fbInsert = new HashMap<>();
                 for (Map.Entry<Integer, WaterQualityReport> entry : qualityReportMap.entrySet()) {
-                    fbInsert.put(entry.getKey().toString(), (Object) entry.getValue());
+                    fbInsert.put(entry.getKey().toString(), entry.getValue());
                 }
-                try {
+                /*try {
                     FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
-                } catch (JacksonUtilityException juex) {
+                } catch (JacksonUtilityException ignored) {
 
                 } catch (FirebaseException fbex) {
-                    System.out.println("FB exception in wqrcontroller");
-                }
+                    System.out.println("FB exception in wqrController");
+                }*/
 
 
                 Session.getInstance().incrementWqrnumber();
@@ -90,16 +85,14 @@ public class WaterQualityReportController {
 
 
 
-                Map<String, Object> fbInsertNum = new HashMap<String, Object>();
-                fbInsertNum.put("wsrNumber", (Object) Session.getInstance().getWsrnumber());
-                fbInsertNum.put("wqrNumber", (Object) Session.getInstance().getWqrnumber());
-                try {
+                /*Map<String, Object> fbInsertNum = new HashMap<>();
+                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrnumber());
+                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrnumber());
+                /*try {
                     FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
-                } catch (JacksonUtilityException juex) {
+                } catch (JacksonUtilityException | FirebaseException ignored) {
 
-                } catch (FirebaseException fbex) {
-
-                }
+                }*/
 
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();

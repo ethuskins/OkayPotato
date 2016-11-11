@@ -3,7 +3,6 @@ package controller;
 
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -19,24 +18,26 @@ import java.util.HashMap;
 
 
 /**
- * Created by Scott Simmons on 9/27/2016.
+ * Created by Scott Simmons on 9/27/2016
  */
 public class NewUserRegistrationController {
 
     @FXML private TextField nameTextField;
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
-    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<AccountType>();
+    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<>();
 
     private Main mainApplication;
 
-    /**
-     * called automatically after load
-     */
-    @FXML
-    private void initialize() {
-        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    /**
+//     * called automatically after load
+//     */
+//    @FXML
+//    private void initialize() {
+//        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     /**
      * Checks to see if all fields have valid entries. If so, registers the user and logs them in. If not, an alert
@@ -59,6 +60,8 @@ public class NewUserRegistrationController {
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
+        //.equals(null) is intentional. The comboBox could never have selected an option.
+        //noinspection ObjectEqualsNull
         if (!name.equals("") && !password.equals("")
                 && !id.equals("") && !accountType.equals(null) && !idExists){
 
