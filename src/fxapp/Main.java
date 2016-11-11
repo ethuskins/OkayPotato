@@ -18,10 +18,18 @@ public class Main extends Application {
     private Stage loginScreen;
     private final MapController controller;
 
+    /**
+     * Sets the controller to null.
+     */
     public Main() {
         controller = null;
     }
 
+    /**
+     * The start function.
+     * @param primaryStage the primary stage
+     * @throws Exception if something goes wrong
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         loginScreen = primaryStage;
@@ -33,10 +41,7 @@ public class Main extends Application {
     }
     private GridPane rootLayout;
 
-    /**
-     * Initializes the layout
-     *
-     */
+
     private void initRootLayout(){
         try {
 

@@ -25,7 +25,7 @@ public class TitleScreenController {
     }
 
     /**
-     * takes the user to the registration screen
+     * Takes the user to the registration screen.
      */
     @FXML
     public void registerButtonPressed(){

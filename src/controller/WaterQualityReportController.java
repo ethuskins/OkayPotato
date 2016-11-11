@@ -11,7 +11,9 @@ import model.*;
 
 import java.util.HashMap;
 
-
+/**
+ * Controls the water quality report.
+ */
 public class WaterQualityReportController {
     @FXML private TextField longitudeTextField;
     @FXML private TextField latitudeTextField;
@@ -34,6 +36,9 @@ public class WaterQualityReportController {
 //    }
 // --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
+    /**
+     * Controls what happens whe the submit report button is pressed.
+     */
     @FXML
     public void submitReportButtonPressed() {
         //String location = locationTextField.getText();
@@ -111,6 +116,9 @@ public class WaterQualityReportController {
 
     }
 
+    /**
+     * Controls what happenes when the cangel button is pressed.
+     */
     @FXML
     public void cancelReportButtonPressed() {
         FXMLLoader loader = new FXMLLoader();

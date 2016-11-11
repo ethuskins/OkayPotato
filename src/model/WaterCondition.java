@@ -1,6 +1,8 @@
 package model;
 
-
+/**
+ * Enums designating the possible water conditions.
+ */
 public enum WaterCondition {
     WASTE, TREATABLE_CLEAR, TREATABLE_MUDDY, POTABLE;
 

@@ -195,12 +195,22 @@ public class Session {
     //where all water quality reports are stored
     private static final HashMap<Integer, WaterQualityReport> waterQualityReportHashMap = new HashMap<>();
 
+    /**
+     * Gets the user profile hash map.
+     * @return the hash map
+     */
     public HashMap<String, UserProfile> getUserProfileStringHashMap(){return userProfileStringHashMap;}
 
-    //has a HashMap that stores the water source reports
+    /**
+     *  Has a HashMap that stores the water source reports.
+     * @return the hash map.
+     */
     public static HashMap<Integer, WaterSourceReport> getWaterSourceReportHashMap() {return waterSourceReportHashMap;}
 
-    //has a HashMap that stores the water quality reports
+    /**
+     * Has a HashMap that stores the water quality reports.
+     * @return the HashMap
+     */
     public static HashMap<Integer, WaterQualityReport> getWaterQualityReportHashMap() {return waterQualityReportHashMap;}
 
     /**
@@ -245,18 +255,25 @@ public class Session {
     }
 
     /**
-     * dummy method to simulate a callback from the map view
+     * Gets the baseURL
+     * @return the baseURL
      */
-
-
     public String getBaseURL() {
         return baseURL;
     }
 
+    /**
+     * Gets the wsrURL.
+     * @return the wsr
+     */
     public String getWsrURL() {
         return wsrURL;
     }
 
+    /**
+     * Gets the wqrURL.
+     * @return the wqrURL
+     */
     public String getWqrURL() {
         return wqrURL;
     }
@@ -264,25 +281,49 @@ public class Session {
     private String getPeopleURL() {
         return peopleURL;
     }
+
+    /**
+     * Gets the numURL.
+     * @return the numURL
+     */
     public String getNumURL() {
         return numURL;
     }
 
+    /**
+     * Gets the FbCurrent.
+     * @return the FBCurrent
+     */
     public Firebase getFbCurrent() {
         return fbCurrent;
     }
 
+    /**
+     * gets the WqrNumber.
+     * @return the wqrNumber
+     */
     public Integer getWqrNumber() {
         return wqrNumber;
     }
 
+    /**
+     * Gets the wsrNumber.
+     * @return the wsrNumber
+     */
     public Integer getWsrNumber() {
         return wsrNumber;
     }
+
+    /**
+     * Increases the wqrNumber.
+     */
     public void incrementWqrNumber() {
         wqrNumber++;
     }
 
+    /**
+     * Increases the wsrNumber.
+     */
     public void incrementWsrNumber() {
         wsrNumber++;
     }

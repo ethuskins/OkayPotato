@@ -15,7 +15,7 @@ import javafx.scene.chart.XYChart;
 
 
 /**
- * Created by Jack Winski on 11/2/2016
+ * Controls the historical report.
  */
 public class HistoricalReportController {
 
@@ -26,7 +26,12 @@ public class HistoricalReportController {
     @FXML private NumberAxis partsAxis;
 
     /**
-     * Populates the graph
+     * Populates the graph.
+     *
+     * @param latitude the latitude
+     * @param longitude the longitude
+     * @param year the year
+     * @param type the type
      */
     public void populate(double latitude, double longitude, int year, ReportType type) {
         monthAxis.setLabel("Month");
@@ -71,6 +76,7 @@ public class HistoricalReportController {
 
     /**
      * Cancels the historical report request process and returns to the title screen.
+     *
      */
     @FXML
     public void backButtonPressed() {

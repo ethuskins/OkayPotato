@@ -30,6 +30,9 @@ public class WaterSourceReportController {
 //    }
 // --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
+    /**
+     * Controls what happens when the submit report button is pressed.
+     */
     @FXML
     public void submitReportButtonPressed() {
         //String location = locationTextField.getText();
@@ -99,6 +102,9 @@ public class WaterSourceReportController {
 
     }
 
+    /**
+     * Controls what happens when the cancel report button is pressed.
+     */
     @FXML
     public void cancelReportButtonPressed() {
         FXMLLoader loader = new FXMLLoader();

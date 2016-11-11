@@ -64,7 +64,10 @@ public class QualityReportListController {
         controller.setMainApp(mainApplication);
     }
 
-    //Populates the table with Water Source Reports.
+
+    /**
+     * Populates the table with Water Source Reports.
+     */
     @FXML
     private void populateTable() {
         //HashMap<Integer, WaterSourceReport> testerMap = mainApplication.getWaterSourceReportHashMap();
