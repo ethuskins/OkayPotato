@@ -3,7 +3,6 @@ package controller;
 
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -28,13 +27,15 @@ public class NewUserRegistrationController {
 
     private Main mainApplication;
 
-    /**
-     * called automatically after load
-     */
-    @FXML
-    private void initialize() {
-        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    /**
+//     * called automatically after load
+//     */
+//    @FXML
+//    private void initialize() {
+//        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     /**
      * Checks to see if all fields have valid entries. If so, registers the user and logs them in. If not, an alert

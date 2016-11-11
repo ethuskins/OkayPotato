@@ -2,7 +2,6 @@ package controller;
 
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -20,13 +19,15 @@ public class HistoricalReportSelectorController {
 
     private Main mainApplication;
 
-    /**
-     * called automatically after load
-     */
-    @FXML
-    private void initialize() {
-        reportTypeComboBox.getItems().addAll(FXCollections.observableArrayList(ReportType.values()));
-    }
+// --Commented out by Inspection START (11/10/2016 6:29 PM):
+//    /**
+//     * called automatically after load
+//     */
+//    @FXML
+//    private void initialize() {
+//        reportTypeComboBox.getItems().addAll(FXCollections.observableArrayList(ReportType.values()));
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:29 PM)
 
     /**
      * Takes in the information selected and goes to the historical report screen.

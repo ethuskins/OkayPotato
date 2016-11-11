@@ -2,8 +2,6 @@ package controller;
 
 import fxapp.Main;
 import fxapp.Session;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import model.ReportType;
@@ -16,11 +14,14 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 
+/**
+ * Created by Jack Winski on 11/2/2016
+ */
 public class HistoricalReportController {
 
     private Main mainApplication;
 
-    @FXML private LineChart reportGraph;
+    @FXML private LineChart<Double, Double> reportGraph;
     @FXML private NumberAxis monthAxis;
     @FXML private NumberAxis partsAxis;
 
@@ -37,6 +38,10 @@ public class HistoricalReportController {
 
         reportGraph.setTitle("Historical Report at " + latitude + " by " + longitude + " in " + year);
 
+        XYChart.Series<Double, Double> series = new XYChart.Series<>();
+        HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
+        Set<Integer> keyList = reportsMap.keySet();
+        //ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
         XYChart.Series series = new XYChart.Series();
         HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = reportsMap.keySet();

@@ -43,7 +43,7 @@ public class LoginCredentialsController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //checks if entered info matches an entry in the hashmap
+        //checks if entered info matches an entry in the HashMap
         if (userProfile != null && correctPassword){
             Session.getInstance().setCurrentUser(userProfile);
             FXMLLoader loader = new FXMLLoader();

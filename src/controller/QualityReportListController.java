@@ -4,7 +4,6 @@ import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -26,7 +25,7 @@ public class QualityReportListController {
     @FXML private TableColumn<WaterQualityReport, Integer> tableDateTime;
     @FXML private TableColumn<WaterQualityReport, String> tableReporter;
     @FXML private TableColumn<WaterQualityReport, String> tableLocation;
-    @FXML private TableColumn<WaterQualityReport, String> tableType;
+    // --Commented out by Inspection (11/10/2016 6:30 PM):@FXML private TableColumn<WaterQualityReport, String> tableType;
     @FXML private TableColumn<WaterQualityReport, String> tableCondition;
     @FXML private TableColumn<WaterQualityReport, String> tableVirusPPM;
     @FXML private TableColumn<WaterQualityReport, String> tableContPPM;
@@ -45,10 +44,12 @@ public class QualityReportListController {
         mainApplication = main;
     }
 
-    @FXML
-    private void initialize() {
-        populateTable();
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    @FXML
+//    private void initialize() {
+//        populateTable();
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     /**
      * Returns to the main menu screen.
@@ -69,10 +70,8 @@ public class QualityReportListController {
         HashMap<Integer, WaterQualityReport> testerMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
-        for (Integer x : keyList) {
-            reportList.add(testerMap.get(x));
-        }
-        ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testerMap);
+        reportList.addAll(keyList.stream().map(testerMap::get).collect(Collectors.toList()));
+        //ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testerMap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 

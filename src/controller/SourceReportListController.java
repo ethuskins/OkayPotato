@@ -4,7 +4,6 @@ import fxapp.Main;
 import fxapp.Session;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import model.WaterSourceReport;
@@ -43,10 +42,12 @@ public class SourceReportListController {
         mainApplication = main;
     }
 
-    @FXML
-    private void initialize() {
-        populateTable();
-    }
+// --Commented out by Inspection START (11/10/2016 6:30 PM):
+//    @FXML
+//    private void initialize() {
+//        populateTable();
+//    }
+// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
 
     /**
      * Returns to the main menu screen.
@@ -67,10 +68,8 @@ public class SourceReportListController {
         //HashMap<Integer, WaterQualityReport> testerMap = mainApplication.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterSourceReport> reportList = FXCollections.observableArrayList();
-        for (Integer x : keyList) {
-            reportList.add(testerMap.get(x));
-        }
-        ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
+        reportList.addAll(keyList.stream().map(testerMap::get).collect(Collectors.toList()));
+        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
         //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
