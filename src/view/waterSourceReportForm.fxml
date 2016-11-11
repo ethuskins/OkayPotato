@@ -15,79 +15,81 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-          prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="controller.WaterSourceReportController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
+    <children>
+        <Pane prefHeight="403.0" prefWidth="600.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+                            <stops>
+                                <Stop color="#1987c2" />
+                                <Stop color="#1987c2" offset="0.011494252873563218" />
+                                <Stop color="#24e8e4" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Rectangle>
+                <TextField fx:id="latitudeTextField" layoutX="337.0" layoutY="222.0" prefHeight="25.0" prefWidth="150.0" promptText="33.75" />
+                <Button fx:id="waterSourceReportSubmitButton" layoutX="334.0" layoutY="344.0" mnemonicParsing="false" onAction="#submitReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Submit" />
+                <Button fx:id="waterSourceReportCancelButton" layoutX="196.0" layoutY="344.0" mnemonicParsing="false" onAction="#cancelReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel" />
+                <ComboBox fx:id="waterTypeComboBox" layoutX="337.0" layoutY="291.0" prefHeight="25.0" prefWidth="150.0" />
+                <ComboBox fx:id="waterConditionComboBox" layoutX="114.0" layoutY="291.0" prefHeight="25.0" prefWidth="150.0" />
+                <TextField fx:id="longitudeTextField" layoutX="337.0" layoutY="164.0" prefHeight="25.0" prefWidth="150.0" promptText="-84.4" />
+                <Label layoutX="341.0" layoutY="135.0" text="Longitude" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <Label layoutX="336.0" layoutY="195.0" text="Latitude" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <Label layoutX="116.0" layoutY="261.0" text="Water Condition" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <Label layoutX="336.0" layoutY="261.0" text="Water Type" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <TextField fx:id="descriptionTextField" layoutX="114.0" layoutY="222.0" prefHeight="25.0" prefWidth="150.0" />
+                <Label layoutX="114.0" layoutY="199.0" text="Description" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <Label layoutX="114.0" layoutY="135.0" text="Title" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+                <TextField fx:id="titleTextField" layoutX="114.0" layoutY="164.0" prefHeight="25.0" prefWidth="150.0" />
+                <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="28.0">
+                    <image>
+                        <Image url="@logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="181.0" layoutY="52.0" prefHeight="53.0" prefWidth="310.0" text="Create Water Source Report" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri Light" size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="65.0" layoutY="105.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
+                    <image>
+                        <Image url="@mountains.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
     <columnConstraints>
-        <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity"/>
+        <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
+        <ColumnConstraints maxWidth="-Infinity" minWidth="-Infinity" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
     </rowConstraints>
-    <Pane prefHeight="403.0" prefWidth="600.0">
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
-            <fill>
-                <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
-                    <stops>
-                        <Stop color="#1987c2"/>
-                        <Stop color="#1987c2" offset="0.011494252873563218"/>
-                        <Stop color="#24e8e4" offset="1.0"/>
-                    </stops>
-                </LinearGradient>
-            </fill>
-        </Rectangle>
-        <TextField fx:id="latitudeTextField" layoutX="337.0" layoutY="222.0" prefHeight="25.0" prefWidth="150.0"
-                   promptText="33.75"/>
-        <Button fx:id="waterSourceReportSubmitButton" layoutX="334.0" layoutY="344.0" mnemonicParsing="false"
-                onAction="#submitReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Submit"/>
-        <Button fx:id="waterSourceReportCancelButton" layoutX="196.0" layoutY="344.0" mnemonicParsing="false"
-                onAction="#cancelReportButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel"/>
-        <ComboBox fx:id="waterTypeComboBox" layoutX="337.0" layoutY="291.0" prefHeight="25.0" prefWidth="150.0"/>
-        <ComboBox fx:id="waterConditionComboBox" layoutX="114.0" layoutY="291.0" prefHeight="25.0"
-                  prefWidth="150.0"/>
-        <TextField fx:id="longitudeTextField" layoutX="337.0" layoutY="164.0" prefHeight="25.0" prefWidth="150.0"
-                   promptText="-84.4"/>
-        <Label layoutX="341.0" layoutY="135.0" text="Longitude" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label layoutX="336.0" layoutY="195.0" text="Latitude" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label layoutX="116.0" layoutY="261.0" text="Water Condition" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label layoutX="336.0" layoutY="261.0" text="Water Type" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <TextField fx:id="descriptionTextField" layoutX="114.0" layoutY="222.0" prefHeight="25.0"
-                   prefWidth="150.0"/>
-        <Label layoutX="114.0" layoutY="199.0" text="Description" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label layoutX="114.0" layoutY="135.0" text="Title" textFill="WHITE">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <TextField fx:id="titleTextField" layoutX="114.0" layoutY="164.0" prefHeight="25.0" prefWidth="150.0"/>
-        <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="28.0">
-            <Image url="@logo.png"/>
-        </ImageView>
-        <Label layoutX="181.0" layoutY="52.0" prefHeight="53.0" prefWidth="310.0" text="Create Water Source Report"
-               textFill="WHITE">
-            <font>
-                <Font size="24.0"/>
-            </font>
-        </Label>
-    </Pane>
 </GridPane>
+
