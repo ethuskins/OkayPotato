@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.*;
+import javafx.collections.FXCollections;
 
 import java.util.HashMap;
 
@@ -21,14 +22,13 @@ public class WaterSourceReportController {
 
     private Main mainApplication;
 
-// --Commented out by Inspection START (11/10/2016 6:30 PM):
-//    @FXML
-//    private void initialize() {
-//        waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
-//        waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
-//
-//    }
-// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
+    @FXML
+    private void initialize() {
+        waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
+        waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
+
+    }
+
 
     /**
      * Controls what happens when the submit report button is pressed.

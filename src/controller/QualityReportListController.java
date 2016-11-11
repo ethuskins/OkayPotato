@@ -26,7 +26,6 @@ public class QualityReportListController {
     @FXML private TableColumn<WaterQualityReport, Integer> tableDateTime;
     @FXML private TableColumn<WaterQualityReport, String> tableReporter;
     @FXML private TableColumn<WaterQualityReport, String> tableLocation;
-    // --Commented out by Inspection (11/10/2016 6:30 PM):@FXML private TableColumn<WaterQualityReport, String> tableType;
     @FXML private TableColumn<WaterQualityReport, String> tableCondition;
     @FXML private TableColumn<WaterQualityReport, String> tableVirusPPM;
     @FXML private TableColumn<WaterQualityReport, String> tableContPPM;
@@ -45,12 +44,11 @@ public class QualityReportListController {
         mainApplication = main;
     }
 
-// --Commented out by Inspection START (11/10/2016 6:30 PM):
-//    @FXML
-//    private void initialize() {
-//        populateTable();
-//    }
-// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
+    @FXML
+    private void initialize() {
+        populateTable();
+    }
+
 
     /**
      * Returns to the main menu screen.
@@ -70,24 +68,19 @@ public class QualityReportListController {
      */
     @FXML
     private void populateTable() {
-        //HashMap<Integer, WaterSourceReport> testerMap = mainApplication.getWaterSourceReportHashMap();
         HashMap<Integer, WaterQualityReport> testerMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
         reportList.addAll(keyList.stream().map(testerMap::get).collect(Collectors.toList()));
-        //ObservableMap<Integer, WaterQualityReport> observableMap = FXCollections.observableMap(testerMap);
-        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(new PropertyValueFactory<>("reportNumber"));
         tableDateTime.setCellValueFactory(new PropertyValueFactory<>("dateTime"));
         tableReporter.setCellValueFactory(new PropertyValueFactory<>("reporterName"));
         tableLocation.setCellValueFactory(new PropertyValueFactory<>("stringLocation"));
-        //tableType.setCellValueFactory(new PropertyValueFactory<WaterQualityReport, String>("waterType"));
         tableCondition.setCellValueFactory(new PropertyValueFactory<>("quaCondition"));
         tableVirusPPM.setCellValueFactory(new PropertyValueFactory<>("virusPPM"));
         tableContPPM.setCellValueFactory(new PropertyValueFactory<>("contamPPM"));
         tableReports.setItems(reportList);
-        //tableReports.getColumns(tableReportNumber, tableDateTime, tableReporter,tableLocation, tableType, tableCondition);
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.*;
+import javafx.collections.FXCollections;
 
 import java.util.HashMap;
 
@@ -27,14 +28,10 @@ public class WaterQualityReportController {
 
     private Main mainApplication;
 
-// --Commented out by Inspection START (11/10/2016 6:30 PM):
-//    @FXML
-//    private void initialize() {
-//        quaConditionComboBox.getItems().addAll(FXCollections.observableArrayList(QuaCondition.values()));
-//        //waterConditionComboBox.getItems().addAll(FXCollections.observableArrayList(WaterCondition.values()));
-//        //waterTypeComboBox.getItems().addAll(FXCollections.observableArrayList(WaterType.values()));
-//    }
-// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
+    @FXML
+    private void initialize() {
+        quaConditionComboBox.getItems().addAll(FXCollections.observableArrayList(QuaCondition.values()));
+    }
 
     /**
      * Controls what happens whe the submit report button is pressed.
@@ -48,8 +45,6 @@ public class WaterQualityReportController {
         String title = titleTextField.getText();
         String description = descriptionTextField.getText();
         QuaCondition quaCondition = quaConditionComboBox.getValue();
-        //WaterCondition waterCondition = waterConditionComboBox.getValue();
-        //WaterType waterType = waterTypeComboBox.getValue();
 
         String virusPPM = virusTextField.getText();
         String contPPM = contamTextField.getText();
@@ -57,7 +52,6 @@ public class WaterQualityReportController {
             double longitude = Double.valueOf(longitudeString);
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, quaCondition);
-            //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
             HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getWaterQualityReportHashMap();
 
             if (!longitudeString.equals("") && !latitudeString.equals("") && quaCondition != null) {

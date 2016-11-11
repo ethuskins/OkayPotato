@@ -60,7 +60,6 @@ public class UserProfileController {
     public void populate() {
         UserProfile temp = Session.getInstance().getCurrentUser();
         nameTextField.setText(temp.getName());
-        //passwordTextField.setText(temp.getPassword());
         if (temp.getAddress() != null) {
             addressTextField.setText(temp.getAddress());
         }

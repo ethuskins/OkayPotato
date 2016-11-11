@@ -43,12 +43,10 @@ public class SourceReportListController {
         mainApplication = main;
     }
 
-// --Commented out by Inspection START (11/10/2016 6:30 PM):
-//    @FXML
-//    private void initialize() {
-//        populateTable();
-//    }
-// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
+    @FXML
+    private void initialize() {
+        populateTable();
+    }
 
     /**
      * Returns to the main menu screen.
@@ -66,12 +64,9 @@ public class SourceReportListController {
     @FXML
     private void populateTable() {
         HashMap<Integer, WaterSourceReport> testerMap = Session.getWaterSourceReportHashMap();
-        //HashMap<Integer, WaterQualityReport> testerMap = mainApplication.getWaterQualityReportHashMap();
         Set<Integer> keyList = testerMap.keySet();
         ObservableList<WaterSourceReport> reportList = FXCollections.observableArrayList();
         reportList.addAll(keyList.stream().map(testerMap::get).collect(Collectors.toList()));
-        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(testerMap);
-        //ObservableMap<Integer, WaterSourceReport> observableMap = FXCollections.observableMap(mainApplication.getWaterSourceReportHashMap());
 
 
         tableReportNumber.setCellValueFactory(
