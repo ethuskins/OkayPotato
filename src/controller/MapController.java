@@ -30,7 +30,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     private Main theApp;
 
-    private HashMap<Integer, WaterSourceReport> reports = Session.getInstance().getWaterSourceReportHashMap();
+    private HashMap<Integer, WaterSourceReport> reports = Session.getWaterSourceReportHashMap();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,7 +81,6 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         //locations.add(new Location(33.70, -84.45, "Guaranteed Marker", "<br>Guaranteed to be here.", WaterCondition.WASTE, WaterType.BOTTLED));
 
-        //List<Location> locations = fc.getLocations();
 
         //for (Location l: locations) {
         for (Map.Entry<Integer, WaterQualityReport> report : reports.entrySet()){
@@ -116,75 +115,6 @@ public class MapController implements Initializable, MapComponentInitializedList
         }
 
 
-    }
-
-    /**
-     * Opens the chosen text file.
-     */
-    @FXML
-    public void onOpenTextFileMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Open Text File");
-        File file  = fc.showOpenDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().loadModelFromText(file);
-    }
-
-    /**
-     * Opens the selected binary file.
-     */
-    @FXML
-    public void onOpenBinaryFileMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Open Binary File");
-        File file  = fc.showOpenDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().loadModelFromBinary(file);
-    }
-
-    /**
-     * opens the selected JSON file
-     */
-    @FXML
-    public void onOpenJsonFileMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Open JSON File");
-        File file  = fc.showOpenDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().loadModelFromJson(file);
-    }
-
-    /**
-     * Saves the selected text file.
-     */
-    @FXML
-    public void onSaveTextFileMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Save Text File");
-        File file  = fc.showSaveDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().saveModelToText(file);
-    }
-
-    /**
-     * Saves the selected binary file.
-     */
-    @FXML
-    public void onSaveBinaryFileMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Save Binary File");
-        File file  = fc.showSaveDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().saveModelToBinary(file);
-    }
-
-    @FXML
-    public void onSaveJsonMenu() {
-        FileChooser fc = new FileChooser();
-        fc.setTitle("Save JSON File");
-        File file  = fc.showSaveDialog(mainStage);
-        if (file != null)
-            Facade.getInstance().saveModelToJson(file);
     }
 
     /**

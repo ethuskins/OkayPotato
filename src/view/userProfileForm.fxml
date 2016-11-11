@@ -15,77 +15,83 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserProfileController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
-               <fill>
-                  <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
-                     <stops>
-                        <Stop color="#1987c2" />
-                        <Stop color="#1987c2" offset="0.011494252873563218" />
-                        <Stop color="#24e8e4" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </fill>
-            </Rectangle>
-            <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="74.0" layoutY="75.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.27">
-               <image>
-                  <Image url="@mountains.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="saveButton" layoutX="333.0" layoutY="339.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Save" />
-            <Button fx:id="backButton" layoutX="200.0" layoutY="339.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Back" />
-            <TextField fx:id="nameTextField" layoutX="137.0" layoutY="173.0" />
-            <Label alignment="CENTER_RIGHT" layoutX="58.0" layoutY="175.0" prefHeight="17.0" prefWidth="74.0" text="Name" textFill="#eeeeee">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="50.0" layoutY="225.0" prefHeight="17.0" prefWidth="82.0" text="Password" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="74.0" layoutY="282.0" text="Address" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="312.0" layoutY="173.0" text="Email" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="317.0" layoutY="224.0" text="Title" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label alignment="CENTER_RIGHT" layoutX="318.0" layoutY="280.0" text="Age" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font></Label>
-            <Label layoutX="50.0" layoutY="281.0" />
-            <TextField fx:id="addressTextField" layoutX="137.0" layoutY="280.0" />
-            <TextField fx:id="emailTextField" layoutX="356.0" layoutY="171.0" />
-            <TextField fx:id="titleTextField" layoutX="356.0" layoutY="222.0" />
-            <TextField fx:id="ageTextField" layoutX="355.0" layoutY="278.0" />
-            <PasswordField fx:id="passwordTextField" layoutX="137.0" layoutY="224.0" />
-            <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="24.0">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER_RIGHT" layoutX="221.0" layoutY="54.0" prefHeight="41.0" prefWidth="183.0" text="User Profile" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Light" size="36.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </children>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="controller.UserProfileController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Pane prefHeight="200.0" prefWidth="200.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="424.0" stroke="BLACK" strokeType="INSIDE" width="604.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="0.11428571428571428" startX="0.7333333333333333" startY="1.0">
+                    <stops>
+                        <Stop color="#1987c2"/>
+                        <Stop color="#1987c2" offset="0.011494252873563218"/>
+                        <Stop color="#24e8e4" offset="1.0"/>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView fitHeight="498.0" fitWidth="810.0" layoutX="74.0" layoutY="75.0" nodeOrientation="RIGHT_TO_LEFT"
+                   opacity="0.27">
+            <Image url="@mountains.png"/>
+        </ImageView>
+        <Button fx:id="saveButton" layoutX="333.0" layoutY="339.0" mnemonicParsing="false"
+                onAction="#saveButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Save"/>
+        <Button fx:id="backButton" layoutX="200.0" layoutY="339.0" mnemonicParsing="false"
+                onAction="#backButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Back"/>
+        <TextField fx:id="nameTextField" layoutX="137.0" layoutY="173.0"/>
+        <Label alignment="CENTER_RIGHT" layoutX="58.0" layoutY="175.0" prefHeight="17.0" prefWidth="74.0"
+               text="Name" textFill="#eeeeee">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="50.0" layoutY="225.0" prefHeight="17.0" prefWidth="82.0"
+               text="Password" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="74.0" layoutY="282.0" text="Address" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="312.0" layoutY="173.0" text="Email" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="317.0" layoutY="224.0" text="Title" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="318.0" layoutY="280.0" text="Age" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="50.0" layoutY="281.0"/>
+        <TextField fx:id="addressTextField" layoutX="137.0" layoutY="280.0"/>
+        <TextField fx:id="emailTextField" layoutX="356.0" layoutY="171.0"/>
+        <TextField fx:id="titleTextField" layoutX="356.0" layoutY="222.0"/>
+        <TextField fx:id="ageTextField" layoutX="355.0" layoutY="278.0"/>
+        <PasswordField fx:id="passwordTextField" layoutX="137.0" layoutY="224.0"/>
+        <ImageView fitHeight="101.0" fitWidth="164.0" layoutX="14.0" layoutY="24.0">
+            <Image url="@logo.png"/>
+        </ImageView>
+        <Label alignment="CENTER_RIGHT" layoutX="221.0" layoutY="54.0" prefHeight="41.0" prefWidth="183.0"
+               text="User Profile" textFill="WHITE">
+            <font>
+                <Font name="Calibri Light" size="36.0"/>
+            </font>
+        </Label>
+    </Pane>
 </GridPane>

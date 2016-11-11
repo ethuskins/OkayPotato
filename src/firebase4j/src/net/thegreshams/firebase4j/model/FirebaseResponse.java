@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  */
 public class FirebaseResponse {
 	
-	protected static final Logger LOGGER = Logger.getRootLogger();
+	private static final Logger LOGGER = Logger.getRootLogger();
 	
 
 	
@@ -34,13 +34,13 @@ public class FirebaseResponse {
 		
 		if( body == null ) {
 			LOGGER.info( "body was null; replacing with empty map" );
-			body = new LinkedHashMap<String, Object>();
+			body = new LinkedHashMap<>();
 		}
 		this.body = body;
 		
 		if( rawBody == null ) {
 			LOGGER.info( "rawBody was null; replacing with empty string" );
-			rawBody = new String();
+			rawBody = "";
 		}
 		this.rawBody = rawBody.trim();
 	}
