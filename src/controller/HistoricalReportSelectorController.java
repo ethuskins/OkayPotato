@@ -9,9 +9,7 @@ import model.*;
 
 import java.util.*;
 
-/**
- * Created by Jack Winski on 11/2/2016
- */
+
 public class HistoricalReportSelectorController {
 
     @FXML private ComboBox<ReportType> reportTypeComboBox = new ComboBox<>();

@@ -17,9 +17,7 @@ import model.UserProfile;
 import java.util.HashMap;
 
 
-/**
- * Created by Scott Simmons on 9/27/2016
- */
+
 public class NewUserRegistrationController {
 
     @FXML private TextField nameTextField;
@@ -60,8 +58,6 @@ public class NewUserRegistrationController {
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
-        //.equals(null) is intentional. The comboBox could never have selected an option.
-        //noinspection ObjectEqualsNull
         if (!name.equals("") && !password.equals("")
                 && !id.equals("") && !accountType.equals(null) && !idExists){
 

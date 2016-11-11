@@ -7,15 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Facade;
-import model.UserProfile;
-import model.WaterQualityReport;
-import model.WaterSourceReport;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * The Main class. Contains all User Profile information and current user information..
@@ -23,7 +16,11 @@ import java.util.List;
 public class Main extends Application {
     //Set the name of the first window the user sees
     private Stage loginScreen;
-    MapController controller;
+    private final MapController controller;
+
+    public Main() {
+        controller = null;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -97,8 +94,6 @@ public class Main extends Application {
      * dummy method to simulate a callback from the map view
      */
     public void closeMapView() {
-        Facade fc = Facade.getInstance();
-        fc.addLocations();
         controller.mapInitialized();
         //mainStage.setScene(mapScene);
     }

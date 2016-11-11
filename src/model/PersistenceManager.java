@@ -10,11 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by robertwaters on 10/11/16.
- */
-public class PersistenceManager {
-    private static Logger LOGGER = Logger.getLogger("PersistenceManager");
+
+class PersistenceManager {
+    private static final Logger LOGGER = Logger.getLogger("PersistenceManager");
 
     private List<Location> model;
 

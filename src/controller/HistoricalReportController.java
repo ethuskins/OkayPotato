@@ -13,6 +13,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
+
 /**
  * Created by Jack Winski on 11/2/2016
  */
@@ -41,6 +42,10 @@ public class HistoricalReportController {
         HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = reportsMap.keySet();
         //ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
+        XYChart.Series series = new XYChart.Series();
+        HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
+        Set<Integer> keyList = reportsMap.keySet();
+        ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
         double[][] reports = new double[12][2];
         for (Integer x : keyList) {
             if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {

@@ -40,9 +40,9 @@ import org.apache.log4j.Logger;
  */
 public class Firebase {
 	
-	protected static final Logger 			LOGGER 					= Logger.getRootLogger();
+	private static final Logger 			LOGGER 					= Logger.getRootLogger();
 	
-	public static final String				FIREBASE_API_JSON_EXTENSION
+	private static final String				FIREBASE_API_JSON_EXTENSION
 																	= ".json";
 	
 
@@ -67,8 +67,8 @@ public class Firebase {
 			throw new FirebaseException( msg );
 		}
 		this.baseUrl = baseUrl.trim();
-		query = new ArrayList<NameValuePair>();
-		LOGGER.info( "intialized with base-url: " + this.baseUrl );
+		query = new ArrayList<>();
+		LOGGER.info( "Initialized with base-url: " + this.baseUrl );
 	}
 	
 	public Firebase(String baseUrl, String secureToken) throws FirebaseException {
@@ -79,8 +79,8 @@ public class Firebase {
 		}
 		this.secureToken = secureToken;
 		this.baseUrl = baseUrl.trim();
-		query = new ArrayList<NameValuePair>();
-		LOGGER.info( "intialized with base-url: " + this.baseUrl );
+		query = new ArrayList<>();
+		LOGGER.info( "Initialized with base-url: " + this.baseUrl );
 	}
 
 	
@@ -120,13 +120,12 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.GET, httpResponse );
-		
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.GET, httpResponse );
 	}
 	
 	/**
-	 * PATCHs data to the base-url
+	 * Patches data to the base-url
 	 * 
 	 * @param data -- can be null/empty
 	 * @return
@@ -140,7 +139,7 @@ public class Firebase {
 	}
 	
 	/**
-	 * PATCHs data on the provided-path relative to the base-url.
+	 * Patches data on the provided-path relative to the base-url.
 	 * 
 	 * @param path -- if null/empty, refers to the base-url
 	 * @param data -- can be null/empty
@@ -149,8 +148,8 @@ public class Firebase {
 	 * @throws {@link JacksonUtilityException}
 	 * @throws UnsupportedEncodingException
 	 */
-	
-	public FirebaseResponse patch(String path, Map<String, Object> data) throws FirebaseException, JacksonUtilityException, UnsupportedEncodingException {
+
+	private FirebaseResponse patch(String path, Map<String, Object> data) throws FirebaseException, JacksonUtilityException, UnsupportedEncodingException {
 		// make the request
 		String url = this.buildFullUrlFromRelativePath( path );
 		//HttpPut request = new HttpPut( url );
@@ -159,9 +158,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 				
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.PATCH, httpResponse );
-				
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.PATCH, httpResponse );
 	}
 	
 	/**
@@ -184,8 +182,8 @@ public class Firebase {
 	 * @throws UnsupportedEncodingException
 	 * @throws FirebaseException
 	 */
-	
-	public FirebaseResponse patch(String path, String jsonData) throws UnsupportedEncodingException, FirebaseException {
+
+	private FirebaseResponse patch(String path, String jsonData) throws UnsupportedEncodingException, FirebaseException {
 		// make the request
 		String url = this.buildFullUrlFromRelativePath( path );
 		HttpPatch request = new HttpPatch( url );
@@ -193,9 +191,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 				
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.PATCH, httpResponse );
-				
-		return response;		
+
+		return this.processResponse( FirebaseRestMethod.PATCH, httpResponse );
 	}
 	
 	/**
@@ -234,9 +231,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.PUT, httpResponse );
-		
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.PUT, httpResponse );
 	}
 	
 	/**
@@ -264,7 +260,7 @@ public class Firebase {
 	 * @throws UnsupportedEncodingException 
 	 * @throws {@link FirebaseException}
 	 */
-	public FirebaseResponse put( String path, String jsonData ) throws FirebaseException, UnsupportedEncodingException {
+	private FirebaseResponse put(String path, String jsonData) throws FirebaseException, UnsupportedEncodingException {
 
 		// make the request
 		String url = this.buildFullUrlFromRelativePath( path );
@@ -273,9 +269,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.PUT, httpResponse );
-		
-		return response;		
+
+		return this.processResponse( FirebaseRestMethod.PUT, httpResponse );
 	}
 	
 	/**
@@ -320,9 +315,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.POST, httpResponse );
-		
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.POST, httpResponse );
 	}
 	
 	/**
@@ -356,7 +350,7 @@ public class Firebase {
 	 * @throws UnsupportedEncodingException 
 	 * @throws {@link FirebaseException}
 	 */
-	public FirebaseResponse post( String path, String jsonData ) throws FirebaseException, UnsupportedEncodingException {
+	private FirebaseResponse post(String path, String jsonData) throws FirebaseException, UnsupportedEncodingException {
 		
 		// make the request
 		String url = this.buildFullUrlFromRelativePath( path );
@@ -365,9 +359,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.POST, httpResponse );
-		
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.POST, httpResponse );
 	}
 	
 	/**
@@ -384,7 +377,7 @@ public class Firebase {
 	}
 	
 	/**
-	 * DELETEs data from the base-url.
+	 * Deletes data from the base-url.
 	 * 
 	 * @return {@link FirebaseResponse}
 	 * @throws UnsupportedEncodingException 
@@ -395,7 +388,7 @@ public class Firebase {
 	}
 
 	/**
-	 * DELETEs data from the provided-path relative to the base-url.
+	 * Deletes data from the provided-path relative to the base-url.
 	 * 
 	 * @param path -- if null/empty, refers to the base-url
 	 * @return {@link FirebaseResponse}
@@ -410,9 +403,8 @@ public class Firebase {
 		HttpResponse httpResponse = this.makeRequest( request );
 		
 		// process the response
-		FirebaseResponse response = this.processResponse( FirebaseRestMethod.DELETE, httpResponse );
-		
-		return response;
+
+		return this.processResponse( FirebaseRestMethod.DELETE, httpResponse );
 	}
 	
 	
@@ -629,7 +621,7 @@ public class Firebase {
 		PATCH,
 		PUT,
 		POST,
-		DELETE;
+		DELETE
 	}
 	
 }

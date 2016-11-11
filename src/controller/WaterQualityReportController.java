@@ -11,9 +11,7 @@ import model.*;
 
 import java.util.HashMap;
 
-/**
- * Created by jackwinski on 10/24/16
- */
+
 public class WaterQualityReportController {
     @FXML private TextField longitudeTextField;
     @FXML private TextField latitudeTextField;
@@ -56,11 +54,10 @@ public class WaterQualityReportController {
             Location location = new Location(latitude, longitude, title, description, quaCondition);
             //HashMap<Integer, WaterSourceReport> sourceReportHashMap = mainApplication.getWaterSourceReportHashMap();
             HashMap<Integer, WaterQualityReport> qualityReportMap = Session.getWaterQualityReportHashMap();
-            //.equals(null) is intentional. The comboBox could never have selected an option.
-            //noinspection ObjectEqualsNull
+
             if (!longitudeString.equals("") && !latitudeString.equals("") && !quaCondition.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = Session.getInstance().getWqrnumber();
+                int reportNum = Session.getInstance().getWqrNumber();
 
                 WaterQualityReport qualityReport = new WaterQualityReport(reportNum, Session.getInstance().getCurrentUser(), location, quaCondition, virusPPM, contPPM);
                 qualityReportMap.put(reportNum, qualityReport);
@@ -80,7 +77,7 @@ public class WaterQualityReportController {
                 }*/
 
 
-                Session.getInstance().incrementWqrnumber();
+                Session.getInstance().incrementWqrNumber();
 
 
 

@@ -10,9 +10,7 @@ import model.*;
 
 import java.util.HashMap;
 
-/**
- * Created by emilyhuskins on 10/12/16
- */
+
 public class WaterSourceReportController {
     @FXML private TextField longitudeTextField;
     @FXML private TextField latitudeTextField;
@@ -53,7 +51,7 @@ public class WaterSourceReportController {
             //noinspection ObjectEqualsNull,ObjectEqualsNull
             if (!longitudeString.equals("") && !latitudeString.equals("") && !waterCondition.equals(null) && !type.equals(null)) {
                 //creates the new water report and puts it in the hash map
-                int reportNum = Session.getInstance().getWsrnumber();
+                int reportNum = Session.getInstance().getWsrNumber();
                 WaterSourceReport sourceReport = new WaterSourceReport(reportNum, Session.getInstance().getCurrentUser(), location, type, waterCondition);
                 sourceReportMap.put(reportNum, sourceReport);
 
@@ -69,7 +67,7 @@ public class WaterSourceReportController {
 
                 }*/
 
-                Session.getInstance().incrementWsrnumber();
+                Session.getInstance().incrementWsrNumber();
 
                 /*Map<String, Object> fbInsertNum = new HashMap<>();
                 fbInsertNum.put("wsrNumber", Session.getInstance().getWsrnumber());
