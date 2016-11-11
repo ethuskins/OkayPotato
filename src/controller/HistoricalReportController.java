@@ -46,11 +46,6 @@ public class HistoricalReportController {
         XYChart.Series<Double, Double> series = new XYChart.Series<>();
         HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = reportsMap.keySet();
-        //ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
-//        XYChart.Series series = new XYChart.Series();
-//        HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
-//        Set<Integer> keyList = reportsMap.keySet();
-//        ObservableList<WaterQualityReport> reportList = FXCollections.observableArrayList();
         double[][] reports = new double[12][2];
         for (Integer x : keyList) {
             if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {

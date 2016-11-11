@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import model.AccountType;
 import model.Password;
 import model.UserProfile;
+import javafx.collections.FXCollections;
 
 
 import java.util.HashMap;
@@ -27,15 +28,14 @@ public class NewUserRegistrationController {
 
     private Main mainApplication;
 
-// --Commented out by Inspection START (11/10/2016 6:30 PM):
-//    /**
-//     * called automatically after load
-//     */
-//    @FXML
-//    private void initialize() {
-//        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
-//    }
-// --Commented out by Inspection STOP (11/10/2016 6:30 PM)
+    /**
+     * called automatically after load
+     */
+    @FXML
+    private void initialize() {
+        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
+    }
+
 
     /**
      * Checks to see if all fields have valid entries. If so, registers the user and logs them in. If not, an alert
@@ -54,7 +54,6 @@ public class NewUserRegistrationController {
             e.printStackTrace();
         }
         AccountType accountType = accountTypeComboBox.getValue();
-       // AccountType accountType = AccountType.USER;
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
@@ -63,8 +62,6 @@ public class NewUserRegistrationController {
 
 
             //create a UserProfile with the parameters in the fields
-            //UserProfile userProfile = new UserProfile(nameTextField.getText(), idTextField.getText(),
-            //        passwordTextField.getText(), accountTypeComboBox.getSelectionModel().getSelectedItem());
             UserProfile userProfile = new UserProfile(name, id, hashedPass, accountType);
 
 
