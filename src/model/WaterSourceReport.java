@@ -1,9 +1,7 @@
 package model;
 import java.util.Calendar;
 
-/**
- * Created by emilyhuskins on 10/12/16.
- */
+
 public class WaterSourceReport {
     private final int reportNumber;
     private Location waterLocation;

@@ -2,9 +2,7 @@ package model;
 
 import java.util.Calendar;
 
-/**
- * Created by Jack Winski on 10/24/2016.
- */
+
     public class WaterQualityReport {
     private int reportNumber;
     private int year;

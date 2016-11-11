@@ -15,9 +15,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
-/**
- * Created by Jack Winski on 11/2/2016.
- */
+
 public class HistoricalReportController {
 
     private Main mainApplication;

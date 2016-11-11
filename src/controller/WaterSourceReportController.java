@@ -17,9 +17,7 @@ import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
 import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
 
-/**
- * Created by emilyhuskins on 10/12/16.
- */
+
 public class WaterSourceReportController {
     @FXML private TextField longitudeTextField;
     @FXML private TextField latitudeTextField;
