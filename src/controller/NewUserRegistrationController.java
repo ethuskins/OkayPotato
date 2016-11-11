@@ -18,9 +18,7 @@ import model.UserProfile;
 import java.util.HashMap;
 
 
-/**
- * Created by Scott Simmons on 9/27/2016.
- */
+
 public class NewUserRegistrationController {
 
     @FXML private TextField nameTextField;

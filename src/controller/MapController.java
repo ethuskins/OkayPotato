@@ -17,9 +17,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.*;
 
-/**
- * Created by robertwaters on 10/12/16.
- */
+
 public class MapController implements Initializable, MapComponentInitializedListener {
     @FXML
     private GoogleMapView mapView;

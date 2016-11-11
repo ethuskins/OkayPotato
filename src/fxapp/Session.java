@@ -1,8 +1,6 @@
 package fxapp;
 
-/**
- * Created by Forrest on 10/30/2016.
- */
+
 
 import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
 import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
