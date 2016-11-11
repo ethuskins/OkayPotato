@@ -17,7 +17,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.*;
 
-
+/**
+ * Controls the map.
+ */
 public class MapController implements Initializable, MapComponentInitializedListener {
     @FXML
     private GoogleMapView mapView;
@@ -30,6 +32,11 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     // --Commented out by Inspection (11/10/2016 6:30 PM):private HashMap<Integer, WaterSourceReport> reports = Session.getWaterSourceReportHashMap();
 
+    /**
+     * Initializes, adds a map listener.
+     * @param url the url
+     * @param rb the resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
@@ -46,7 +53,9 @@ public class MapController implements Initializable, MapComponentInitializedList
     }
 
 
-
+    /**
+     * Initializes the map.
+     */
     @Override
     public void mapInitialized() {
         MapOptions options = new MapOptions();

@@ -9,7 +9,7 @@ import model.*;
 import fxapp.*;
 
 /**
- * Created by Jack Winski on 11/10/2016.
+ * Controls the main menu.
  */
 public class MainMenuControllerTest {
 

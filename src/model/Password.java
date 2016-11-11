@@ -7,7 +7,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.SecureRandom;
 
-
+/**
+ * Hashes passwords.
+ */
 public class Password {
     // The higher the number of iterations the more
     // expensive computing the hash is for us and

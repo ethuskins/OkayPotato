@@ -1,6 +1,8 @@
 package model;
 
-
+/**
+ * Controlls the file format exceptions.
+ */
 class FileFormatException extends Exception {
     private final String line;
 

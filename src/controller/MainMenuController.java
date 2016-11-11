@@ -145,6 +145,12 @@ public class MainMenuController {
         controller2.setMainApp(mainApplication);
     }
 
+    /**
+     * Checks if the current user is a manager.
+     *
+     * @return true if the user is a manager, false otherwise
+     */
+
     public boolean isManager() {
         if (Session.getInstance().getCurrentUser().getAccountType() != AccountType.MANAGER) {
             return false;
