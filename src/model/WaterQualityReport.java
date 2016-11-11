@@ -25,12 +25,11 @@ import java.util.Calendar;
         virusPPM = virPPM;
         contamPPM = conPPM;
     }
-    public WaterQualityReport(int reportNum, UserProfile user, Location location){
+    private WaterQualityReport(int reportNum, UserProfile user, Location location){
         reportNumber = reportNum;
         reporterName = user.getName();
         reporterID = user.getId();
         waterLocation = location;
-        //this.waterType  = type;
         stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
@@ -163,9 +162,8 @@ import java.util.Calendar;
      * @param waterCondition the new waterCondition
      */
     public void setQuaCondition(QuaCondition waterCondition) {
+        this.quaCondition = waterCondition;
     }
-
-
 
     /**
      * Getter for string location

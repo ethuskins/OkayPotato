@@ -27,7 +27,7 @@ public class Main extends Application {
         loginScreen = primaryStage;
 
         //a method that initializes the layout for the primary stage
-        initRootLayout(loginScreen);
+        initRootLayout();
         primaryStage.setTitle("Okay Potato");
         primaryStage.show();
     }
@@ -35,9 +35,9 @@ public class Main extends Application {
 
     /**
      * Initializes the layout
-     * @param stage the stage of the App
+     *
      */
-    private void initRootLayout(Stage stage){
+    private void initRootLayout(){
         try {
 
             FXMLLoader loader = new FXMLLoader();
@@ -84,7 +84,7 @@ public class Main extends Application {
 
     /**
      * The main method. launches the app
-     * @param args
+     * @param args the arguments of the main method
      */
     public static void main(String[] args) {
         launch(args);
@@ -94,7 +94,8 @@ public class Main extends Application {
      * dummy method to simulate a callback from the map view
      */
     public void closeMapView() {
-        controller.mapInitialized();
-        //mainStage.setScene(mapScene);
+        if (controller != null) {
+            controller.mapInitialized();
+        }
     }
 }
