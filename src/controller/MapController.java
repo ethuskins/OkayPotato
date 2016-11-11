@@ -8,12 +8,9 @@ import fxapp.Main;
 import fxapp.Session;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import model.*;
 import netscape.javascript.JSObject;
-
-import java.io.File;
 import java.net.URL;
 import java.util.*;
 

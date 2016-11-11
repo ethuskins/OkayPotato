@@ -9,10 +9,6 @@ public class WaterSourceReport {
      private int month;
      private int day;
      private String reporterName;
-
-
-
-
      private String reporterID;
      private final int reportNumber;
      private Location waterLocation;
@@ -31,17 +27,17 @@ public class WaterSourceReport {
     public WaterSourceReport(int reportNum, UserProfile user, Location location, WaterType type, WaterCondition condition) {
         reportNumber = reportNum;
 
-        String reporterName = user.getName();
-        String reporterID = user.getId();
+        reporterName = user.getName();
+        reporterID = user.getId();
         waterLocation = location;
-        WaterType waterType = type;
-        WaterCondition waterCondition = condition;
-        String stringLocation = location.toString();
+        waterType = type;
+        waterCondition = condition;
+        stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
-        int month = Calendar.MONTH;
-        int day = Calendar.DAY_OF_MONTH;
-        int year = Calendar.YEAR;
+        month = Calendar.MONTH;
+        day = Calendar.DAY_OF_MONTH;
+        year = Calendar.YEAR;
     }
 
     /**
