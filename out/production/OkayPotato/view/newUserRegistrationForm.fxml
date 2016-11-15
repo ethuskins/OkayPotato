@@ -61,7 +61,7 @@
                 onAction="#confirmButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Confirm"/>
         <Button fx:id="cancelButton" layoutX="160.0" layoutY="313.0" mnemonicParsing="false"
                 onAction="#cancelButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Cancel"/>
-        <ComboBox fx:id="accountTypeComboBox" layoutX="263.0" layoutY="246.0" prefWidth="150.0"/>
+        <ComboBox fx:id="accountTypeComboBoxList" layoutX="263.0" layoutY="246.0" prefWidth="150.0"/>
         <Label layoutX="262.0" layoutY="227.0" text="Account Type" textFill="WHITE">
             <font>
                 <Font name="Calibri Light" size="18.0"/>
