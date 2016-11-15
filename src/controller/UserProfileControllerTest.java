@@ -29,6 +29,11 @@ public class UserProfileControllerTest {
         temp.setTitle("A title");
     }
 
+    @org.junit.After
+    public void tearDown() throws Exception {
+
+    }
+
     @Test
     public void testPopulate() throws Exception {
         testName();
