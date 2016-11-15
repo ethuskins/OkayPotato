@@ -1,5 +1,9 @@
 package controller;
 
+import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
+import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
+import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
+import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import fxapp.Main;
 import fxapp.Session;
 import javafx.fxml.FXML;
@@ -11,6 +15,7 @@ import model.*;
 import javafx.collections.FXCollections;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Controls the water quality report.
@@ -38,7 +43,6 @@ public class WaterQualityReportController {
      */
     @FXML
     public void submitReportButtonPressed() {
-        //String location = locationTextField.getText();
         String longitudeString = longitudeTextField.getText();
         String latitudeString = latitudeTextField.getText();
         Alert ruined = new Alert(Alert.AlertType.ERROR);
@@ -62,18 +66,18 @@ public class WaterQualityReportController {
                 qualityReportMap.put(reportNum, qualityReport);
 
                 //sending modified table back up to firebase
-                //Firebase fb = Session.getInstance().getFbCurrent();
-                /*Map<String, Object> fbInsert = new HashMap<>();
+                Firebase fb = Session.getInstance().getFbCurrent();
+                Map<String, Object> fbInsert = new HashMap<>();
                 for (Map.Entry<Integer, WaterQualityReport> entry : qualityReportMap.entrySet()) {
                     fbInsert.put(entry.getKey().toString(), entry.getValue());
                 }
-                /*try {
+                try {
                     FirebaseResponse resp = fb.put(Session.getInstance().getWqrURL(), fbInsert);
                 } catch (JacksonUtilityException ignored) {
-
+                    System.out.println("FB exception in wqrController, jacksonutility");
                 } catch (FirebaseException fbex) {
-                    System.out.println("FB exception in wqrController");
-                }*/
+                    System.out.println("FB exception in wqrController, FirebaseException");
+                }
 
 
                 Session.getInstance().incrementWqrNumber();
@@ -81,14 +85,14 @@ public class WaterQualityReportController {
 
 
 
-                /*Map<String, Object> fbInsertNum = new HashMap<>();
-                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrnumber());
-                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrnumber());
-                /*try {
+                Map<String, Object> fbInsertNum = new HashMap<>();
+                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrNumber());
+                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrNumber());
+                try {
                     FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
                 } catch (JacksonUtilityException | FirebaseException ignored) {
-
-                }*/
+                    System.out.println("FB exception in wqrController, num");
+                }
 
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();

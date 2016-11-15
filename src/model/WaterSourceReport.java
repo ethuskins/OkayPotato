@@ -35,9 +35,9 @@ public class WaterSourceReport {
         stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
-        month = Calendar.MONTH;
-        day = Calendar.DAY_OF_MONTH;
-        year = Calendar.YEAR;
+        month = timenow.MONTH;
+        day = timenow.DAY_OF_MONTH;
+        year = timenow.YEAR;
     }
 
     /**
