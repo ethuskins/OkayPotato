@@ -1,4 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+<record>
+  <date>2016-11-15T13:05:54</date>
+  <millis>1479233154393</millis>
+  <sequence>0</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>ENTRY</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:54</date>
+  <millis>1479233154426</millis>
+  <sequence>1</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>RETURN</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:54</date>
+  <millis>1479233154450</millis>
+  <sequence>2</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>ENTRY</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:54</date>
+  <millis>1479233154453</millis>
+  <sequence>3</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>RETURN</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157326</millis>
+  <sequence>4</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>ENTRY</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157326</millis>
+  <sequence>5</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>RETURN</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157327</millis>
+  <sequence>6</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>ENTRY</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157327</millis>
+  <sequence>7</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>RETURN</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157327</millis>
+  <sequence>8</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>ENTRY</message>
+</record>
+<record>
+  <date>2016-11-15T13:05:57</date>
+  <millis>1479233157328</millis>
+  <sequence>9</sequence>
+  <logger>Location</logger>
+  <level>FINER</level>
+  <class>Location</class>
+  <method>Constructor</method>
+  <thread>1</thread>
+  <message>RETURN</message>
+</record>
 </log>
