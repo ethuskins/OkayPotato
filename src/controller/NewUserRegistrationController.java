@@ -24,7 +24,7 @@ public class NewUserRegistrationController {
     @FXML private TextField nameTextField;
     @FXML private TextField idTextField;
     @FXML private TextField passwordTextField;
-    @FXML private ComboBox<AccountType> accountTypeComboBox = new ComboBox<>();
+    @FXML private ComboBox<AccountType> accountTypeComboBoxList = new ComboBox<>();
 
     private Main mainApplication;
 
@@ -33,7 +33,7 @@ public class NewUserRegistrationController {
      */
     @FXML
     private void initialize() {
-        accountTypeComboBox.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
+        accountTypeComboBoxList.getItems().addAll(FXCollections.observableArrayList(AccountType.values()));
     }
 
 
@@ -53,7 +53,7 @@ public class NewUserRegistrationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        AccountType accountType = accountTypeComboBox.getValue();
+        AccountType accountType = accountTypeComboBoxList.getValue();
         HashMap<String, UserProfile> userProfileHashMap = Session.getInstance().getUserProfileStringHashMap();
 
         boolean idExists = userProfileHashMap.containsKey(id);
