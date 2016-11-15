@@ -230,11 +230,13 @@ public class Session {
         try {
             FirebaseResponse resp = fbCurrent.put(Session.getInstance().getPeopleURL(), fbInsert);
         } catch (JacksonUtilityException ignored) {
+            System.out.println("Jackson exception in wqrController");
 
         } catch (FirebaseException ignored) {
+            System.out.println("FB exception in wqrController");
 
         } catch (UnsupportedEncodingException ignored) {
-
+            System.out.println("Unsupported encoding exception in wqrController");
         }
     }
 

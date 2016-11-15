@@ -1,4 +1,8 @@
 package controller;
+import firebase4j.src.net.thegreshams.firebase4j.error.FirebaseException;
+import firebase4j.src.net.thegreshams.firebase4j.error.JacksonUtilityException;
+import firebase4j.src.net.thegreshams.firebase4j.model.FirebaseResponse;
+import firebase4j.src.net.thegreshams.firebase4j.service.Firebase;
 import fxapp.Main;
 import fxapp.Session;
 import javafx.fxml.FXML;
@@ -10,6 +14,7 @@ import model.*;
 import javafx.collections.FXCollections;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class WaterSourceReportController {
@@ -35,7 +40,7 @@ public class WaterSourceReportController {
      */
     @FXML
     public void submitReportButtonPressed() {
-        //String location = locationTextField.getText();
+
         String longitudeString = longitudeTextField.getText();
         String latitudeString = latitudeTextField.getText();
         Alert ruined = new Alert(Alert.AlertType.ERROR);
@@ -48,7 +53,7 @@ public class WaterSourceReportController {
             double latitude = Double.valueOf(latitudeString);
             Location location = new Location(latitude, longitude, title, description, waterCondition, type );
             HashMap<Integer, WaterSourceReport> sourceReportMap = Session.getWaterSourceReportHashMap();
-            //HashMap<Integer, WaterQualityReport> qualityReportMap = mainApplication.getWaterQualityReportHashMap();
+
 
             //.equals(null) is intentional. The comboBox could never have selected an option.
             //noinspection ObjectEqualsNull,ObjectEqualsNull
@@ -59,27 +64,28 @@ public class WaterSourceReportController {
                 sourceReportMap.put(reportNum, sourceReport);
 
                 //sending modified table back up to firebase
-                //Firebase fb = Session.getInstance().getFbCurrent();
-                /*Map<String, Object> fbInsert = new HashMap<>();
+                Firebase fb = Session.getInstance().getFbCurrent();
+                Map<String, Object> fbInsert = new HashMap<>();
                 for (Map.Entry<Integer, WaterSourceReport> entry : sourceReportMap.entrySet()) {
                     fbInsert.put(entry.getKey().toString(), entry.getValue());
                 }
-                /*try {
+                try {
                     FirebaseResponse resp = fb.put(Session.getInstance().getWsrURL(), fbInsert);
                 } catch (JacksonUtilityException | FirebaseException ignored) {
+                    System.out.println("FB exception in wsrController, FirebaseException");
 
-                }*/
+                }
 
                 Session.getInstance().incrementWsrNumber();
 
-                /*Map<String, Object> fbInsertNum = new HashMap<>();
-                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrnumber());
-                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrnumber());
-                /*try {
+                Map<String, Object> fbInsertNum = new HashMap<>();
+                fbInsertNum.put("wsrNumber", Session.getInstance().getWsrNumber());
+                fbInsertNum.put("wqrNumber", Session.getInstance().getWqrNumber());
+                try {
                     FirebaseResponse response = fb.put(Session.getInstance().getNumURL(), fbInsertNum);
                 } catch (JacksonUtilityException | FirebaseException ignored) {
-
-                }*/
+                    System.out.println("FB exception in wsrController, num");
+                }
                 //returns to the main menu
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("../view/mainMenuForm.fxml"));
