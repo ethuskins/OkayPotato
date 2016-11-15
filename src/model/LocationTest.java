@@ -44,7 +44,7 @@ public class LocationTest {
 
     @Test
     public void testEquator() throws Exception {
-        String test = "0, 0";
+        String test = "0.0, 0.0";
         Assert.assertEquals(test, location4.toString());
     }
 }
