@@ -54,8 +54,8 @@ public class HistoricalReportSelectorController {
             loader.setLocation(Main.class.getResource("../view/historicalReportForm.fxml"));
             mainApplication.setWindow(loader);
             HistoricalReportController controller = loader.getController();
-            controller.populate(lat,lon,year,reportTypeComboBox.getValue());
             controller.setMainApp(mainApplication);
+            controller.populate(lat,lon,year,reportTypeComboBox.getValue());
         } else {
             ruined.setHeaderText("There are no reports falling under those locations and that year.");
             ruined.showAndWait();
