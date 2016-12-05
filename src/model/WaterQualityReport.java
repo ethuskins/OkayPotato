@@ -33,8 +33,12 @@ import java.util.Calendar;
         waterLocation = location;
         stringLocation = location.toString();
 
+
         Calendar timenow = Calendar.getInstance();
-        dateTime = Integer.toString(timenow.get(Calendar.DAY_OF_MONTH)) + "-" + Integer.toString(timenow.get(Calendar.MONTH) + 1) + "-" +Integer.toString(timenow.get(Calendar.YEAR));
+        day =timenow.get(Calendar.DAY_OF_MONTH);
+        month = timenow.get(Calendar.MONTH) + 1;
+        year = timenow.get(Calendar.YEAR);
+        dateTime = Integer.toString(day) + "-" + Integer.toString(month) + "-" +Integer.toString(year);
     }
 
 
