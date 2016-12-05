@@ -5,9 +5,7 @@ import java.util.Calendar;
  * Class controlling the water source reports.
  */
 public class WaterSourceReport {
-     private int year;
-     private int month;
-     private int day;
+
      private String reporterName;
      private String reporterID;
      private final int reportNumber;
@@ -15,7 +13,7 @@ public class WaterSourceReport {
      private WaterType waterType;
      private WaterCondition waterCondition;
      private String stringLocation;
-
+    private String dateTime;
     /**
      * Basic constructor. Passes in the current user object to extract the name and id of the user.
      * @param reportNum the report number
@@ -35,9 +33,7 @@ public class WaterSourceReport {
         stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
-        month = timenow.MONTH;
-        day = timenow.DAY_OF_MONTH;
-        year = timenow.YEAR;
+        dateTime = Integer.toString(timenow.get(Calendar.DAY_OF_MONTH)) + "-" + Integer.toString(timenow.get(Calendar.MONTH + 1)) + "-" +Integer.toString(timenow.get(Calendar.YEAR));
     }
 
     /**
@@ -57,53 +53,7 @@ public class WaterSourceReport {
         this.waterLocation = location;
     }
 
-    /**
-     * Getter for the year.
-     * @return the year
-     */
-    public int getYear() {
-        return year;
-    }
 
-    /**
-     * Setter for the year.
-     * @param year the year
-     */
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    /**
-     * Getter for the month.
-     * @return the month
-     */
-    public int getMonth() {
-        return month;
-    }
-
-    /**
-     * Setter for the month.
-     * @param month the month
-     */
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    /**
-     * Getter for the day.
-     * @return the day
-     */
-    public int getDay() {
-        return day;
-    }
-
-    /**
-     * Setter for the day
-     * @param day the day
-     */
-    public void setDay(int day) {
-        this.day = day;
-    }
 
     /**
      * Getter for the reporter name.
@@ -199,5 +149,20 @@ public class WaterSourceReport {
      */
     public void setStringLocation(String stringLocation) {
         this.stringLocation = stringLocation;
+    }
+
+    /**
+     * Getter for the string datetime.
+     * @return the string datetime
+     */
+    public String getDateTime() {
+        return dateTime;
+    }
+    /**
+     * Setter for the string dateTime.
+     * @param dateTime the string location
+     */
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 }

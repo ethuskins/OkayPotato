@@ -5,9 +5,7 @@ import java.util.Calendar;
 
     public class WaterQualityReport {
     private int reportNumber;
-    private int year;
-    private int month;
-    private int day;
+    private String dateTime;
     private final String reporterName;
     private String reporterID;
     private Location waterLocation;
@@ -17,6 +15,9 @@ import java.util.Calendar;
     private String virusPPM;
     private String contamPPM;
     private WaterType waterType;
+    private int day;
+    private int year;
+    private int month;
 
 
     public WaterQualityReport(int reportNum, UserProfile user, Location location, QuaCondition quaCondition, String virPPM, String conPPM) {
@@ -33,9 +34,7 @@ import java.util.Calendar;
         stringLocation = location.toString();
 
         Calendar timenow = Calendar.getInstance();
-        month = timenow.MONTH;
-        day = timenow.DAY_OF_MONTH;
-        year = timenow.YEAR;
+        dateTime = Integer.toString(timenow.get(Calendar.DAY_OF_MONTH)) + "-" + Integer.toString(timenow.get(Calendar.MONTH) + 1) + "-" +Integer.toString(timenow.get(Calendar.YEAR));
     }
 
 
@@ -181,27 +180,66 @@ import java.util.Calendar;
         this.stringLocation = stringLocation;
     }
 
-    public int getYear() {
-        return year;
+    /**
+     * Getter for the string datetime.
+     * @return the string datetime
+     */
+    public String getDateTime() {
+        return dateTime;
+    }
+    /**
+     * Setter for the string dateTime.
+     * @param dateTime the string location
+     */
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
+    /**
+     * Getter for the day
+     * @return int The day
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     * Setter for the day
+     * @param day the day
+     */
     public void setDay(int day) {
         this.day = day;
+    }
+
+    /**
+     * Getter for the year
+     * @return int The year
+     */
+    public int getYear() {
+        return year;
+    }
+
+    /**
+     * Setter for the year
+     * @param year The year
+     */
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    /**
+     * Getter for the month
+     * @return int The month
+     */
+    public int getMonth() {
+        return month;
+    }
+
+    /**
+     * Setter for the month
+     * @param month The month
+     */
+    public void setMonth(int month) {
+        this.month = month;
     }
 }
