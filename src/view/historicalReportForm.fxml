@@ -44,7 +44,7 @@
                 <Button fx:id="backButton" layoutX="268.0" layoutY="382.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="35.0" prefWidth="68.0" text="Back" />
                 <LineChart fx:id="reportGraph" layoutX="63.0" layoutY="43.0" prefHeight="339.0" prefWidth="438.0" title=" ">
                     <xAxis>
-                        <NumberAxis fx:id="monthAxis" autoRanging="false" forceZeroInRange="false" label="Month" lowerBound="1.0" side="BOTTOM" tickLabelGap="0.0" tickUnit="1.0" upperBound="12.0" />
+                        <NumberAxis fx:id="monthAxis" autoRanging="false" forceZeroInRange="false" label="Month" lowerBound="0.0" side="BOTTOM" tickLabelGap="0.0" tickUnit="1.0" upperBound="13.0" />
                     </xAxis>
                     <yAxis>
                         <NumberAxis fx:id="partsAxis" label="PPM" side="LEFT" upperBound="300" />
