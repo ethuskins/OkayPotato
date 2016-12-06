@@ -46,7 +46,7 @@ public class HistoricalReportController {
         XYChart.Series<Double, Double> series = new XYChart.Series<>();
         HashMap<Integer, WaterQualityReport> reportsMap = Session.getWaterQualityReportHashMap();
         Set<Integer> keyList = reportsMap.keySet();
-        double[][] reports = new double[12][2];
+        double[][] reports = new double[13][2];
         for (Integer x : keyList) {
             if (reportsMap.get(x).getLocation().getLatitude() == latitude && reportsMap.get(x).getLocation().getLongitude() == longitude && reportsMap.get(x).getYear() == year) {
                 int month = reportsMap.get(x).getMonth();
@@ -60,7 +60,7 @@ public class HistoricalReportController {
                 reports[month][1] ++;
             }
         }
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 13; i++) {
             if (reports[i][1] != 0) {
                 double temp = reports[i][0]/reports[i][1];
                 series.getData().add(new XYChart.Data(i,temp));
